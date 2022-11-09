@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 
 const reqData = async () => {
-    return <any[]>await $fetch('/api/fetchingParkingLots').catch((e:any) => console.log(e))
+    return <any[]>await $fetch('./functions/api/fetchingParkingLots').catch((e:any) => console.log(e))
 }
 
 export const storeParkingLots = defineStore('parkingLots', {
