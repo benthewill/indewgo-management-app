@@ -1,0 +1,2991 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+"The root type for creating and mutating data"
+type Mutation {
+    "Deletes zero or more records from the `city_details` collection"
+    deleteFromcity_detailsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: city_detailsFilter
+    ): city_detailsDeleteResponse!
+    "Deletes zero or more records from the `daily_rate_payment_method_types` collection"
+    deleteFromdaily_rate_payment_method_typesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_rate_payment_method_typesFilter
+    ): daily_rate_payment_method_typesDeleteResponse!
+    "Deletes zero or more records from the `daily_rate_payment_methods` collection"
+    deleteFromdaily_rate_payment_methodsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_rate_payment_methodsFilter
+    ): daily_rate_payment_methodsDeleteResponse!
+    "Deletes zero or more records from the `daily_rates` collection"
+    deleteFromdaily_ratesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_ratesFilter
+    ): daily_ratesDeleteResponse!
+    "Deletes zero or more records from the `daily_rates_availability` collection"
+    deleteFromdaily_rates_availabilityCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_rates_availabilityFilter
+    ): daily_rates_availabilityDeleteResponse!
+    "Deletes zero or more records from the `external_contacts` collection"
+    deleteFromexternal_contactsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: external_contactsFilter
+    ): external_contactsDeleteResponse!
+    "Deletes zero or more records from the `internal_departments` collection"
+    deleteFrominternal_departmentsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: internal_departmentsFilter
+    ): internal_departmentsDeleteResponse!
+    "Deletes zero or more records from the `internal_members` collection"
+    deleteFrominternal_membersCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: internal_membersFilter
+    ): internal_membersDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates` collection"
+    deleteFrommonthly_ratesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_ratesFilter
+    ): monthly_ratesDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_access` collection"
+    deleteFrommonthly_rates_accessCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_accessFilter
+    ): monthly_rates_accessDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_access_activation_external` collection"
+    deleteFrommonthly_rates_access_activation_externalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_access_activation_externalFilter
+    ): monthly_rates_access_activation_externalDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_access_activation_internal` collection"
+    deleteFrommonthly_rates_access_activation_internalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_access_activation_internalFilter
+    ): monthly_rates_access_activation_internalDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_access_price` collection"
+    deleteFrommonthly_rates_access_priceCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_access_priceFilter
+    ): monthly_rates_access_priceDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_confirmation_external` collection"
+    deleteFrommonthly_rates_confirmation_externalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_confirmation_externalFilter
+    ): monthly_rates_confirmation_externalDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_confirmation_internal` collection"
+    deleteFrommonthly_rates_confirmation_internalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_confirmation_internalFilter
+    ): monthly_rates_confirmation_internalDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_type` collection"
+    deleteFrommonthly_rates_typeCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_typeFilter
+    ): monthly_rates_typeDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_access_methods` collection"
+    deleteFromparking_lots_access_methodsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_access_methodsFilter
+    ): parking_lots_access_methodsDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_access_types` collection"
+    deleteFromparking_lots_access_typesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_access_typesFilter
+    ): parking_lots_access_typesDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_address` collection"
+    deleteFromparking_lots_addressCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_addressFilter
+    ): parking_lots_addressDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_contact_types` collection"
+    deleteFromparking_lots_contact_typesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_contact_typesFilter
+    ): parking_lots_contact_typesDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_external_contacts` collection"
+    deleteFromparking_lots_external_contactsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_external_contactsFilter
+    ): parking_lots_external_contactsDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_general` collection"
+    deleteFromparking_lots_generalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_generalFilter
+    ): parking_lots_generalDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_internal_contacts` collection"
+    deleteFromparking_lots_internal_contactsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_internal_contactsFilter
+    ): parking_lots_internal_contactsDeleteResponse!
+    "Adds one or more `city_details` records to the collection"
+    insertIntocity_detailsCollection(objects: [city_detailsInsertInput!]!): city_detailsInsertResponse
+    "Adds one or more `daily_rate_payment_method_types` records to the collection"
+    insertIntodaily_rate_payment_method_typesCollection(objects: [daily_rate_payment_method_typesInsertInput!]!): daily_rate_payment_method_typesInsertResponse
+    "Adds one or more `daily_rate_payment_methods` records to the collection"
+    insertIntodaily_rate_payment_methodsCollection(objects: [daily_rate_payment_methodsInsertInput!]!): daily_rate_payment_methodsInsertResponse
+    "Adds one or more `daily_rates` records to the collection"
+    insertIntodaily_ratesCollection(objects: [daily_ratesInsertInput!]!): daily_ratesInsertResponse
+    "Adds one or more `daily_rates_availability` records to the collection"
+    insertIntodaily_rates_availabilityCollection(objects: [daily_rates_availabilityInsertInput!]!): daily_rates_availabilityInsertResponse
+    "Adds one or more `external_contacts` records to the collection"
+    insertIntoexternal_contactsCollection(objects: [external_contactsInsertInput!]!): external_contactsInsertResponse
+    "Adds one or more `internal_departments` records to the collection"
+    insertIntointernal_departmentsCollection(objects: [internal_departmentsInsertInput!]!): internal_departmentsInsertResponse
+    "Adds one or more `internal_members` records to the collection"
+    insertIntointernal_membersCollection(objects: [internal_membersInsertInput!]!): internal_membersInsertResponse
+    "Adds one or more `monthly_rates` records to the collection"
+    insertIntomonthly_ratesCollection(objects: [monthly_ratesInsertInput!]!): monthly_ratesInsertResponse
+    "Adds one or more `monthly_rates_access` records to the collection"
+    insertIntomonthly_rates_accessCollection(objects: [monthly_rates_accessInsertInput!]!): monthly_rates_accessInsertResponse
+    "Adds one or more `monthly_rates_access_activation_external` records to the collection"
+    insertIntomonthly_rates_access_activation_externalCollection(objects: [monthly_rates_access_activation_externalInsertInput!]!): monthly_rates_access_activation_externalInsertResponse
+    "Adds one or more `monthly_rates_access_activation_internal` records to the collection"
+    insertIntomonthly_rates_access_activation_internalCollection(objects: [monthly_rates_access_activation_internalInsertInput!]!): monthly_rates_access_activation_internalInsertResponse
+    "Adds one or more `monthly_rates_access_price` records to the collection"
+    insertIntomonthly_rates_access_priceCollection(objects: [monthly_rates_access_priceInsertInput!]!): monthly_rates_access_priceInsertResponse
+    "Adds one or more `monthly_rates_confirmation_external` records to the collection"
+    insertIntomonthly_rates_confirmation_externalCollection(objects: [monthly_rates_confirmation_externalInsertInput!]!): monthly_rates_confirmation_externalInsertResponse
+    "Adds one or more `monthly_rates_confirmation_internal` records to the collection"
+    insertIntomonthly_rates_confirmation_internalCollection(objects: [monthly_rates_confirmation_internalInsertInput!]!): monthly_rates_confirmation_internalInsertResponse
+    "Adds one or more `monthly_rates_type` records to the collection"
+    insertIntomonthly_rates_typeCollection(objects: [monthly_rates_typeInsertInput!]!): monthly_rates_typeInsertResponse
+    "Adds one or more `parking_lots_access_methods` records to the collection"
+    insertIntoparking_lots_access_methodsCollection(objects: [parking_lots_access_methodsInsertInput!]!): parking_lots_access_methodsInsertResponse
+    "Adds one or more `parking_lots_access_types` records to the collection"
+    insertIntoparking_lots_access_typesCollection(objects: [parking_lots_access_typesInsertInput!]!): parking_lots_access_typesInsertResponse
+    "Adds one or more `parking_lots_address` records to the collection"
+    insertIntoparking_lots_addressCollection(objects: [parking_lots_addressInsertInput!]!): parking_lots_addressInsertResponse
+    "Adds one or more `parking_lots_contact_types` records to the collection"
+    insertIntoparking_lots_contact_typesCollection(objects: [parking_lots_contact_typesInsertInput!]!): parking_lots_contact_typesInsertResponse
+    "Adds one or more `parking_lots_external_contacts` records to the collection"
+    insertIntoparking_lots_external_contactsCollection(objects: [parking_lots_external_contactsInsertInput!]!): parking_lots_external_contactsInsertResponse
+    "Adds one or more `parking_lots_general` records to the collection"
+    insertIntoparking_lots_generalCollection(objects: [parking_lots_generalInsertInput!]!): parking_lots_generalInsertResponse
+    "Adds one or more `parking_lots_internal_contacts` records to the collection"
+    insertIntoparking_lots_internal_contactsCollection(objects: [parking_lots_internal_contactsInsertInput!]!): parking_lots_internal_contactsInsertResponse
+    "Updates zero or more records in the `city_details` collection"
+    updatecity_detailsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: city_detailsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: city_detailsUpdateInput!
+    ): city_detailsUpdateResponse!
+    "Updates zero or more records in the `daily_rate_payment_method_types` collection"
+    updatedaily_rate_payment_method_typesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_rate_payment_method_typesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: daily_rate_payment_method_typesUpdateInput!
+    ): daily_rate_payment_method_typesUpdateResponse!
+    "Updates zero or more records in the `daily_rate_payment_methods` collection"
+    updatedaily_rate_payment_methodsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_rate_payment_methodsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: daily_rate_payment_methodsUpdateInput!
+    ): daily_rate_payment_methodsUpdateResponse!
+    "Updates zero or more records in the `daily_rates` collection"
+    updatedaily_ratesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_ratesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: daily_ratesUpdateInput!
+    ): daily_ratesUpdateResponse!
+    "Updates zero or more records in the `daily_rates_availability` collection"
+    updatedaily_rates_availabilityCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: daily_rates_availabilityFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: daily_rates_availabilityUpdateInput!
+    ): daily_rates_availabilityUpdateResponse!
+    "Updates zero or more records in the `external_contacts` collection"
+    updateexternal_contactsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: external_contactsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: external_contactsUpdateInput!
+    ): external_contactsUpdateResponse!
+    "Updates zero or more records in the `internal_departments` collection"
+    updateinternal_departmentsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: internal_departmentsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: internal_departmentsUpdateInput!
+    ): internal_departmentsUpdateResponse!
+    "Updates zero or more records in the `internal_members` collection"
+    updateinternal_membersCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: internal_membersFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: internal_membersUpdateInput!
+    ): internal_membersUpdateResponse!
+    "Updates zero or more records in the `monthly_rates` collection"
+    updatemonthly_ratesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_ratesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_ratesUpdateInput!
+    ): monthly_ratesUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_access` collection"
+    updatemonthly_rates_accessCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_accessFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_accessUpdateInput!
+    ): monthly_rates_accessUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_access_activation_external` collection"
+    updatemonthly_rates_access_activation_externalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_access_activation_externalFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_access_activation_externalUpdateInput!
+    ): monthly_rates_access_activation_externalUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_access_activation_internal` collection"
+    updatemonthly_rates_access_activation_internalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_access_activation_internalFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_access_activation_internalUpdateInput!
+    ): monthly_rates_access_activation_internalUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_access_price` collection"
+    updatemonthly_rates_access_priceCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_access_priceFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_access_priceUpdateInput!
+    ): monthly_rates_access_priceUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_confirmation_external` collection"
+    updatemonthly_rates_confirmation_externalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_confirmation_externalFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_confirmation_externalUpdateInput!
+    ): monthly_rates_confirmation_externalUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_confirmation_internal` collection"
+    updatemonthly_rates_confirmation_internalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_confirmation_internalFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_confirmation_internalUpdateInput!
+    ): monthly_rates_confirmation_internalUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_type` collection"
+    updatemonthly_rates_typeCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_typeFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_typeUpdateInput!
+    ): monthly_rates_typeUpdateResponse!
+    "Updates zero or more records in the `parking_lots_access_methods` collection"
+    updateparking_lots_access_methodsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_access_methodsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_access_methodsUpdateInput!
+    ): parking_lots_access_methodsUpdateResponse!
+    "Updates zero or more records in the `parking_lots_access_types` collection"
+    updateparking_lots_access_typesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_access_typesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_access_typesUpdateInput!
+    ): parking_lots_access_typesUpdateResponse!
+    "Updates zero or more records in the `parking_lots_address` collection"
+    updateparking_lots_addressCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_addressFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_addressUpdateInput!
+    ): parking_lots_addressUpdateResponse!
+    "Updates zero or more records in the `parking_lots_contact_types` collection"
+    updateparking_lots_contact_typesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_contact_typesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_contact_typesUpdateInput!
+    ): parking_lots_contact_typesUpdateResponse!
+    "Updates zero or more records in the `parking_lots_external_contacts` collection"
+    updateparking_lots_external_contactsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_external_contactsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_external_contactsUpdateInput!
+    ): parking_lots_external_contactsUpdateResponse!
+    "Updates zero or more records in the `parking_lots_general` collection"
+    updateparking_lots_generalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_generalFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_generalUpdateInput!
+    ): parking_lots_generalUpdateResponse!
+    "Updates zero or more records in the `parking_lots_internal_contacts` collection"
+    updateparking_lots_internal_contactsCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_internal_contactsFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_internal_contactsUpdateInput!
+    ): parking_lots_internal_contactsUpdateResponse!
+}
+
+type PageInfo {
+    endCursor: String
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String
+}
+
+"The root type for querying data"
+type Query {
+    "A pagable collection of type `city_details`"
+    city_detailsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: city_detailsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [city_detailsOrderBy!]
+    ): city_detailsConnection
+    "A pagable collection of type `daily_rate_payment_method_types`"
+    daily_rate_payment_method_typesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_rate_payment_method_typesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_rate_payment_method_typesOrderBy!]
+    ): daily_rate_payment_method_typesConnection
+    "A pagable collection of type `daily_rate_payment_methods`"
+    daily_rate_payment_methodsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_rate_payment_methodsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_rate_payment_methodsOrderBy!]
+    ): daily_rate_payment_methodsConnection
+    "A pagable collection of type `daily_rates`"
+    daily_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_ratesOrderBy!]
+    ): daily_ratesConnection
+    "A pagable collection of type `daily_rates_availability`"
+    daily_rates_availabilityCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_rates_availabilityFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_rates_availabilityOrderBy!]
+    ): daily_rates_availabilityConnection
+    "A pagable collection of type `external_contacts`"
+    external_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: external_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [external_contactsOrderBy!]
+    ): external_contactsConnection
+    "A pagable collection of type `internal_departments`"
+    internal_departmentsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: internal_departmentsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [internal_departmentsOrderBy!]
+    ): internal_departmentsConnection
+    "A pagable collection of type `internal_members`"
+    internal_membersCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: internal_membersFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [internal_membersOrderBy!]
+    ): internal_membersConnection
+    "A pagable collection of type `monthly_rates`"
+    monthly_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_ratesOrderBy!]
+    ): monthly_ratesConnection
+    "A pagable collection of type `monthly_rates_access`"
+    monthly_rates_accessCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_accessFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_accessOrderBy!]
+    ): monthly_rates_accessConnection
+    "A pagable collection of type `monthly_rates_access_activation_external`"
+    monthly_rates_access_activation_externalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_activation_externalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_activation_externalOrderBy!]
+    ): monthly_rates_access_activation_externalConnection
+    "A pagable collection of type `monthly_rates_access_activation_internal`"
+    monthly_rates_access_activation_internalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_activation_internalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_activation_internalOrderBy!]
+    ): monthly_rates_access_activation_internalConnection
+    "A pagable collection of type `monthly_rates_access_price`"
+    monthly_rates_access_priceCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_priceFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_priceOrderBy!]
+    ): monthly_rates_access_priceConnection
+    "A pagable collection of type `monthly_rates_confirmation_external`"
+    monthly_rates_confirmation_externalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_confirmation_externalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_confirmation_externalOrderBy!]
+    ): monthly_rates_confirmation_externalConnection
+    "A pagable collection of type `monthly_rates_confirmation_internal`"
+    monthly_rates_confirmation_internalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_confirmation_internalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_confirmation_internalOrderBy!]
+    ): monthly_rates_confirmation_internalConnection
+    "A pagable collection of type `monthly_rates_type`"
+    monthly_rates_typeCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_typeFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_typeOrderBy!]
+    ): monthly_rates_typeConnection
+    "A pagable collection of type `parking_lots_access_methods`"
+    parking_lots_access_methodsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_access_methodsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_access_methodsOrderBy!]
+    ): parking_lots_access_methodsConnection
+    "A pagable collection of type `parking_lots_access_types`"
+    parking_lots_access_typesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_access_typesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_access_typesOrderBy!]
+    ): parking_lots_access_typesConnection
+    "A pagable collection of type `parking_lots_address`"
+    parking_lots_addressCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_addressFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_addressOrderBy!]
+    ): parking_lots_addressConnection
+    "A pagable collection of type `parking_lots_contact_types`"
+    parking_lots_contact_typesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_contact_typesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_contact_typesOrderBy!]
+    ): parking_lots_contact_typesConnection
+    "A pagable collection of type `parking_lots_external_contacts`"
+    parking_lots_external_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_external_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_external_contactsOrderBy!]
+    ): parking_lots_external_contactsConnection
+    "A pagable collection of type `parking_lots_general`"
+    parking_lots_generalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_generalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_generalOrderBy!]
+    ): parking_lots_generalConnection
+    "A pagable collection of type `parking_lots_internal_contacts`"
+    parking_lots_internal_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_internal_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_internal_contactsOrderBy!]
+    ): parking_lots_internal_contactsConnection
+    "A pagable collection of type `spatial_ref_sys`"
+    spatial_ref_sysCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: spatial_ref_sysFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [spatial_ref_sysOrderBy!]
+    ): spatial_ref_sysConnection
+}
+
+type city_details {
+    additional_tax: String!
+    city_id: Int!
+    city_name: String!
+    goods_and_services_tax: String!
+    parking_lots_addressCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_addressFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_addressOrderBy!]
+    ): parking_lots_addressConnection
+    patrol_jurisdiction: String
+    provincial_transport_tax: String!
+}
+
+type city_detailsConnection {
+    edges: [city_detailsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type city_detailsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [city_details!]!
+}
+
+type city_detailsEdge {
+    cursor: String!
+    node: city_details!
+}
+
+type city_detailsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [city_details!]!
+}
+
+type city_detailsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [city_details!]!
+}
+
+type daily_rate_payment_method_types {
+    daily_rate_payment_methodsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_rate_payment_methodsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_rate_payment_methodsOrderBy!]
+    ): daily_rate_payment_methodsConnection
+    payment_method_type_id: Int!
+    payment_method_type_name: String
+}
+
+type daily_rate_payment_method_typesConnection {
+    edges: [daily_rate_payment_method_typesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type daily_rate_payment_method_typesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rate_payment_method_types!]!
+}
+
+type daily_rate_payment_method_typesEdge {
+    cursor: String!
+    node: daily_rate_payment_method_types!
+}
+
+type daily_rate_payment_method_typesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rate_payment_method_types!]!
+}
+
+type daily_rate_payment_method_typesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rate_payment_method_types!]!
+}
+
+type daily_rate_payment_methods {
+    daily_rate_id: Int
+    daily_rate_payment_method_types: daily_rate_payment_method_types
+    daily_rates: daily_rates
+    payment_method_id: Int!
+    payment_method_type_id: Int
+}
+
+type daily_rate_payment_methodsConnection {
+    edges: [daily_rate_payment_methodsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type daily_rate_payment_methodsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rate_payment_methods!]!
+}
+
+type daily_rate_payment_methodsEdge {
+    cursor: String!
+    node: daily_rate_payment_methods!
+}
+
+type daily_rate_payment_methodsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rate_payment_methods!]!
+}
+
+type daily_rate_payment_methodsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rate_payment_methods!]!
+}
+
+type daily_rates {
+    address_id: Int
+    base_price: String
+    daily_rate_id: Int!
+    daily_rate_payment_methodsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_rate_payment_methodsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_rate_payment_methodsOrderBy!]
+    ): daily_rate_payment_methodsConnection
+    daily_rates_availabilityCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_rates_availabilityFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_rates_availabilityOrderBy!]
+    ): daily_rates_availabilityConnection
+    duration: String
+    parking_lots_address: parking_lots_address
+    rate_allowance: [String]
+}
+
+type daily_ratesConnection {
+    edges: [daily_ratesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type daily_ratesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rates!]!
+}
+
+type daily_ratesEdge {
+    cursor: String!
+    node: daily_rates!
+}
+
+type daily_ratesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rates!]!
+}
+
+type daily_ratesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rates!]!
+}
+
+type daily_rates_availability {
+    available_from: Int
+    available_to: Int
+    daily_rate_availability_id: Int!
+    daily_rate_id: Int
+    daily_rates: daily_rates
+    days_of_the_week: [Int]
+}
+
+type daily_rates_availabilityConnection {
+    edges: [daily_rates_availabilityEdge!]!
+    pageInfo: PageInfo!
+}
+
+type daily_rates_availabilityDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rates_availability!]!
+}
+
+type daily_rates_availabilityEdge {
+    cursor: String!
+    node: daily_rates_availability!
+}
+
+type daily_rates_availabilityInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rates_availability!]!
+}
+
+type daily_rates_availabilityUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [daily_rates_availability!]!
+}
+
+type external_contacts {
+    additional_details: String
+    contact_email: String
+    contact_ext: String
+    contact_phone: String
+    external_contact_id: Int!
+    first_name: String
+    last_name: String
+    middle_name: String
+    monthly_rates_access_activation_externalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_activation_externalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_activation_externalOrderBy!]
+    ): monthly_rates_access_activation_externalConnection
+    monthly_rates_confirmation_externalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_confirmation_externalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_confirmation_externalOrderBy!]
+    ): monthly_rates_confirmation_externalConnection
+    parking_lots_external_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_external_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_external_contactsOrderBy!]
+    ): parking_lots_external_contactsConnection
+    title: String
+}
+
+type external_contactsConnection {
+    edges: [external_contactsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type external_contactsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [external_contacts!]!
+}
+
+type external_contactsEdge {
+    cursor: String!
+    node: external_contacts!
+}
+
+type external_contactsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [external_contacts!]!
+}
+
+type external_contactsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [external_contacts!]!
+}
+
+type internal_departments {
+    department_id: Int!
+    department_name: String!
+    internal_membersCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: internal_membersFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [internal_membersOrderBy!]
+    ): internal_membersConnection
+}
+
+type internal_departmentsConnection {
+    edges: [internal_departmentsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type internal_departmentsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [internal_departments!]!
+}
+
+type internal_departmentsEdge {
+    cursor: String!
+    node: internal_departments!
+}
+
+type internal_departmentsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [internal_departments!]!
+}
+
+type internal_departmentsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [internal_departments!]!
+}
+
+type internal_members {
+    contact_email: String
+    contact_ext: String
+    contact_phone: String
+    first_name: String
+    internal_department_id: Int
+    internal_departments: internal_departments
+    internal_member_id: Int!
+    last_name: String
+    middle_name: String
+    monthly_rates_access_activation_internalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_activation_internalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_activation_internalOrderBy!]
+    ): monthly_rates_access_activation_internalConnection
+    monthly_rates_confirmation_internalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_confirmation_internalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_confirmation_internalOrderBy!]
+    ): monthly_rates_confirmation_internalConnection
+    parking_lots_internal_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_internal_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_internal_contactsOrderBy!]
+    ): parking_lots_internal_contactsConnection
+    title: String
+    work_condition: work_condition
+}
+
+type internal_membersConnection {
+    edges: [internal_membersEdge!]!
+    pageInfo: PageInfo!
+}
+
+type internal_membersDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [internal_members!]!
+}
+
+type internal_membersEdge {
+    cursor: String!
+    node: internal_members!
+}
+
+type internal_membersInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [internal_members!]!
+}
+
+type internal_membersUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [internal_members!]!
+}
+
+type monthly_rates {
+    activation_fee: String
+    address_id: Int
+    base_price: String
+    clearance_levels: [parking_lots_levels]
+    clearance_lot_types: [lot_type]
+    monthly_rate_id: Int!
+    monthly_rates_accessCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_accessFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_accessOrderBy!]
+    ): monthly_rates_accessConnection
+    monthly_rates_confirmation_externalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_confirmation_externalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_confirmation_externalOrderBy!]
+    ): monthly_rates_confirmation_externalConnection
+    monthly_rates_confirmation_internalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_confirmation_internalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_confirmation_internalOrderBy!]
+    ): monthly_rates_confirmation_internalConnection
+    monthly_rates_type: monthly_rates_type
+    parking_lots_address: parking_lots_address
+    rate_allowance: [String]
+    rate_days: [Int]
+    rate_details: String
+    rate_hour_from: Int!
+    rate_hour_to: Int!
+    rate_type_id: Int
+}
+
+type monthly_ratesConnection {
+    edges: [monthly_ratesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_ratesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates!]!
+}
+
+type monthly_ratesEdge {
+    cursor: String!
+    node: monthly_rates!
+}
+
+type monthly_ratesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates!]!
+}
+
+type monthly_ratesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates!]!
+}
+
+type monthly_rates_access {
+    access_method_id: Int!
+    monthly_rate_access_id: Int!
+    monthly_rate_id: Int!
+    monthly_rates: monthly_rates
+    monthly_rates_access_activation_externalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_activation_externalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_activation_externalOrderBy!]
+    ): monthly_rates_access_activation_externalConnection
+    monthly_rates_access_activation_internalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_activation_internalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_activation_internalOrderBy!]
+    ): monthly_rates_access_activation_internalConnection
+    monthly_rates_access_priceCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_access_priceFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_access_priceOrderBy!]
+    ): monthly_rates_access_priceConnection
+    parking_lots_access_methods: parking_lots_access_methods
+}
+
+type monthly_rates_accessConnection {
+    edges: [monthly_rates_accessEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_accessDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access!]!
+}
+
+type monthly_rates_accessEdge {
+    cursor: String!
+    node: monthly_rates_access!
+}
+
+type monthly_rates_accessInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access!]!
+}
+
+type monthly_rates_accessUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access!]!
+}
+
+type monthly_rates_access_activation_external {
+    access_activation_external_id: Int!
+    estimated_duration: String
+    external_contacts: external_contacts
+    monthly_rate_access_id: Int
+    monthly_rates_access: monthly_rates_access
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+type monthly_rates_access_activation_externalConnection {
+    edges: [monthly_rates_access_activation_externalEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_access_activation_externalDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_activation_external!]!
+}
+
+type monthly_rates_access_activation_externalEdge {
+    cursor: String!
+    node: monthly_rates_access_activation_external!
+}
+
+type monthly_rates_access_activation_externalInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_activation_external!]!
+}
+
+type monthly_rates_access_activation_externalUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_activation_external!]!
+}
+
+type monthly_rates_access_activation_internal {
+    access_activation_internal_id: Int!
+    estimated_duration: String
+    internal_members: internal_members
+    monthly_rate_access_id: Int
+    monthly_rates_access: monthly_rates_access
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+type monthly_rates_access_activation_internalConnection {
+    edges: [monthly_rates_access_activation_internalEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_access_activation_internalDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_activation_internal!]!
+}
+
+type monthly_rates_access_activation_internalEdge {
+    cursor: String!
+    node: monthly_rates_access_activation_internal!
+}
+
+type monthly_rates_access_activation_internalInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_activation_internal!]!
+}
+
+type monthly_rates_access_activation_internalUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_activation_internal!]!
+}
+
+type monthly_rates_access_price {
+    deposit_price: String
+    lost_fee: String
+    monthly_rate_access_id: Int!
+    monthly_rate_access_price_id: Int!
+    monthly_rates_access: monthly_rates_access
+}
+
+type monthly_rates_access_priceConnection {
+    edges: [monthly_rates_access_priceEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_access_priceDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_price!]!
+}
+
+type monthly_rates_access_priceEdge {
+    cursor: String!
+    node: monthly_rates_access_price!
+}
+
+type monthly_rates_access_priceInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_price!]!
+}
+
+type monthly_rates_access_priceUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_access_price!]!
+}
+
+type monthly_rates_confirmation_external {
+    estimated_duration: String
+    external_contacts: external_contacts
+    monthly_rate_id: Int
+    monthly_rates: monthly_rates
+    pic_id: Int
+    rate_confirmation_external_id: Int!
+    request_method: [request_methods]
+}
+
+type monthly_rates_confirmation_externalConnection {
+    edges: [monthly_rates_confirmation_externalEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_confirmation_externalDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_confirmation_external!]!
+}
+
+type monthly_rates_confirmation_externalEdge {
+    cursor: String!
+    node: monthly_rates_confirmation_external!
+}
+
+type monthly_rates_confirmation_externalInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_confirmation_external!]!
+}
+
+type monthly_rates_confirmation_externalUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_confirmation_external!]!
+}
+
+type monthly_rates_confirmation_internal {
+    estimated_duration: String
+    internal_members: internal_members
+    monthly_rate_id: Int
+    monthly_rates: monthly_rates
+    pic_id: Int
+    rate_confirmation_internal_id: Int!
+    request_method: request_methods
+}
+
+type monthly_rates_confirmation_internalConnection {
+    edges: [monthly_rates_confirmation_internalEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_confirmation_internalDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_confirmation_internal!]!
+}
+
+type monthly_rates_confirmation_internalEdge {
+    cursor: String!
+    node: monthly_rates_confirmation_internal!
+}
+
+type monthly_rates_confirmation_internalInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_confirmation_internal!]!
+}
+
+type monthly_rates_confirmation_internalUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_confirmation_internal!]!
+}
+
+type monthly_rates_type {
+    monthly_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_ratesOrderBy!]
+    ): monthly_ratesConnection
+    rate_name: String
+    rate_type_details: String
+    rate_type_id: Int!
+}
+
+type monthly_rates_typeConnection {
+    edges: [monthly_rates_typeEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_typeDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_type!]!
+}
+
+type monthly_rates_typeEdge {
+    cursor: String!
+    node: monthly_rates_type!
+}
+
+type monthly_rates_typeInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_type!]!
+}
+
+type monthly_rates_typeUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_type!]!
+}
+
+type parking_lots_access_methods {
+    access_type_id: Int!
+    lot_access_method_id: Int!
+    method_details: String
+    method_name: String!
+    method_usage: access_method_usage
+    monthly_rates_accessCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_accessFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_accessOrderBy!]
+    ): monthly_rates_accessConnection
+    parking_lots_access_types: parking_lots_access_types
+}
+
+type parking_lots_access_methodsConnection {
+    edges: [parking_lots_access_methodsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_access_methodsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access_methods!]!
+}
+
+type parking_lots_access_methodsEdge {
+    cursor: String!
+    node: parking_lots_access_methods!
+}
+
+type parking_lots_access_methodsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access_methods!]!
+}
+
+type parking_lots_access_methodsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access_methods!]!
+}
+
+type parking_lots_access_types {
+    access_name: String!
+    lot_access_id: Int!
+    parking_lots_access_methodsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_access_methodsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_access_methodsOrderBy!]
+    ): parking_lots_access_methodsConnection
+}
+
+type parking_lots_access_typesConnection {
+    edges: [parking_lots_access_typesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_access_typesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access_types!]!
+}
+
+type parking_lots_access_typesEdge {
+    cursor: String!
+    node: parking_lots_access_types!
+}
+
+type parking_lots_access_typesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access_types!]!
+}
+
+type parking_lots_access_typesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access_types!]!
+}
+
+type parking_lots_address {
+    address_id: Int!
+    city_details: city_details
+    city_id: Int
+    daily_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: daily_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [daily_ratesOrderBy!]
+    ): daily_ratesConnection
+    gate_hour_from: Int
+    gate_hour_to: Int
+    gated: Boolean
+    monthly_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_ratesOrderBy!]
+    ): monthly_ratesConnection
+    parking_lot_id: Int
+    parking_lot_type: [lot_type]
+    parking_lots_general: parking_lots_general
+    street_name: String
+    street_number: Int
+    street_postal_code: String
+}
+
+type parking_lots_addressConnection {
+    edges: [parking_lots_addressEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_addressDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address!]!
+}
+
+type parking_lots_addressEdge {
+    cursor: String!
+    node: parking_lots_address!
+}
+
+type parking_lots_addressInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address!]!
+}
+
+type parking_lots_addressUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address!]!
+}
+
+type parking_lots_contact_types {
+    contact_type_id: Int!
+    contact_type_name: String
+    contact_type_responsibility: String
+    parking_lots_external_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_external_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_external_contactsOrderBy!]
+    ): parking_lots_external_contactsConnection
+    parking_lots_internal_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_internal_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_internal_contactsOrderBy!]
+    ): parking_lots_internal_contactsConnection
+}
+
+type parking_lots_contact_typesConnection {
+    edges: [parking_lots_contact_typesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_contact_typesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_contact_types!]!
+}
+
+type parking_lots_contact_typesEdge {
+    cursor: String!
+    node: parking_lots_contact_types!
+}
+
+type parking_lots_contact_typesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_contact_types!]!
+}
+
+type parking_lots_contact_typesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_contact_types!]!
+}
+
+type parking_lots_external_contacts {
+    contact_id: Int
+    contact_type_id: Int
+    external_contacts: external_contacts
+    parking_lot_external_contact_id: Int!
+    parking_lot_id: Int
+    parking_lots_contact_types: parking_lots_contact_types
+    parking_lots_general: parking_lots_general
+}
+
+type parking_lots_external_contactsConnection {
+    edges: [parking_lots_external_contactsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_external_contactsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_external_contacts!]!
+}
+
+type parking_lots_external_contactsEdge {
+    cursor: String!
+    node: parking_lots_external_contacts!
+}
+
+type parking_lots_external_contactsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_external_contacts!]!
+}
+
+type parking_lots_external_contactsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_external_contacts!]!
+}
+
+type parking_lots_general {
+    parking_lot_id: Int!
+    parking_lot_name: String
+    parking_lot_number: Int
+    parking_lots_addressCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_addressFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_addressOrderBy!]
+    ): parking_lots_addressConnection
+    parking_lots_external_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_external_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_external_contactsOrderBy!]
+    ): parking_lots_external_contactsConnection
+    parking_lots_internal_contactsCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_internal_contactsFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_internal_contactsOrderBy!]
+    ): parking_lots_internal_contactsConnection
+}
+
+type parking_lots_generalConnection {
+    edges: [parking_lots_generalEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_generalDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_general!]!
+}
+
+type parking_lots_generalEdge {
+    cursor: String!
+    node: parking_lots_general!
+}
+
+type parking_lots_generalInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_general!]!
+}
+
+type parking_lots_generalUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_general!]!
+}
+
+type parking_lots_internal_contacts {
+    contact_type_id: Int
+    internal_member_id: Int
+    internal_members: internal_members
+    lot_contact_id: Int!
+    parking_lot_id: Int
+    parking_lots_contact_types: parking_lots_contact_types
+    parking_lots_general: parking_lots_general
+}
+
+type parking_lots_internal_contactsConnection {
+    edges: [parking_lots_internal_contactsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_internal_contactsDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_internal_contacts!]!
+}
+
+type parking_lots_internal_contactsEdge {
+    cursor: String!
+    node: parking_lots_internal_contacts!
+}
+
+type parking_lots_internal_contactsInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_internal_contacts!]!
+}
+
+type parking_lots_internal_contactsUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_internal_contacts!]!
+}
+
+type spatial_ref_sys {
+    auth_name: String
+    auth_srid: Int
+    proj4text: String
+    srid: Int!
+    srtext: String
+}
+
+type spatial_ref_sysConnection {
+    edges: [spatial_ref_sysEdge!]!
+    pageInfo: PageInfo!
+}
+
+type spatial_ref_sysEdge {
+    cursor: String!
+    node: spatial_ref_sys!
+}
+
+"Defines a per-field sorting order"
+enum OrderByDirection {
+    "Ascending order, nulls first"
+    AscNullsFirst
+    "Ascending order, nulls last"
+    AscNullsLast
+    "Descending order, nulls first"
+    DescNullsFirst
+    "Descending order, nulls last"
+    DescNullsLast
+}
+
+enum access_method_usage {
+    hang
+    input
+    press
+    tap
+}
+
+enum lot_type {
+    SU
+    UG
+}
+
+enum parking_lots_levels {
+    P1
+    P2
+    P3
+    P4
+    P5
+    P6
+}
+
+enum request_methods {
+    email
+    phone
+}
+
+enum work_condition {
+    hybrid
+    office
+    remote
+}
+
+scalar BigInt
+
+scalar Cursor
+
+scalar Date
+
+scalar Datetime
+
+scalar JSON
+
+scalar Time
+
+scalar UUID
+
+"Boolean expression comparing fields on type \"BigInt\""
+input BigIntFilter {
+    eq: BigInt
+    gt: BigInt
+    gte: BigInt
+    in: [BigInt!]
+    lt: BigInt
+    lte: BigInt
+    neq: BigInt
+}
+
+"Boolean expression comparing fields on type \"Boolean\""
+input BooleanFilter {
+    eq: Boolean
+    gt: Boolean
+    gte: Boolean
+    in: [Boolean!]
+    lt: Boolean
+    lte: Boolean
+    neq: Boolean
+}
+
+"Boolean expression comparing fields on type \"Date\""
+input DateFilter {
+    eq: Date
+    gt: Date
+    gte: Date
+    in: [Date!]
+    lt: Date
+    lte: Date
+    neq: Date
+}
+
+"Boolean expression comparing fields on type \"Datetime\""
+input DatetimeFilter {
+    eq: Datetime
+    gt: Datetime
+    gte: Datetime
+    in: [Datetime!]
+    lt: Datetime
+    lte: Datetime
+    neq: Datetime
+}
+
+"Boolean expression comparing fields on type \"Float\""
+input FloatFilter {
+    eq: Float
+    gt: Float
+    gte: Float
+    in: [Float!]
+    lt: Float
+    lte: Float
+    neq: Float
+}
+
+"Boolean expression comparing fields on type \"Int\""
+input IntFilter {
+    eq: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    neq: Int
+}
+
+"Boolean expression comparing fields on type \"String\""
+input StringFilter {
+    eq: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    neq: String
+}
+
+"Boolean expression comparing fields on type \"Time\""
+input TimeFilter {
+    eq: Time
+    gt: Time
+    gte: Time
+    in: [Time!]
+    lt: Time
+    lte: Time
+    neq: Time
+}
+
+"Boolean expression comparing fields on type \"UUID\""
+input UUIDFilter {
+    eq: UUID
+    in: [UUID!]
+    neq: UUID
+}
+
+"Boolean expression comparing fields on type \"access_method_usage\""
+input access_method_usageFilter {
+    eq: access_method_usage
+    in: [access_method_usage!]
+    neq: access_method_usage
+}
+
+input city_detailsFilter {
+    additional_tax: StringFilter
+    city_id: IntFilter
+    city_name: StringFilter
+    goods_and_services_tax: StringFilter
+    patrol_jurisdiction: StringFilter
+    provincial_transport_tax: StringFilter
+}
+
+input city_detailsInsertInput {
+    additional_tax: String
+    city_id: Int
+    city_name: String
+    goods_and_services_tax: String
+    patrol_jurisdiction: String
+    provincial_transport_tax: String
+}
+
+input city_detailsOrderBy {
+    additional_tax: OrderByDirection
+    city_id: OrderByDirection
+    city_name: OrderByDirection
+    goods_and_services_tax: OrderByDirection
+    patrol_jurisdiction: OrderByDirection
+    provincial_transport_tax: OrderByDirection
+}
+
+input city_detailsUpdateInput {
+    additional_tax: String
+    city_id: Int
+    city_name: String
+    goods_and_services_tax: String
+    patrol_jurisdiction: String
+    provincial_transport_tax: String
+}
+
+input daily_rate_payment_method_typesFilter {
+    payment_method_type_id: IntFilter
+    payment_method_type_name: StringFilter
+}
+
+input daily_rate_payment_method_typesInsertInput {
+    payment_method_type_name: String
+}
+
+input daily_rate_payment_method_typesOrderBy {
+    payment_method_type_id: OrderByDirection
+    payment_method_type_name: OrderByDirection
+}
+
+input daily_rate_payment_method_typesUpdateInput {
+    payment_method_type_name: String
+}
+
+input daily_rate_payment_methodsFilter {
+    daily_rate_id: IntFilter
+    payment_method_id: IntFilter
+    payment_method_type_id: IntFilter
+}
+
+input daily_rate_payment_methodsInsertInput {
+    daily_rate_id: Int
+    payment_method_type_id: Int
+}
+
+input daily_rate_payment_methodsOrderBy {
+    daily_rate_id: OrderByDirection
+    payment_method_id: OrderByDirection
+    payment_method_type_id: OrderByDirection
+}
+
+input daily_rate_payment_methodsUpdateInput {
+    daily_rate_id: Int
+    payment_method_type_id: Int
+}
+
+input daily_ratesFilter {
+    address_id: IntFilter
+    base_price: StringFilter
+    daily_rate_id: IntFilter
+    duration: StringFilter
+}
+
+input daily_ratesInsertInput {
+    address_id: Int
+    base_price: String
+    duration: String
+    rate_allowance: [String]
+}
+
+input daily_ratesOrderBy {
+    address_id: OrderByDirection
+    base_price: OrderByDirection
+    daily_rate_id: OrderByDirection
+    duration: OrderByDirection
+}
+
+input daily_ratesUpdateInput {
+    address_id: Int
+    base_price: String
+    duration: String
+    rate_allowance: [String]
+}
+
+input daily_rates_availabilityFilter {
+    available_from: IntFilter
+    available_to: IntFilter
+    daily_rate_availability_id: IntFilter
+    daily_rate_id: IntFilter
+}
+
+input daily_rates_availabilityInsertInput {
+    available_from: Int
+    available_to: Int
+    daily_rate_id: Int
+    days_of_the_week: [Int]
+}
+
+input daily_rates_availabilityOrderBy {
+    available_from: OrderByDirection
+    available_to: OrderByDirection
+    daily_rate_availability_id: OrderByDirection
+    daily_rate_id: OrderByDirection
+}
+
+input daily_rates_availabilityUpdateInput {
+    available_from: Int
+    available_to: Int
+    daily_rate_id: Int
+    days_of_the_week: [Int]
+}
+
+input external_contactsFilter {
+    additional_details: StringFilter
+    contact_email: StringFilter
+    contact_ext: StringFilter
+    contact_phone: StringFilter
+    external_contact_id: IntFilter
+    first_name: StringFilter
+    last_name: StringFilter
+    middle_name: StringFilter
+    title: StringFilter
+}
+
+input external_contactsInsertInput {
+    additional_details: String
+    contact_email: String
+    contact_ext: String
+    contact_phone: String
+    first_name: String
+    last_name: String
+    middle_name: String
+    title: String
+}
+
+input external_contactsOrderBy {
+    additional_details: OrderByDirection
+    contact_email: OrderByDirection
+    contact_ext: OrderByDirection
+    contact_phone: OrderByDirection
+    external_contact_id: OrderByDirection
+    first_name: OrderByDirection
+    last_name: OrderByDirection
+    middle_name: OrderByDirection
+    title: OrderByDirection
+}
+
+input external_contactsUpdateInput {
+    additional_details: String
+    contact_email: String
+    contact_ext: String
+    contact_phone: String
+    first_name: String
+    last_name: String
+    middle_name: String
+    title: String
+}
+
+input internal_departmentsFilter {
+    department_id: IntFilter
+    department_name: StringFilter
+}
+
+input internal_departmentsInsertInput {
+    department_name: String
+}
+
+input internal_departmentsOrderBy {
+    department_id: OrderByDirection
+    department_name: OrderByDirection
+}
+
+input internal_departmentsUpdateInput {
+    department_name: String
+}
+
+input internal_membersFilter {
+    contact_email: StringFilter
+    contact_ext: StringFilter
+    contact_phone: StringFilter
+    first_name: StringFilter
+    internal_department_id: IntFilter
+    internal_member_id: IntFilter
+    last_name: StringFilter
+    middle_name: StringFilter
+    title: StringFilter
+    work_condition: work_conditionFilter
+}
+
+input internal_membersInsertInput {
+    contact_email: String
+    contact_ext: String
+    contact_phone: String
+    first_name: String
+    internal_department_id: Int
+    last_name: String
+    middle_name: String
+    title: String
+    work_condition: work_condition
+}
+
+input internal_membersOrderBy {
+    contact_email: OrderByDirection
+    contact_ext: OrderByDirection
+    contact_phone: OrderByDirection
+    first_name: OrderByDirection
+    internal_department_id: OrderByDirection
+    internal_member_id: OrderByDirection
+    last_name: OrderByDirection
+    middle_name: OrderByDirection
+    title: OrderByDirection
+    work_condition: OrderByDirection
+}
+
+input internal_membersUpdateInput {
+    contact_email: String
+    contact_ext: String
+    contact_phone: String
+    first_name: String
+    internal_department_id: Int
+    last_name: String
+    middle_name: String
+    title: String
+    work_condition: work_condition
+}
+
+"Boolean expression comparing fields on type \"lot_type\""
+input lot_typeFilter {
+    eq: lot_type
+    in: [lot_type!]
+    neq: lot_type
+}
+
+input monthly_ratesFilter {
+    activation_fee: StringFilter
+    address_id: IntFilter
+    base_price: StringFilter
+    monthly_rate_id: IntFilter
+    rate_details: StringFilter
+    rate_hour_from: IntFilter
+    rate_hour_to: IntFilter
+    rate_type_id: IntFilter
+}
+
+input monthly_ratesInsertInput {
+    activation_fee: String
+    address_id: Int
+    base_price: String
+    clearance_levels: [parking_lots_levels]
+    clearance_lot_types: [lot_type]
+    rate_allowance: [String]
+    rate_days: [Int]
+    rate_details: String
+    rate_hour_from: Int
+    rate_hour_to: Int
+    rate_type_id: Int
+}
+
+input monthly_ratesOrderBy {
+    activation_fee: OrderByDirection
+    address_id: OrderByDirection
+    base_price: OrderByDirection
+    monthly_rate_id: OrderByDirection
+    rate_details: OrderByDirection
+    rate_hour_from: OrderByDirection
+    rate_hour_to: OrderByDirection
+    rate_type_id: OrderByDirection
+}
+
+input monthly_ratesUpdateInput {
+    activation_fee: String
+    address_id: Int
+    base_price: String
+    clearance_levels: [parking_lots_levels]
+    clearance_lot_types: [lot_type]
+    rate_allowance: [String]
+    rate_days: [Int]
+    rate_details: String
+    rate_hour_from: Int
+    rate_hour_to: Int
+    rate_type_id: Int
+}
+
+input monthly_rates_accessFilter {
+    access_method_id: IntFilter
+    monthly_rate_access_id: IntFilter
+    monthly_rate_id: IntFilter
+}
+
+input monthly_rates_accessInsertInput {
+    access_method_id: Int
+    monthly_rate_id: Int
+}
+
+input monthly_rates_accessOrderBy {
+    access_method_id: OrderByDirection
+    monthly_rate_access_id: OrderByDirection
+    monthly_rate_id: OrderByDirection
+}
+
+input monthly_rates_accessUpdateInput {
+    access_method_id: Int
+    monthly_rate_id: Int
+}
+
+input monthly_rates_access_activation_externalFilter {
+    access_activation_external_id: IntFilter
+    estimated_duration: StringFilter
+    monthly_rate_access_id: IntFilter
+    pic_id: IntFilter
+}
+
+input monthly_rates_access_activation_externalInsertInput {
+    estimated_duration: String
+    monthly_rate_access_id: Int
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+input monthly_rates_access_activation_externalOrderBy {
+    access_activation_external_id: OrderByDirection
+    estimated_duration: OrderByDirection
+    monthly_rate_access_id: OrderByDirection
+    pic_id: OrderByDirection
+}
+
+input monthly_rates_access_activation_externalUpdateInput {
+    estimated_duration: String
+    monthly_rate_access_id: Int
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+input monthly_rates_access_activation_internalFilter {
+    access_activation_internal_id: IntFilter
+    estimated_duration: StringFilter
+    monthly_rate_access_id: IntFilter
+    pic_id: IntFilter
+}
+
+input monthly_rates_access_activation_internalInsertInput {
+    estimated_duration: String
+    monthly_rate_access_id: Int
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+input monthly_rates_access_activation_internalOrderBy {
+    access_activation_internal_id: OrderByDirection
+    estimated_duration: OrderByDirection
+    monthly_rate_access_id: OrderByDirection
+    pic_id: OrderByDirection
+}
+
+input monthly_rates_access_activation_internalUpdateInput {
+    estimated_duration: String
+    monthly_rate_access_id: Int
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+input monthly_rates_access_priceFilter {
+    deposit_price: StringFilter
+    lost_fee: StringFilter
+    monthly_rate_access_id: IntFilter
+    monthly_rate_access_price_id: IntFilter
+}
+
+input monthly_rates_access_priceInsertInput {
+    deposit_price: String
+    lost_fee: String
+    monthly_rate_access_id: Int
+}
+
+input monthly_rates_access_priceOrderBy {
+    deposit_price: OrderByDirection
+    lost_fee: OrderByDirection
+    monthly_rate_access_id: OrderByDirection
+    monthly_rate_access_price_id: OrderByDirection
+}
+
+input monthly_rates_access_priceUpdateInput {
+    deposit_price: String
+    lost_fee: String
+    monthly_rate_access_id: Int
+}
+
+input monthly_rates_confirmation_externalFilter {
+    estimated_duration: StringFilter
+    monthly_rate_id: IntFilter
+    pic_id: IntFilter
+    rate_confirmation_external_id: IntFilter
+}
+
+input monthly_rates_confirmation_externalInsertInput {
+    estimated_duration: String
+    monthly_rate_id: Int
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+input monthly_rates_confirmation_externalOrderBy {
+    estimated_duration: OrderByDirection
+    monthly_rate_id: OrderByDirection
+    pic_id: OrderByDirection
+    rate_confirmation_external_id: OrderByDirection
+}
+
+input monthly_rates_confirmation_externalUpdateInput {
+    estimated_duration: String
+    monthly_rate_id: Int
+    pic_id: Int
+    request_method: [request_methods]
+}
+
+input monthly_rates_confirmation_internalFilter {
+    estimated_duration: StringFilter
+    monthly_rate_id: IntFilter
+    pic_id: IntFilter
+    rate_confirmation_internal_id: IntFilter
+    request_method: request_methodsFilter
+}
+
+input monthly_rates_confirmation_internalInsertInput {
+    estimated_duration: String
+    monthly_rate_id: Int
+    pic_id: Int
+    request_method: request_methods
+}
+
+input monthly_rates_confirmation_internalOrderBy {
+    estimated_duration: OrderByDirection
+    monthly_rate_id: OrderByDirection
+    pic_id: OrderByDirection
+    rate_confirmation_internal_id: OrderByDirection
+    request_method: OrderByDirection
+}
+
+input monthly_rates_confirmation_internalUpdateInput {
+    estimated_duration: String
+    monthly_rate_id: Int
+    pic_id: Int
+    request_method: request_methods
+}
+
+input monthly_rates_typeFilter {
+    rate_name: StringFilter
+    rate_type_details: StringFilter
+    rate_type_id: IntFilter
+}
+
+input monthly_rates_typeInsertInput {
+    rate_name: String
+    rate_type_details: String
+}
+
+input monthly_rates_typeOrderBy {
+    rate_name: OrderByDirection
+    rate_type_details: OrderByDirection
+    rate_type_id: OrderByDirection
+}
+
+input monthly_rates_typeUpdateInput {
+    rate_name: String
+    rate_type_details: String
+}
+
+input parking_lots_access_methodsFilter {
+    access_type_id: IntFilter
+    lot_access_method_id: IntFilter
+    method_details: StringFilter
+    method_name: StringFilter
+    method_usage: access_method_usageFilter
+}
+
+input parking_lots_access_methodsInsertInput {
+    access_type_id: Int
+    method_details: String
+    method_name: String
+    method_usage: access_method_usage
+}
+
+input parking_lots_access_methodsOrderBy {
+    access_type_id: OrderByDirection
+    lot_access_method_id: OrderByDirection
+    method_details: OrderByDirection
+    method_name: OrderByDirection
+    method_usage: OrderByDirection
+}
+
+input parking_lots_access_methodsUpdateInput {
+    access_type_id: Int
+    method_details: String
+    method_name: String
+    method_usage: access_method_usage
+}
+
+input parking_lots_access_typesFilter {
+    access_name: StringFilter
+    lot_access_id: IntFilter
+}
+
+input parking_lots_access_typesInsertInput {
+    access_name: String
+}
+
+input parking_lots_access_typesOrderBy {
+    access_name: OrderByDirection
+    lot_access_id: OrderByDirection
+}
+
+input parking_lots_access_typesUpdateInput {
+    access_name: String
+}
+
+input parking_lots_addressFilter {
+    address_id: IntFilter
+    city_id: IntFilter
+    gate_hour_from: IntFilter
+    gate_hour_to: IntFilter
+    gated: BooleanFilter
+    parking_lot_id: IntFilter
+    street_name: StringFilter
+    street_number: IntFilter
+    street_postal_code: StringFilter
+}
+
+input parking_lots_addressInsertInput {
+    city_id: Int
+    gate_hour_from: Int
+    gate_hour_to: Int
+    gated: Boolean
+    parking_lot_id: Int
+    parking_lot_type: [lot_type]
+    street_name: String
+    street_number: Int
+    street_postal_code: String
+}
+
+input parking_lots_addressOrderBy {
+    address_id: OrderByDirection
+    city_id: OrderByDirection
+    gate_hour_from: OrderByDirection
+    gate_hour_to: OrderByDirection
+    gated: OrderByDirection
+    parking_lot_id: OrderByDirection
+    street_name: OrderByDirection
+    street_number: OrderByDirection
+    street_postal_code: OrderByDirection
+}
+
+input parking_lots_addressUpdateInput {
+    city_id: Int
+    gate_hour_from: Int
+    gate_hour_to: Int
+    gated: Boolean
+    parking_lot_id: Int
+    parking_lot_type: [lot_type]
+    street_name: String
+    street_number: Int
+    street_postal_code: String
+}
+
+input parking_lots_contact_typesFilter {
+    contact_type_id: IntFilter
+    contact_type_name: StringFilter
+    contact_type_responsibility: StringFilter
+}
+
+input parking_lots_contact_typesInsertInput {
+    contact_type_name: String
+    contact_type_responsibility: String
+}
+
+input parking_lots_contact_typesOrderBy {
+    contact_type_id: OrderByDirection
+    contact_type_name: OrderByDirection
+    contact_type_responsibility: OrderByDirection
+}
+
+input parking_lots_contact_typesUpdateInput {
+    contact_type_name: String
+    contact_type_responsibility: String
+}
+
+input parking_lots_external_contactsFilter {
+    contact_id: IntFilter
+    contact_type_id: IntFilter
+    parking_lot_external_contact_id: IntFilter
+    parking_lot_id: IntFilter
+}
+
+input parking_lots_external_contactsInsertInput {
+    contact_id: Int
+    contact_type_id: Int
+    parking_lot_id: Int
+}
+
+input parking_lots_external_contactsOrderBy {
+    contact_id: OrderByDirection
+    contact_type_id: OrderByDirection
+    parking_lot_external_contact_id: OrderByDirection
+    parking_lot_id: OrderByDirection
+}
+
+input parking_lots_external_contactsUpdateInput {
+    contact_id: Int
+    contact_type_id: Int
+    parking_lot_id: Int
+}
+
+input parking_lots_generalFilter {
+    parking_lot_id: IntFilter
+    parking_lot_name: StringFilter
+    parking_lot_number: IntFilter
+}
+
+input parking_lots_generalInsertInput {
+    parking_lot_name: String
+    parking_lot_number: Int
+}
+
+input parking_lots_generalOrderBy {
+    parking_lot_id: OrderByDirection
+    parking_lot_name: OrderByDirection
+    parking_lot_number: OrderByDirection
+}
+
+input parking_lots_generalUpdateInput {
+    parking_lot_name: String
+    parking_lot_number: Int
+}
+
+input parking_lots_internal_contactsFilter {
+    contact_type_id: IntFilter
+    internal_member_id: IntFilter
+    lot_contact_id: IntFilter
+    parking_lot_id: IntFilter
+}
+
+input parking_lots_internal_contactsInsertInput {
+    contact_type_id: Int
+    internal_member_id: Int
+    parking_lot_id: Int
+}
+
+input parking_lots_internal_contactsOrderBy {
+    contact_type_id: OrderByDirection
+    internal_member_id: OrderByDirection
+    lot_contact_id: OrderByDirection
+    parking_lot_id: OrderByDirection
+}
+
+input parking_lots_internal_contactsUpdateInput {
+    contact_type_id: Int
+    internal_member_id: Int
+    parking_lot_id: Int
+}
+
+"Boolean expression comparing fields on type \"parking_lots_levels\""
+input parking_lots_levelsFilter {
+    eq: parking_lots_levels
+    in: [parking_lots_levels!]
+    neq: parking_lots_levels
+}
+
+"Boolean expression comparing fields on type \"request_methods\""
+input request_methodsFilter {
+    eq: request_methods
+    in: [request_methods!]
+    neq: request_methods
+}
+
+input spatial_ref_sysFilter {
+    auth_name: StringFilter
+    auth_srid: IntFilter
+    proj4text: StringFilter
+    srid: IntFilter
+    srtext: StringFilter
+}
+
+input spatial_ref_sysOrderBy {
+    auth_name: OrderByDirection
+    auth_srid: OrderByDirection
+    proj4text: OrderByDirection
+    srid: OrderByDirection
+    srtext: OrderByDirection
+}
+
+"Boolean expression comparing fields on type \"work_condition\""
+input work_conditionFilter {
+    eq: work_condition
+    in: [work_condition!]
+    neq: work_condition
+}
