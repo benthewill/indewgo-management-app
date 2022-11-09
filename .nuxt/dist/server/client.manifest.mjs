@@ -1,0 +1,1 @@
+export { default } from "file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

@@ -58,6 +58,15 @@
       "vue-demi": [
         "node_modules/nuxt/dist/app/compat/vue-demi"
       ],
+      "#gql": [
+        ".nuxt/gql"
+      ],
+      "#gql/*": [
+        ".nuxt/gql/*"
+      ],
+      "pinia": [
+        "node_modules/pinia/dist/pinia"
+      ],
       "#head": [
         "node_modules/nuxt/dist/head/runtime"
       ],

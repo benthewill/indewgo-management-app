@@ -1,9 +1,18 @@
+<script lang="ts" setup>
+import {storeParkingLots} from "~/store/parkingLots";
+import {storeToRefs} from "pinia";
+
+const {checkData, loading, error} = storeToRefs(storeParkingLots())
+
+const {fetchData} = storeParkingLots()
+fetchData()
+</script>
+
 <script lang="ts">
 export default {
   data() {
     return {
-      isActive: false,
-      checkData: [1,2,3,4,5]
+      isActive: false
 
     }
   },
@@ -55,9 +64,9 @@ export default {
                     Func
                   </a>
                   <hr class="dropdown-divider">
-<!--                  <NuxtLink to="/parkingLots/functions/addNewLot">-->
-<!--                    <a class="dropdown-item">Add Lot</a>-->
-<!--                  </NuxtLink>-->
+                  <NuxtLink to="/parkingLots/functions/addNewLot">
+                    <a class="dropdown-item">Add Lot</a>
+                  </NuxtLink>
                   <a class="dropdown-item">Edit Mode</a>
                 </div>
               </div>
@@ -80,12 +89,12 @@ export default {
           </div>
 
 
-<!--          <div class="level-item is-hidden-touch ">-->
-<!--            <a class="button is-info is-small has-text-link-light mx-1">Edit Mode</a>-->
-<!--            <NuxtLink to="/parkingLots/functions/addNewLot">-->
-<!--              <a class="button is-info is-small has-text-link-light mx-1">Add Lot</a>-->
-<!--            </NuxtLink>-->
-<!--          </div>-->
+          <div class="level-item is-hidden-touch ">
+            <a class="button is-info is-small has-text-link-light mx-1">Edit Mode</a>
+            <NuxtLink to="/parkingLots/functions/addNewLot">
+              <a class="button is-info is-small has-text-link-light mx-1">Add Lot</a>
+            </NuxtLink>
+          </div>
         </div>
 
 
@@ -95,9 +104,11 @@ export default {
     </div>
     <NuxtPage />
     <div v-if="checkData" class="section px-1 pt-0 is-shadowless">
-      <p v-for="item in checkData">{{item}}</p>
+      <p v-for="lot in checkData">{{lot}}</p>
     </div>
-
+    <div v-if="loading" class="section px-1 pt-0">
+      <p class="title is-5 has-text-centered">Loading Data</p>
+    </div>
   </div>
 </template>
 
