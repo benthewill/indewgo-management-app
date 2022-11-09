@@ -102,12 +102,9 @@ export default {
 
       </div>
     </div>
-    <NuxtPage />
-    <div v-if="checkData" class="section px-1 pt-0 is-shadowless">
+
+    <div class="section px-1 pt-0 is-shadowless">
       <p v-for="lot in checkData">{{lot}}</p>
-    </div>
-    <div v-if="loading" class="section px-1 pt-0">
-      <p class="title is-5 has-text-centered">Loading Data</p>
     </div>
   </div>
 </template>
