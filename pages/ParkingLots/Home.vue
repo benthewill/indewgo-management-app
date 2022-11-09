@@ -30,7 +30,7 @@ export default {
           <div class="level-item">
             <p>
               <span class="title is-5 is-align-content-center">
-                Parking Lots Management
+                Parking Lots Management v1.0
               </span>
               <span class="is-size-7 ">
                 <br>Details about the app here or other important news.
