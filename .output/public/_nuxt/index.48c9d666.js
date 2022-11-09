@@ -1,0 +1,1 @@
+import{a as e,b as s,o as t,e as n}from"./entry.4e5ac309.js";const o={},c=n("p",null,"This is Router Test. I'm an Index Page",-1),a=[c];function r(_,d){return t(),s("div",null,a)}const l=e(o,[["render",r]]);export{l as default};

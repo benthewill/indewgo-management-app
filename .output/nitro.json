@@ -1,0 +1,8 @@
+{
+  "date": "2022-11-09T20:53:01.466Z",
+  "preset": "cloudflare-pages",
+  "commands": {
+    "preview": "npx wrangler pages dev .output/public",
+    "deploy": "npx wrangler pages publish .output/public"
+  }
+}
