@@ -26,5 +26,6 @@ export default defineNuxtConfig({
     },
     css: [
         '~/assets/stylesheets/main.sass'
-    ]
+    ],
+    serverDir: 'functions'
 })

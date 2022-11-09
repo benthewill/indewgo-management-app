@@ -107,7 +107,7 @@ const timingMiddleware = eventHandler((event) => {
   }.bind(event.res);
 });
 
-const serverAssets = [{"baseName":"server","dir":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/functions/assets"}];
 
 const assets = createStorage();
 
@@ -124,7 +124,7 @@ storage.mount('/assets', assets);
 storage.mount('content:source:content', unstorage_47drivers_47fs({"name":"content:source:content","driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/content","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('cache:content', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/.nuxt/content-cache","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/functions","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
 
@@ -2501,11 +2501,11 @@ const _3bbfoB = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
-const _lazy_rjndmN = () => Promise.resolve().then(function () { return fetchingParkingLots$1; });
+const _lazy_Q9eZ79 = () => Promise.resolve().then(function () { return fetchingParkingLots$1; });
 const _lazy_nqHu0m = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/api/fetchingParkingLots', handler: _lazy_rjndmN, lazy: true, middleware: false, method: undefined },
+  { route: '/api/fetchingParkingLots', handler: _lazy_Q9eZ79, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_nqHu0m, lazy: true, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid', handler: _MdCzYZ, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query', handler: _MdCzYZ, lazy: false, middleware: false, method: "get" },
