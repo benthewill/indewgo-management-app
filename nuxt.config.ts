@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
     modules: [
         '@nuxt/content',
-        'nuxt-graphql-client'
+        'nuxt-graphql-client',
+        ['@pinia/nuxt', {
+            autoImports: [
+                'defineStore'
+            ]
+        }]
     ],
     runtimeConfig: {
         public: {
