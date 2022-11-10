@@ -2501,10 +2501,12 @@ const _3bbfoB = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
+const _lazy_2Atq3G = () => Promise.resolve().then(function () { return testFunction$1; });
 const _lazy_Q9eZ79 = () => Promise.resolve().then(function () { return fetchingParkingLots$1; });
 const _lazy_nqHu0m = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/testFunction', handler: _lazy_2Atq3G, lazy: true, middleware: false, method: undefined },
   { route: '/api/fetchingParkingLots', handler: _lazy_Q9eZ79, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_nqHu0m, lazy: true, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid', handler: _MdCzYZ, lazy: false, middleware: false, method: "get" },
@@ -2587,6 +2589,15 @@ server.listen(listenAddress, () => {
   process.on("unhandledRejection", (err) => console.error("[nitro] [dev] [unhandledRejection]", err));
   process.on("uncaughtException", (err) => console.error("[nitro] [dev] [uncaughtException]", err));
 }
+
+const testFunction = defineEventHandler((e) => {
+  return [1, 2, 3, 4, 5];
+});
+
+const testFunction$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': testFunction
+});
 
 const fetchingParkingLots = defineEventHandler((event) => {
   async function main() {
