@@ -1,8 +1,7 @@
 {
-  "date": "2022-11-09T20:53:01.466Z",
-  "preset": "cloudflare-pages",
+  "date": "2022-12-03T01:12:39.018Z",
+  "preset": "nitro-prerender",
   "commands": {
-    "preview": "npx wrangler pages dev .output/public",
-    "deploy": "npx wrangler pages publish .output/public"
+    "preview": "npx serve -s ./public"
   }
 }

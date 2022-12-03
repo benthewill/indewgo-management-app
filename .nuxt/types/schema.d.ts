@@ -158,7 +158,7 @@ declare module '@nuxt/schema' {
         clientDB: {
              isSPA: boolean,
 
-             integrity: any,
+             integrity: number,
         },
 
         navigation: {

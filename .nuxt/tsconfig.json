@@ -61,9 +61,6 @@
       "#gql": [
         ".nuxt/gql"
       ],
-      "#gql/*": [
-        ".nuxt/gql/*"
-      ],
       "pinia": [
         "node_modules/pinia/dist/pinia"
       ],

@@ -2,8 +2,8 @@
 declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
-    '/api/testFunction': Awaited<ReturnType<typeof import('../../functions/api/testFunction').default>>
-    '/api/fetchingParkingLots': Awaited<ReturnType<typeof import('../../functions/api/fetchingParkingLots').default>>
+    '/api/testFunction': Awaited<ReturnType<typeof import('../../server/api/testFunction').default>>
+    '/api/fetchingParkingLots': Awaited<ReturnType<typeof import('../../server/api/fetchingParkingLots').default>>
     '/__nuxt_error': Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>
     '/api/_content/query/:qid': Awaited<ReturnType<typeof import('../../node_modules/@nuxt/content/dist/runtime/server/api/query').default>>
     '/api/_content/query': Awaited<ReturnType<typeof import('../../node_modules/@nuxt/content/dist/runtime/server/api/query').default>>

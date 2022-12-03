@@ -13,7 +13,6 @@
     "nuxt": "3.0.0-rc.13"
   },
   "dependencies": {
-    "@graphql-codegen/plugin-helpers": "^2.7.0",
     "@pinia/nuxt": "^0.4.2",
     "@urql/vue": "^1.0.2",
     "bulma": "^0.9.4",
