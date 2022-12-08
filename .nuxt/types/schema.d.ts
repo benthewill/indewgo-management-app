@@ -141,6 +141,18 @@ declare module '@nuxt/schema' {
 
                    proxyCookies: boolean,
 
+                   tokenStorage: {
+                          mode: string,
+
+                          cookieOptions: {
+                                  maxAge: number,
+
+                                  secure: boolean,
+                          },
+
+                          name: string,
+                   },
+
                    preferGETQueries: boolean,
 
                    host: string,

@@ -9,8 +9,11 @@
   },
   "devDependencies": {
     "@nuxt/content": "^2.1.1",
+    "@nuxt/vite-builder": "^3.0.0",
     "graphql": "^16.6.0",
-    "nuxt": "3.0.0-rc.13"
+    "graphql-request": "^5.0.0",
+    "graphql-tag": "^2.12.6",
+    "nuxt": "3.0.0"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.2",
@@ -18,13 +21,13 @@
     "bulma": "^0.9.4",
     "bulma-extensions": "^6.2.7",
     "bulma-list": "^1.2.0",
-    "graphql-request": "^5.0.0",
-    "graphql-tag": "^2.12.6",
+    "ionicons": "^6.0.4",
     "node-sass": "^7.0.3",
     "nuxt-buefy": "^0.4.24",
-    "nuxt-graphql-client": "^0.1.29",
+    "nuxt-graphql-client": "^0.2.17",
     "pinia": "^2.0.22",
     "sass": "^1.55.0",
-    "sass-loader": "^13.0.2"
+    "sass-loader": "^13.0.2",
+    "typescript": "^4.9.3"
   }
 }

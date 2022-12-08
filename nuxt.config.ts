@@ -9,6 +9,22 @@ export default defineNuxtConfig({
             ]
         }]
     ],
+    app: {
+        head: {
+            script: [
+                // <script src="https://myawesome-lib.js"></script>
+                {
+                    src: "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+                }
+            ]
+        }
+    },
+    vue: {
+        compilerOptions: {
+            isCustomElement: (tag) => ['ion-icon'].includes(tag)
+        }
+    }
+    ,
     runtimeConfig: {
         public: {
             'graphql-client': {

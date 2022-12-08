@@ -1,16 +1,17 @@
 import 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/node-fetch-native/dist/polyfill.mjs';
 import { eventHandler, setHeaders, sendRedirect, defineEventHandler, handleCacheHeaders, createEvent, getRequestHeader, getRequestHeaders, setResponseHeader, getQuery, getCookie, createError, createApp, createRouter as createRouter$1, lazyEventHandler, toNodeListener } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/h3/dist/index.mjs';
-import { createFetch as createFetch$1, Headers } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/ohmyfetch/dist/node.mjs';
+import { createFetch as createFetch$1, Headers } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/ofetch/dist/node.mjs';
 import destr from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/destr/dist/index.mjs';
 import { createCall, createFetch } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/unenv/runtime/fetch/index.mjs';
 import { createHooks } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/hookable/dist/index.mjs';
 import { snakeCase, kebabCase, pascalCase, camelCase } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/scule/dist/index.mjs';
 import { hash } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/ohash/dist/index.mjs';
-import { parseURL, withQuery, withLeadingSlash, withoutTrailingSlash, isRelative, joinURL } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/ufo/dist/index.mjs';
+import { parseURL, withQuery, joinURL, withLeadingSlash, withoutTrailingSlash, isRelative } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/ufo/dist/index.mjs';
 import { createStorage, prefixStorage } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/unstorage/dist/drivers/fs.mjs';
 import defu from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/defu/dist/defu.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/radix3/dist/index.mjs';
+import { GraphQLClient } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/graphql-request/dist/index.js';
 import { extname, join } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/pathe/dist/index.mjs';
 import { unified } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/unified/index.js';
 import { toString } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/mdast-util-to-string/index.js';
@@ -39,7 +40,7 @@ import slugify from 'file:///Users/benthewill/Library/Mobile%20Documents/com~app
 import { position } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/unist-util-position/index.js';
 import htmlTags from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/html-tags/index.js';
 
-const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routeRules":{"/__nuxt_error":{"cache":false}},"envPrefix":"NUXT_"},"public":{"graphql-client":{"clients":{"default":{"token":{"type":"Bearer","name":"Authorization"},"proxyCookies":true,"preferGETQueries":false,"host":"https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1","headers":{"apiKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8","authorization":"Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8"}}}},"content":{"clientDB":{"isSPA":false,"integrity":1670029945171},"navigation":{"fields":[]},"base":"_content","tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"highlight":false,"wsUrl":"","documentDriven":false,"anchorLinks":{"depth":4,"exclude":[1]}}},"content":{"cacheVersion":2,"cacheIntegrity":"kc4UzpZUjI","transformers":[],"base":"_content","watch":{"ws":{"port":4000,"hostname":"localhost","showURL":false}},"sources":{},"ignores":["\\.","-"],"locales":[],"highlight":false,"markdown":{"tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"anchorLinks":{"depth":4,"exclude":[1]},"remarkPlugins":{},"rehypePlugins":{}},"yaml":{},"csv":{"delimeter":",","json":true},"navigation":{"fields":[]},"documentDriven":false,"experimental":{"clientDB":false}},"graphql-client":{"clients":{}}};
+const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routeRules":{"/__nuxt_error":{"cache":false}},"envPrefix":"NUXT_"},"public":{"graphql-client":{"clients":{"default":{"token":{"type":"Bearer","name":"Authorization"},"proxyCookies":true,"tokenStorage":{"mode":"cookie","cookieOptions":{"maxAge":604800,"secure":true},"name":"gql:default"},"preferGETQueries":false,"host":"https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1","headers":{"apiKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8","authorization":"Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8"}}}},"content":{"clientDB":{"isSPA":false,"integrity":1670462637995},"navigation":{"fields":[]},"base":"_content","tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"highlight":false,"wsUrl":"","documentDriven":false,"anchorLinks":{"depth":4,"exclude":[1]}}},"content":{"cacheVersion":2,"cacheIntegrity":"kc4UzpZUjI","transformers":[],"base":"_content","watch":{"ws":{"port":4000,"hostname":"localhost","showURL":false}},"sources":{},"ignores":["\\.","-"],"locales":[],"highlight":false,"markdown":{"tags":{"p":"prose-p","a":"prose-a","blockquote":"prose-blockquote","code-inline":"prose-code-inline","code":"prose-code","em":"prose-em","h1":"prose-h1","h2":"prose-h2","h3":"prose-h3","h4":"prose-h4","h5":"prose-h5","h6":"prose-h6","hr":"prose-hr","img":"prose-img","ul":"prose-ul","ol":"prose-ol","li":"prose-li","strong":"prose-strong","table":"prose-table","thead":"prose-thead","tbody":"prose-tbody","td":"prose-td","th":"prose-th","tr":"prose-tr"},"anchorLinks":{"depth":4,"exclude":[1]},"remarkPlugins":{},"rehypePlugins":{}},"yaml":{},"csv":{"delimeter":",","json":true},"navigation":{"fields":[]},"documentDriven":false,"experimental":{"clientDB":false}},"graphql-client":{"clients":{}}};
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _runtimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
 const getEnv = (key) => {
@@ -64,8 +65,8 @@ function overrideConfig(obj, parentKey = "") {
   }
 }
 overrideConfig(_runtimeConfig);
-const config$1 = deepFreeze(_runtimeConfig);
-const useRuntimeConfig = () => config$1;
+const config$2 = deepFreeze(_runtimeConfig);
+const useRuntimeConfig = () => config$2;
 function deepFreeze(object) {
   const propNames = Object.getOwnPropertyNames(object);
   for (const name of propNames) {
@@ -117,8 +118,12 @@ storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/bent
 storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
 storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
 
-const config = useRuntimeConfig();
-const _routeRulesMatcher = toRouteMatcher(createRouter({ routes: config.nitro.routeRules }));
+function defineNitroPlugin(def) {
+  return def;
+}
+
+const config$1 = useRuntimeConfig();
+const _routeRulesMatcher = toRouteMatcher(createRouter({ routes: config$1.nitro.routeRules }));
 function createRouteRulesHandler() {
   return eventHandler((event) => {
     const routeRules = getRouteRules(event);
@@ -356,8 +361,31 @@ function cloneWithProxy(obj, overrides) {
 }
 const cachedEventHandler = defineCachedEventHandler;
 
+const config = {"default":{"token":{"type":"Bearer","name":"Authorization"},"proxyCookies":true,"tokenStorage":{"mode":"cookie","cookieOptions":{"maxAge":604800,"secure":true},"name":"gql:default"},"preferGETQueries":false,"host":"https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1","headers":{"apiKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8","authorization":"Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8"}}};
+const clients = {};
+const GqlNitro = { clients, config };
+
+const _JDrkmMI40i = defineNitroPlugin(() => {
+  const GqlConfig = GqlNitro.config;
+  for (const [client, conf] of Object.entries(GqlConfig)) {
+    const serverHeaders = typeof conf?.headers?.serverOnly === "object" && conf?.headers?.serverOnly || void 0;
+    if (conf?.headers?.serverOnly) {
+      delete conf.headers.serverOnly;
+    }
+    const tokenName = conf.token.name;
+    const tokenType = conf.token.type;
+    const authToken = !tokenType ? conf?.token?.value : `${tokenType} ${conf?.token?.value}`;
+    const headers = {
+      ...conf?.headers,
+      ...serverHeaders,
+      ...conf?.token?.value && { [tokenName]: authToken }
+    };
+    GqlNitro.clients[client] = new GraphQLClient(conf.host, { headers });
+  }
+});
+
 const plugins = [
-  
+  _JDrkmMI40i
 ];
 
 function hasReqHeader(event, name, includes) {
@@ -390,16 +418,16 @@ function normalizeError(error) {
 const errorHandler = (async function errorhandler(error, event) {
   const { stack, statusCode, statusMessage, message } = normalizeError(error);
   const errorObject = {
-    url: event.req.url,
+    url: event.node.req.url,
     statusCode,
     statusMessage,
     message,
     stack: "",
     data: error.data
   };
-  event.res.statusCode = errorObject.statusCode !== 200 && errorObject.statusCode || 500;
+  event.node.res.statusCode = errorObject.statusCode !== 200 && errorObject.statusCode || 500;
   if (errorObject.statusMessage) {
-    event.res.statusMessage = errorObject.statusMessage;
+    event.node.res.statusMessage = errorObject.statusMessage;
   }
   if (error.unhandled || error.fatal) {
     const tags = [
@@ -412,31 +440,31 @@ const errorHandler = (async function errorhandler(error, event) {
     console.error(tags, errorObject.message + "\n" + stack.map((l) => "  " + l.text).join("  \n"));
   }
   if (isJsonRequest(event)) {
-    event.res.setHeader("Content-Type", "application/json");
-    event.res.end(JSON.stringify(errorObject));
+    event.node.res.setHeader("Content-Type", "application/json");
+    event.node.res.end(JSON.stringify(errorObject));
     return;
   }
-  const isErrorPage = event.req.url?.startsWith("/__nuxt_error");
-  const res = !isErrorPage ? await useNitroApp().localFetch(withQuery("/__nuxt_error", errorObject), {
+  const isErrorPage = event.node.req.url?.startsWith("/__nuxt_error");
+  const res = !isErrorPage ? await useNitroApp().localFetch(withQuery(joinURL(useRuntimeConfig().app.baseURL, "/__nuxt_error"), errorObject), {
     headers: getRequestHeaders(event),
     redirect: "manual"
   }).catch(() => null) : null;
   if (!res) {
     const { template } = await import('../error-500.mjs');
-    event.res.setHeader("Content-Type", "text/html;charset=UTF-8");
-    event.res.end(template(errorObject));
+    event.node.res.setHeader("Content-Type", "text/html;charset=UTF-8");
+    event.node.res.end(template(errorObject));
     return;
   }
   for (const [header, value] of res.headers.entries()) {
     setResponseHeader(event, header, value);
   }
   if (res.status && res.status !== 200) {
-    event.res.statusCode = res.status;
+    event.node.res.statusCode = res.status;
   }
   if (res.statusText) {
-    event.res.statusMessage = res.statusText;
+    event.node.res.statusMessage = res.statusText;
   }
-  event.res.end(await res.text());
+  event.node.res.end(await res.text());
 });
 
 const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);
@@ -631,12 +659,16 @@ function createPipelineFetcher(getContentsList) {
     (data, params) => params.skip ? data.slice(params.skip) : data,
     (data, params) => params.limit ? data.slice(0, params.limit) : data,
     (data, params) => apply(withoutKeys(params.without))(data),
-    (data, params) => apply(withKeys(params.only))(data),
-    (data, params) => params.first ? data[0] : data
+    (data, params) => apply(withKeys(params.only))(data)
   ];
   return async (query) => {
     const data = await getContentsList();
-    return pipelines.reduce(($data, pipe) => pipe($data, query.params()) || $data, data);
+    const params = query.params();
+    const filteredData = pipelines.reduce(($data, pipe) => pipe($data, params) || $data, data);
+    if (params.first) {
+      return filteredData[0];
+    }
+    return filteredData;
   };
 }
 
@@ -2274,11 +2306,6 @@ const getContentQuery = (event) => {
       delete query[key];
     }
   }
-  if (Object.keys(where).length > 0) {
-    query.where = [where];
-  } else {
-    delete query.where;
-  }
   if (query.sort) {
     query.sort = query.sort.split(",").map((s) => {
       const [key, order] = s.split(":");
@@ -2293,35 +2320,42 @@ const getContentQuery = (event) => {
     query.where = query.where || {};
     query.where[key] = query[key];
   }
+  if (Object.keys(where).length > 0) {
+    query.where = [where];
+  } else {
+    delete query.where;
+  }
   return query;
 };
 
 const _MdCzYZ = defineEventHandler(async (event) => {
   const query = getContentQuery(event);
-  const contents = await serverQueryContent(event, query).find();
   if (query.first) {
-    const path = contents?._path || query.where.find((w) => w._path)?._path;
+    const content = await serverQueryContent(event, query).findOne();
+    const path = content?._path || query.where?.find((w) => w._path)?._path;
     if (path) {
       const _dir = await serverQueryContent(event).where({ _path: join(path, "_dir") }).without("_").findOne();
       if (!Array.isArray(_dir)) {
         return {
           _path: path,
-          ...contents,
+          ...content || {},
           _dir
         };
       }
     }
+    if (!content) {
+      throw createError({
+        statusMessage: "Document not found!",
+        statusCode: 404,
+        data: {
+          description: "Could not find document for the given query.",
+          query
+        }
+      });
+    }
+    return content;
   }
-  if (query.first && Array.isArray(contents) && contents.length === 0) {
-    throw createError({
-      statusMessage: "Document not found!",
-      statusCode: 404,
-      data: {
-        description: "Could not find document for the given query.",
-        query
-      }
-    });
-  }
+  const contents = await serverQueryContent(event, query).find();
   return contents;
 });
 
@@ -2455,12 +2489,10 @@ const _3bbfoB = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
-const _lazy_6QF857 = () => import('../testFunction.mjs');
 const _lazy_rjndmN = () => import('../fetchingParkingLots.mjs');
 const _lazy_nqHu0m = () => import('../renderer.mjs');
 
 const handlers = [
-  { route: '/api/testFunction', handler: _lazy_6QF857, lazy: true, middleware: false, method: undefined },
   { route: '/api/fetchingParkingLots', handler: _lazy_rjndmN, lazy: true, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid', handler: _MdCzYZ, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query', handler: _MdCzYZ, lazy: false, middleware: false, method: "get" },

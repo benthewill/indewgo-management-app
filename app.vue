@@ -7,9 +7,9 @@
   <div class="content-wrapper">
     <div>
       <Header />
-      <section class="section p-5">
+      <div class="section p-5">
         <NuxtPage />
-      </section>
+      </div>
     </div>
   </div>
 

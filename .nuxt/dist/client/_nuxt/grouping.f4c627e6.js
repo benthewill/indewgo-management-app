@@ -1,0 +1,1 @@
+const u=(r,n)=>{let e=[];for(let t of r)t.node[n].forEach(o=>e.push(o));e=[...new Set(e)];let f=e.map(t=>({[n]:t,contents:[]}));for(let t of e){let o=r.filter(l=>l.node[n].includes(t)),s=f.filter(l=>l[n]===t)[0];s.contents=o}return f};export{u as g};

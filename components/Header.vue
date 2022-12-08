@@ -10,9 +10,8 @@
       </div>
       <div class="navbar-menu">
         <div class="navbar-item">
-          <NuxtLink to="/ParkingLots/Home">Lots-Table</NuxtLink>
+          <NuxtLink to="/parkingLots/Home">Lots-Table</NuxtLink>
         </div>
-
       </div>
     </nav>
   </div>

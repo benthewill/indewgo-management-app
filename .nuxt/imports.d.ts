@@ -1,8 +1,16 @@
-export { useHead, useMeta } from '#head';
+export { useHead } from '#head';
 export { isVue2, isVue3 } from 'vue-demi';
-export { useAsyncData, useLazyAsyncData, refreshNuxtData, clearNuxtData, defineNuxtComponent, useNuxtApp, defineNuxtPlugin, useRuntimeConfig, useState, useFetch, useLazyFetch, useCookie, useRequestHeaders, useRequestEvent, setResponseStatus, setPageLayout, useRouter, useRoute, useActiveRoute, defineNuxtRouteMiddleware, navigateTo, abortNavigation, addRouteMiddleware, throwError, showError, clearError, isNuxtError, useError, createError, defineNuxtLink, useAppConfig, updateAppConfig, defineAppConfig, preloadComponents, preloadRouteComponents, prefetchComponents, loadPayload, preloadPayload, isPrerendered } from '#app';
+export { useAsyncData, useLazyAsyncData, refreshNuxtData, clearNuxtData, defineNuxtComponent, useNuxtApp, defineNuxtPlugin, useRuntimeConfig, useState, useFetch, useLazyFetch, useCookie, useRequestHeaders, useRequestEvent, setResponseStatus, setPageLayout, useRouter, useRoute, defineNuxtRouteMiddleware, navigateTo, abortNavigation, addRouteMiddleware, showError, clearError, isNuxtError, useError, createError, defineNuxtLink, useAppConfig, updateAppConfig, defineAppConfig, preloadComponents, preloadRouteComponents, prefetchComponents, loadPayload, preloadPayload, isPrerendered } from '#app';
+export { onBeforeRouteLeave, onBeforeRouteUpdate, useLink } from 'vue-router';
 export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId, onActivated, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onDeactivated, onErrorCaptured, onMounted, onRenderTracked, onRenderTriggered, onServerPrefetch, onUnmounted, onUpdated, computed, customRef, isProxy, isReactive, isReadonly, isRef, markRaw, proxyRefs, reactive, readonly, ref, shallowReactive, shallowReadonly, shallowRef, toRaw, toRef, toRefs, triggerRef, unref, watch, watchEffect, isShallow, effect, effectScope, getCurrentScope, onScopeDispose, defineComponent, defineAsyncComponent, resolveComponent, getCurrentInstance, h, inject, nextTick, provide, useAttrs, useCssModule, useCssVars, useSlots, useTransitionState } from 'vue';
-export { useGqlHeaders, useGqlToken, useGqlCors, useGql, useGqlError, useAsyncGql } from '../node_modules/nuxt-graphql-client/dist/runtime/composables/index';
+export { default as capitalize } from '../composables/capitalize';
+export { default as currencyConvert } from '../composables/currencyConvert';
+export { default as daysOfWeek } from '../composables/daysOfWeek';
+export { default as durationCalculation } from '../composables/durationCalculation';
+export { default as grouping } from '../composables/grouping';
+export { default as nameRate } from '../composables/nameRate';
+export { default as taxCalculation } from '../composables/taxCalculation';
+export { useGqlHeaders, useGqlToken, useGqlCors, useGqlHost, useGql, useGqlError, useAsyncGql } from '../node_modules/nuxt-graphql-client/dist/runtime/composables/index';
 export { queryContent } from '../node_modules/@nuxt/content/dist/runtime/composables/query';
 export { useContentHelpers } from '../node_modules/@nuxt/content/dist/runtime/composables/helpers';
 export { useContentHead } from '../node_modules/@nuxt/content/dist/runtime/composables/head';
@@ -11,4 +19,3 @@ export { fetchContentNavigation } from '../node_modules/@nuxt/content/dist/runti
 export { GqlGetLots } from '#gql';
 export { usePinia, defineStore } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
-export { useLink } from 'vue-router';

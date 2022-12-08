@@ -2,7 +2,6 @@
 declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
-    '/api/testFunction': Awaited<ReturnType<typeof import('../../server/api/testFunction').default>>
     '/api/fetchingParkingLots': Awaited<ReturnType<typeof import('../../server/api/fetchingParkingLots').default>>
     '/__nuxt_error': Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>
     '/api/_content/query/:qid': Awaited<ReturnType<typeof import('../../node_modules/@nuxt/content/dist/runtime/server/api/query').default>>
@@ -13,6 +12,7 @@ declare module 'nitropack' {
   }
 }
 declare global {
+  const GqlGetLots: typeof import('#gql-nitro')['GqlGetLots']
   const appendHeader: typeof import('h3')['appendHeader']
   const appendHeaders: typeof import('h3')['appendHeaders']
   const appendResponseHeader: typeof import('h3')['appendResponseHeader']
@@ -61,6 +61,7 @@ declare global {
   const nitroPlugin: typeof import('/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/nitropack/dist/runtime')['nitroPlugin']
   const parseCookies: typeof import('h3')['parseCookies']
   const promisifyNodeListener: typeof import('h3')['promisifyNodeListener']
+  const proxyRequest: typeof import('h3')['proxyRequest']
   const readBody: typeof import('h3')['readBody']
   const readRawBody: typeof import('h3')['readRawBody']
   const send: typeof import('h3')['send']
@@ -76,13 +77,7 @@ declare global {
   const toEventHandler: typeof import('h3')['toEventHandler']
   const toNodeListener: typeof import('h3')['toNodeListener']
   const useBase: typeof import('h3')['useBase']
-  const useBody: typeof import('h3')['useBody']
-  const useCookie: typeof import('h3')['useCookie']
-  const useCookies: typeof import('h3')['useCookies']
-  const useMethod: typeof import('h3')['useMethod']
   const useNitroApp: typeof import('/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/nitropack/dist/runtime')['useNitroApp']
-  const useQuery: typeof import('h3')['useQuery']
-  const useRawBody: typeof import('h3')['useRawBody']
   const useRuntimeConfig: typeof import('/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/nitropack/dist/runtime')['useRuntimeConfig']
   const useStorage: typeof import('/Users/benthewill/Library/Mobile Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/nitropack/dist/runtime')['useStorage']
   const writeEarlyHints: typeof import('h3')['writeEarlyHints']

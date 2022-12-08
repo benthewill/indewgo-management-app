@@ -1,0 +1,1 @@
+const c=e=>{let l=e.toLocaleString().split("."),n=l[0],t=l[1]?l[1]:"00";return t=t.length>1?t:t+="0",t=t.length>2?t.split("")[0]+t.split("")[1]:t,n+"."+t};function o(e){let l=e.toLocaleString().split("."),n=l[0],t=l[1]?l[1]:"00";return t=t.length>1?t:t+="0",t=t.length>2?t.split("")[0]+t.split("")[1]:t,n+"."+t}let s=o(162.18);console.log(s);export{c};
