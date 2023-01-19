@@ -77,6 +77,11 @@ export type FloatFilter = {
   neq?: InputMaybe<Scalars['Float']>;
 };
 
+/** Boolean expression comparing fields on type "ID" */
+export type IdFilter = {
+  eq?: InputMaybe<Scalars['ID']>;
+};
+
 /** Boolean expression comparing fields on type "Int" */
 export type IntFilter = {
   eq?: InputMaybe<Scalars['Int']>;
@@ -148,6 +153,7 @@ export type City_DetailsFilter = {
   city_id?: InputMaybe<IntFilter>;
   city_name?: InputMaybe<StringFilter>;
   goods_and_services_tax?: InputMaybe<StringFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   patrol_jurisdiction?: InputMaybe<StringFilter>;
   provincial_transport_tax?: InputMaybe<StringFilter>;
 };
@@ -180,6 +186,7 @@ export type City_DetailsUpdateInput = {
 };
 
 export type Daily_Rate_Payment_Method_TypesFilter = {
+  nodeId?: InputMaybe<IdFilter>;
   payment_method_type_id?: InputMaybe<IntFilter>;
   payment_method_type_name?: InputMaybe<StringFilter>;
 };
@@ -199,6 +206,7 @@ export type Daily_Rate_Payment_Method_TypesUpdateInput = {
 
 export type Daily_Rate_Payment_MethodsFilter = {
   daily_rate_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   payment_method_id?: InputMaybe<IntFilter>;
   payment_method_type_id?: InputMaybe<IntFilter>;
 };
@@ -224,6 +232,7 @@ export type Daily_RatesFilter = {
   base_price?: InputMaybe<StringFilter>;
   daily_rate_id?: InputMaybe<IntFilter>;
   duration?: InputMaybe<StringFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Daily_RatesInsertInput = {
@@ -252,6 +261,7 @@ export type Daily_Rates_AvailabilityFilter = {
   available_to?: InputMaybe<IntFilter>;
   daily_rate_availability_id?: InputMaybe<IntFilter>;
   daily_rate_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Daily_Rates_AvailabilityInsertInput = {
@@ -284,6 +294,7 @@ export type External_ContactsFilter = {
   first_name?: InputMaybe<StringFilter>;
   last_name?: InputMaybe<StringFilter>;
   middle_name?: InputMaybe<StringFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -324,6 +335,7 @@ export type External_ContactsUpdateInput = {
 export type Internal_DepartmentsFilter = {
   department_id?: InputMaybe<IntFilter>;
   department_name?: InputMaybe<StringFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Internal_DepartmentsInsertInput = {
@@ -348,6 +360,7 @@ export type Internal_MembersFilter = {
   internal_member_id?: InputMaybe<IntFilter>;
   last_name?: InputMaybe<StringFilter>;
   middle_name?: InputMaybe<StringFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   title?: InputMaybe<StringFilter>;
   work_condition?: InputMaybe<Work_ConditionFilter>;
 };
@@ -406,6 +419,7 @@ export type Monthly_RatesFilter = {
   address_id?: InputMaybe<IntFilter>;
   base_price?: InputMaybe<StringFilter>;
   monthly_rate_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   rate_details?: InputMaybe<StringFilter>;
   rate_hour_from?: InputMaybe<IntFilter>;
   rate_hour_to?: InputMaybe<IntFilter>;
@@ -455,6 +469,7 @@ export type Monthly_Rates_AccessFilter = {
   access_method_id?: InputMaybe<IntFilter>;
   monthly_rate_access_id?: InputMaybe<IntFilter>;
   monthly_rate_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Monthly_Rates_AccessInsertInput = {
@@ -477,6 +492,7 @@ export type Monthly_Rates_Access_Activation_ExternalFilter = {
   access_activation_external_id?: InputMaybe<IntFilter>;
   estimated_duration?: InputMaybe<StringFilter>;
   monthly_rate_access_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   pic_id?: InputMaybe<IntFilter>;
 };
 
@@ -505,6 +521,7 @@ export type Monthly_Rates_Access_Activation_InternalFilter = {
   access_activation_internal_id?: InputMaybe<IntFilter>;
   estimated_duration?: InputMaybe<StringFilter>;
   monthly_rate_access_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   pic_id?: InputMaybe<IntFilter>;
 };
 
@@ -534,6 +551,7 @@ export type Monthly_Rates_Access_PriceFilter = {
   lost_fee?: InputMaybe<StringFilter>;
   monthly_rate_access_id?: InputMaybe<IntFilter>;
   monthly_rate_access_price_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Monthly_Rates_Access_PriceInsertInput = {
@@ -558,6 +576,7 @@ export type Monthly_Rates_Access_PriceUpdateInput = {
 export type Monthly_Rates_Confirmation_ExternalFilter = {
   estimated_duration?: InputMaybe<StringFilter>;
   monthly_rate_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   pic_id?: InputMaybe<IntFilter>;
   rate_confirmation_external_id?: InputMaybe<IntFilter>;
 };
@@ -586,6 +605,7 @@ export type Monthly_Rates_Confirmation_ExternalUpdateInput = {
 export type Monthly_Rates_Confirmation_InternalFilter = {
   estimated_duration?: InputMaybe<StringFilter>;
   monthly_rate_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   pic_id?: InputMaybe<IntFilter>;
   rate_confirmation_internal_id?: InputMaybe<IntFilter>;
   request_method?: InputMaybe<Request_MethodsFilter>;
@@ -614,6 +634,7 @@ export type Monthly_Rates_Confirmation_InternalUpdateInput = {
 };
 
 export type Monthly_Rates_TypeFilter = {
+  nodeId?: InputMaybe<IdFilter>;
   rate_name?: InputMaybe<StringFilter>;
   rate_type_details?: InputMaybe<StringFilter>;
   rate_type_id?: InputMaybe<IntFilter>;
@@ -641,6 +662,7 @@ export type Parking_Lots_Access_MethodsFilter = {
   method_details?: InputMaybe<StringFilter>;
   method_name?: InputMaybe<StringFilter>;
   method_usage?: InputMaybe<Access_Method_UsageFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Parking_Lots_Access_MethodsInsertInput = {
@@ -668,6 +690,7 @@ export type Parking_Lots_Access_MethodsUpdateInput = {
 export type Parking_Lots_Access_TypesFilter = {
   access_name?: InputMaybe<StringFilter>;
   lot_access_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Parking_Lots_Access_TypesInsertInput = {
@@ -689,6 +712,7 @@ export type Parking_Lots_AddressFilter = {
   gate_hour_from?: InputMaybe<IntFilter>;
   gate_hour_to?: InputMaybe<IntFilter>;
   gated?: InputMaybe<BooleanFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   parking_lot_id?: InputMaybe<IntFilter>;
   street_name?: InputMaybe<StringFilter>;
   street_number?: InputMaybe<IntFilter>;
@@ -735,6 +759,7 @@ export type Parking_Lots_Contact_TypesFilter = {
   contact_type_id?: InputMaybe<IntFilter>;
   contact_type_name?: InputMaybe<StringFilter>;
   contact_type_responsibility?: InputMaybe<StringFilter>;
+  nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Parking_Lots_Contact_TypesInsertInput = {
@@ -756,6 +781,7 @@ export type Parking_Lots_Contact_TypesUpdateInput = {
 export type Parking_Lots_External_ContactsFilter = {
   contact_id?: InputMaybe<IntFilter>;
   contact_type_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   parking_lot_external_contact_id?: InputMaybe<IntFilter>;
   parking_lot_id?: InputMaybe<IntFilter>;
 };
@@ -780,6 +806,7 @@ export type Parking_Lots_External_ContactsUpdateInput = {
 };
 
 export type Parking_Lots_GeneralFilter = {
+  nodeId?: InputMaybe<IdFilter>;
   parking_lot_id?: InputMaybe<IntFilter>;
   parking_lot_name?: InputMaybe<StringFilter>;
   parking_lot_number?: InputMaybe<IntFilter>;
@@ -805,6 +832,7 @@ export type Parking_Lots_Internal_ContactsFilter = {
   contact_type_id?: InputMaybe<IntFilter>;
   internal_member_id?: InputMaybe<IntFilter>;
   lot_contact_id?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   parking_lot_id?: InputMaybe<IntFilter>;
 };
 
@@ -858,6 +886,7 @@ export type Request_MethodsFilter = {
 export type Spatial_Ref_SysFilter = {
   auth_name?: InputMaybe<StringFilter>;
   auth_srid?: InputMaybe<IntFilter>;
+  nodeId?: InputMaybe<IdFilter>;
   proj4text?: InputMaybe<StringFilter>;
   srid?: InputMaybe<IntFilter>;
   srtext?: InputMaybe<StringFilter>;

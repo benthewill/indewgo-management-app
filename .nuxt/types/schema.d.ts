@@ -3,6 +3,7 @@ declare module '@nuxt/schema' {
   interface NuxtConfig {
     ["content"]?: typeof import("@nuxt/content").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["graphql-client"]?: typeof import("nuxt-graphql-client").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    ["formkit"]?: typeof import("@formkit/nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["pinia"]?: typeof import("@pinia/nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
   }
@@ -170,7 +171,7 @@ declare module '@nuxt/schema' {
         clientDB: {
              isSPA: boolean,
 
-             integrity: number,
+             integrity: any,
         },
 
         navigation: {

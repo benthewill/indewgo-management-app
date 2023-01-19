@@ -10,6 +10,9 @@ export const useNewParkingLotStore = defineStore('newLot', {
                 storedLotName: null,
                 storedLotNumber: null
             },
+            checks: {
+                hasMultipleAddresses: false
+            },
             address: {
                 storedLotStreetNumber: null,
                 storedLotStreetName: null,
@@ -18,6 +21,10 @@ export const useNewParkingLotStore = defineStore('newLot', {
         }
     },
     actions: {
+        async mutateChecks(opt:string, newStats:any) {
+            // @ts-ignore
+            this.checks[opt] = newStats
+        },
         async mutateData() {
             const endpoint= 'https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1'
             const graphQLClient = new GraphQLClient(endpoint, {

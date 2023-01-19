@@ -22,7 +22,7 @@
 
 html,body{
   min-height: 100vh;
-  background-color: #ededf0;
+  background-color: #fbfbfb;
 }
 .content-wrapper {
   min-height: 100vh;

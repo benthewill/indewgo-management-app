@@ -2,9 +2,6 @@
   export default {
     props: ['formFields'],
     methods: {
-      updateStore(name,num) {
-
-      }
     },
     data()  {
       return {
@@ -17,49 +14,82 @@
 <script setup>
   import {useNewParkingLotStore} from "../../../store/newParkingLot";
   import {storeToRefs} from "pinia";
+  import InnerCard from "../../general/InnerCard";
 
-  const {general, address} = storeToRefs(useNewParkingLotStore())
+  const {general, checks, address} = storeToRefs(useNewParkingLotStore())
   const methods = useNewParkingLotStore()
 
 </script>
 
 <template>
-  <div class="card py-3 px-4 mt-5 mb-6 rounding is-shadowless">
+  <div>
+
+    <general-card>
+      <template #header>
+        <div class="container has-text-centered">
+          <p class="title has-text-centered">Basic Information</p>
+        </div>
+      </template>
+      <template #content>
+
+        <inner-card>
+          <template #header>
+            Parking Lot Information
+          </template>
+          <template #content>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <p class="control">
+                    <input class="input" size="3" placeholder="Parking Lot Number" v-model="general.storedLotNumber">
+                  </p>
+                  <p class="help">Enter Lot Number here</p>
+                </div>
+                <div class="field">
+                  <p class="control ">
+                    <input class="input" type="text" size="30" placeholder="Parking Lot Name" v-model="general.storedLotName">
+                  </p>
+                  <p class="help">Enter Lot Name here</p>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" v-model="checks.hasMultipleAddresses">
+                  Does the Lot have multiple addresses?
+                </label>
+              </div>
+            </div>
+          </template>
+        </inner-card>
 
 
-    <div class="field">
-      <label class="label">Parking Lot Name ( {{ general.storedLotName }} )</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Type Name Here" v-model="general.storedLotName">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Parking Lot Number ( {{ general.storedLotNumber }} )</label>
-      <div class="control">
-        <input class="input" type="number" placeholder="Type Number Here" v-model="general.storedLotNumber">
-      </div>
-    </div>
-<!--    ADDRESS-->
-    <div class="field">
-      <label class="label">Street Number ( {{ address.storedLotStreetNumber }} )</label>
-      <div class="control">
-        <input class="input" type="number" placeholder="Street Number Here" v-model="address.storedLotStreetNumber">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Street Name ( {{ address.storedLotStreetName }} )</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Type Number Here" v-model="address.storedLotStreetName">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Street Postal Code ( {{ address.storedLotStreetPostal }} )</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Type Number Here" v-model="address.storedLotStreetPostal">
-      </div>
+        <inner-card>
+          <template #header>
+            Location Information
+          </template>
+          <template #content>
+            <mutation-elements-address
+                :street-number="address.storedLotStreetNumber"
+                :street-name="address.storedLotStreetName"
+                :postal-code="address.storedLotStreetPostal"
+            ></mutation-elements-address>
+          </template>
+        </inner-card>
+
+      </template>
+    </general-card>
+
+
+
+    <div class="control">
+      <button @click="$emit('nextStep')" class="button is-info"> Next </button>
+
     </div>
 
-    <button @click="methods.mutateData()"> Add </button>
+
+
 
 
   </div>

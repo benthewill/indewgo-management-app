@@ -15,73 +15,68 @@ export default {
 
 <template>
 <!--TOP SECTION -->
-  <div style="background-color: #ededf0" class="block px-3 py-3 is-transparent is-rounded is-shadowless sticky-top">
+  <div class="block px-3 py-3 is-transparent is-rounded is-shadowless ">
 
-    <div class="level">
-
-      <div class="level-left">
-        <div class="level-item">
-          <p>
-              <span class="title is-5 is-align-content-center">
-                Insert New Parking Lot
-              </span>
-            <span class="is-size-7 ">
-                <br>Details about the app here or other important news.
-              </span>
+    <section class="hero is-small">
+      <div class="container has-text-centered">
+        <div class="hero-body">
+          <p class="title has-text-link-dark">
+            Insert New Parking Lot
+          </p>
+          <p class="subtitle">
+            Details about the application and whatnot.
           </p>
         </div>
+        <div class="hero-foot">
+          <div class="buttons is-centered">
+            <button class="button is-small" :class="{' is-link':step===1}" @click="step = 1"></button>
+            <button class="button is-small" :class="{' is-link':step===2}" @click="step = 2"></button>
+            <button class="button is-small" :class="{' is-link':step===3}" @click="step = 3"></button>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="level-right">
+    <section class="section">
+      <div class="container is-max-desktop px-5">
+        <general-card>
+          <template #header>
+            Basic Information
+          </template>
+          <template #content>
+            <FormKit
+                label="Parking Lot Name"
+                type="text"
+            ></FormKit>
+          </template>
+        </general-card>
+      </div>
+    </section>
 
-        <div class="level-item">
-
-          <span class="icon" v-if="step===1">
-            <ion-icon name="ellipse-outline"></ion-icon>
-          </span>
-          <span class="icon" v-if="step > 1">
-            <ion-icon name="ellipse"></ion-icon>
-          </span>
-
-          <span class="icon" v-if="step < 3">
-            <ion-icon name="ellipse-outline"></ion-icon>
-          </span>
-          <span class="icon" v-if="step >= 3">
-            <ion-icon name="ellipse"></ion-icon>
-          </span>
-
-          <span class="icon" v-if="step < 4">
-            <ion-icon name="ellipse-outline"></ion-icon>
-          </span>
-          <span class="icon" v-if="step >= 4">
-            <ion-icon name="ellipse"></ion-icon>
-          </span>
-
+    <section class="section">
+      <div class="container is-max-desktop px-5">
+        <div v-if="step===1">
+          <mutation-insert-step-one @next-step="step++"></mutation-insert-step-one>
+        </div>
+        <div v-if="step===2">
+          <mutation-insert-step-two @next-step="step++"></mutation-insert-step-two>
+        </div>
+        <div v-if="step===3">
+          <mutation-insert-step-three @next-step="step++"></mutation-insert-step-three>
         </div>
 
-
       </div>
+    </section>
 
-    </div>
 
-<!--    BOTTOM SECTION-->
 
-    <div v-if="step === 1" class="section px-1 pt-0 is-shadowless">
-      <p class="title is-5">Page One</p>
-      <mutation-insert-step-one></mutation-insert-step-one>
-      <button @click="step++">Next Step</button>
-    </div>
 
-    <div v-if="step === 2" class="section px-1 pt-0 is-shadowless">
-      <p class="title is-5">Page Two</p>
-      <button @click="step++">Next Step</button>
-    </div>
 
-    <div v-if="step === 3" class="section px-1 pt-0 is-shadowless">
-      <p class="title is-5">Page Three</p>
-      <button @click="step++">Next Step</button>
-    </div>
 
   </div>
 
 </template>
+
+<style>
+
+</style>

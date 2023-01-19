@@ -3,12 +3,16 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/content',
         'nuxt-graphql-client',
+        '@formkit/nuxt',
         ['@pinia/nuxt', {
             autoImports: [
                 'defineStore'
             ]
         }]
     ],
+    formkit: {
+        configFile: './formkit.config.ts'
+    },
     app: {
         head: {
             script: [

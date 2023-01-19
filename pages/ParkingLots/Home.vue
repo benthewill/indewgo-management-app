@@ -25,14 +25,14 @@ export default {
   <div>
 
 
-    <div style="background-color: #ededf0" class="block px-3 py-3 is-transparent is-rounded is-shadowless sticky-top">
+    <div style="background-color: #fbfbfb" class="block px-3 py-3 is-transparent is-rounded is-shadowless sticky-top">
 
       <div class="level">
 
         <div class="level-left">
           <div class="level-item">
             <p>
-              <span class="title is-5 is-align-content-center">
+              <span class="title is-4 is-align-content-center">
                 Parking Lots Management
               </span>
               <span class="is-size-7 ">
