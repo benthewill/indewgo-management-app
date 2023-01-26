@@ -2,7 +2,7 @@
   import {storeParkingLots} from "~/store/parkingLots";
   import {storeToRefs} from "pinia";
 
-  const {checkData, loading, error} = storeToRefs(storeParkingLots())
+  const {checkData:allParkingLots, loading, error} = storeToRefs(storeParkingLots())
 
   const {fetchData} = storeParkingLots()
   fetchData()
@@ -73,8 +73,8 @@ export default {
 
 
 
-    <div v-if="checkData" class="section px-1 pt-0 is-shadowless">
-      <tables-rows v-for="lot in checkData" :lot-details="lot.node"/>
+    <div v-if="allParkingLots" class="section px-1 pt-0 is-shadowless">
+      <tables-rows v-for="lot in allParkingLots" :lot-details="lot.node"/>
     </div>
 
 

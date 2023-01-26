@@ -8,7 +8,7 @@ export const storeParkingLots = defineStore('parkingLots', {
     state: () => ({
         checkData: [],
         loading: true,
-        error: null
+        error: null,
     }),
     actions: {
         async fetchData() {

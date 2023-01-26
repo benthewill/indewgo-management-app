@@ -1,5 +1,7 @@
 <script setup>
   import {ref} from "vue";
+  import {storeParkingLots} from "../../../store/parkingLots";
+
 
 </script>
 
@@ -39,29 +41,13 @@ export default {
 
     <section class="section">
       <div class="container is-max-desktop px-5">
-        <general-card>
-          <template #header>
-            Basic Information
-          </template>
-          <template #content>
-            <FormKit
-                label="Parking Lot Name"
-                type="text"
-            ></FormKit>
-          </template>
-        </general-card>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container is-max-desktop px-5">
-        <div v-if="step===1">
+        <div v-show="step===1">
           <mutation-insert-step-one @next-step="step++"></mutation-insert-step-one>
         </div>
-        <div v-if="step===2">
+        <div v-show="step===2">
           <mutation-insert-step-two @next-step="step++"></mutation-insert-step-two>
         </div>
-        <div v-if="step===3">
+        <div v-show="step===3">
           <mutation-insert-step-three @next-step="step++"></mutation-insert-step-three>
         </div>
 

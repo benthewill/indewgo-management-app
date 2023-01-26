@@ -2,8 +2,10 @@
 declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
-    '/api/insertNewParkingLot': Awaited<ReturnType<typeof import('../../server/api/insertNewParkingLot').default>>
+    '/api/mutation/newElements/location': Awaited<ReturnType<typeof import('../../server/api/mutation/newElements/location.post').default>>
+    '/api/mutation/newElements/general': Awaited<ReturnType<typeof import('../../server/api/mutation/newElements/general.post').default>>
     '/api/fetchingParkingLots': Awaited<ReturnType<typeof import('../../server/api/fetchingParkingLots').default>>
+    '/api/fetchingCityDetails': Awaited<ReturnType<typeof import('../../server/api/fetchingCityDetails').default>>
     '/__nuxt_error': Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>
     '/api/_content/query/:qid': Awaited<ReturnType<typeof import('../../node_modules/@nuxt/content/dist/runtime/server/api/query').default>>
     '/api/_content/query': Awaited<ReturnType<typeof import('../../node_modules/@nuxt/content/dist/runtime/server/api/query').default>>
@@ -13,6 +15,7 @@ declare module 'nitropack' {
   }
 }
 declare global {
+  const GqlGetCities: typeof import('#gql-nitro')['GqlGetCities']
   const GqlGetLots: typeof import('#gql-nitro')['GqlGetLots']
   const appendHeader: typeof import('h3')['appendHeader']
   const appendHeaders: typeof import('h3')['appendHeaders']

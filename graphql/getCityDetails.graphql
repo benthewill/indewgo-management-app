@@ -1,0 +1,14 @@
+query getCities {
+    city_detailsCollection {
+        edges {
+            node
+            {
+                city_name
+                patrol_jurisdiction
+                provincial_transport_tax
+                goods_and_services_tax
+                additional_tax
+            }
+        }
+    }
+}

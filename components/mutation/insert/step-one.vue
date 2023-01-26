@@ -1,8 +1,24 @@
+<script setup>
+  import {useNewParkingLotStore} from "../../../store/newParkingLot";
+  import {storeToRefs} from "pinia";
+  import InnerCard from "../../general/InnerCard";
+  import {computed} from "vue";
+
+  const {general, checks, address} = storeToRefs(useNewParkingLotStore())
+  const methods = useNewParkingLotStore()
+
+  const emit = (defineEmits(['NextStep']))
+
+  const next = computed(() => {
+    emit('NextStep')
+    methods.mutateGeneral()
+  })
+
+</script>
+
 <script>
   export default {
     props: ['formFields'],
-    methods: {
-    },
     data()  {
       return {
 
@@ -11,80 +27,53 @@
   }
 </script>
 
-<script setup>
-  import {useNewParkingLotStore} from "../../../store/newParkingLot";
-  import {storeToRefs} from "pinia";
-  import InnerCard from "../../general/InnerCard";
-
-  const {general, checks, address} = storeToRefs(useNewParkingLotStore())
-  const methods = useNewParkingLotStore()
-
-</script>
 
 <template>
   <div>
 
+<!--    FORMKIT-->
     <general-card>
       <template #header>
         <div class="container has-text-centered">
-          <p class="title has-text-centered">Basic Information</p>
+          <p class="title">Basic Information - FormKit</p>
         </div>
       </template>
       <template #content>
 
-        <inner-card>
+        <general-inner-card>
           <template #header>
             Parking Lot Information
           </template>
           <template #content>
-            <div class="field is-horizontal">
-              <div class="field-body">
-                <div class="field">
-                  <p class="control">
-                    <input class="input" size="3" placeholder="Parking Lot Number" v-model="general.storedLotNumber">
-                  </p>
-                  <p class="help">Enter Lot Number here</p>
-                </div>
-                <div class="field">
-                  <p class="control ">
-                    <input class="input" type="text" size="30" placeholder="Parking Lot Name" v-model="general.storedLotName">
-                  </p>
-                  <p class="help">Enter Lot Name here</p>
-                </div>
+            <div class="columns">
+              <div class="column">
+                <FormKit
+                    type="text"
+                    label="Parking Lot Name"
+                    help="Enter Parking Lot Name here"
+                    v-model="general.storedLotName"
+                />
+
+              </div>
+              <div class="column">
+                <FormKit
+                    type="text"
+                    label="Parking Lot Number"
+                    help="Enter Parking Lot Number here"
+                    v-model="general.storedLotNumber"
+                />
               </div>
             </div>
-            <div class="field">
-              <div class="control">
-                <label class="checkbox">
-                  <input type="checkbox" v-model="checks.hasMultipleAddresses">
-                  Does the Lot have multiple addresses?
-                </label>
-              </div>
-            </div>
-          </template>
-        </inner-card>
 
-
-        <inner-card>
-          <template #header>
-            Location Information
           </template>
-          <template #content>
-            <mutation-elements-address
-                :street-number="address.storedLotStreetNumber"
-                :street-name="address.storedLotStreetName"
-                :postal-code="address.storedLotStreetPostal"
-            ></mutation-elements-address>
-          </template>
-        </inner-card>
-
+        </general-inner-card>
       </template>
     </general-card>
 
 
 
     <div class="control">
-      <button @click="$emit('nextStep')" class="button is-info"> Next </button>
+      <button @click="next" class="button is-info"> Next </button>
 
     </div>
 
@@ -94,3 +83,6 @@
 
   </div>
 </template>
+
+<style>
+</style>

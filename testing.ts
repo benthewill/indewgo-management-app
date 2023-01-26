@@ -1,47 +1,67 @@
-let objInQuest = {
-    general: {
-        storedLotName: null,
-        storedLotNumber: null
+let arr = [
+    {
+        "node": {
+            "city_name": "Pelican Town",
+            "additional_tax": "0.00",
+            "patrol_jurisdiction": "",
+            "goods_and_services_tax": "0.05",
+            "provincial_transport_tax": "0.24"
+        }
     },
-    checks: {
-        hasMultipleAddresses: true
+    {
+        "node": {
+            "city_name": "Star Beach",
+            "additional_tax": "0.00",
+            "patrol_jurisdiction": "",
+            "goods_and_services_tax": "0.08",
+            "provincial_transport_tax": "0.06"
+        }
     },
-    address: [
-        {
-        storedLotStreetNumber: 1233,
-        storedLotStreetName: 'Ben',
-        storedLotStreetPostal: 'V1231'
+    {
+        "node": {
+            "city_name": "Homebound Mountain",
+            "additional_tax": "0.00",
+            "patrol_jurisdiction": "",
+            "goods_and_services_tax": "0.05",
+            "provincial_transport_tax": "0.24"
+        }
     },
-        {
-        storedLotStreetNumber: 55,
-        storedLotStreetName: 'asd',
-        storedLotStreetPostal: '141'
+    {
+        "node": {
+            "city_name": "Calico Desert",
+            "additional_tax": "0.05",
+            "patrol_jurisdiction": "",
+            "goods_and_services_tax": "0.12",
+            "provincial_transport_tax": "0.04"
+        }
     },
-        {
-        storedLotStreetNumber: 555,
-        storedLotStreetName: 'asdads',
-        storedLotStreetPostal: 'trh'
+    {
+        "node": {
+            "city_name": "Sulani Island",
+            "additional_tax": "0.05",
+            "patrol_jurisdiction": "",
+            "goods_and_services_tax": "0.10",
+            "provincial_transport_tax": "0.10"
+        }
+    },
+    {
+        "node": {
+            "city_name": "Komorebi Village",
+            "additional_tax": "0.00",
+            "patrol_jurisdiction": "",
+            "goods_and_services_tax": "0.06",
+            "provincial_transport_tax": "0.02"
+        }
     }
-    ]
-}
+]
 
-let addressesVariables: {newAddresses:any} = {
-    newAddresses: [
+let city = []
 
-    ]
-}
-
-let newItem = objInQuest.address.map((x) => {
+let data = arr.map((item) => {
     return {
-        "parking_lot_id": 0,
-        "street_number": x.storedLotStreetNumber,
-        "street_name": x.storedLotStreetName,
-        "street_postal_code": x.storedLotStreetPostal
+    label: item.node.city_name,
+        value: item.node.additional_tax
+
     }
 })
-
-addressesVariables.newAddresses.push(newItem)
-
-console.log(newItem)
-
-console.log(addressesVariables.newAddresses)
+console.log(data)

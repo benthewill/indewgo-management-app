@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export default {
     props: ['formFields'],
     methods: {
@@ -7,53 +7,109 @@
       return {
 
       }
-  }
+    }
   }
 </script>
 
-<script setup>
-  import {useNewParkingLotStore} from "../../../store/newParkingLot";
+<script setup lang="ts">
+  import {useNewParkingLotStore} from "~/store/newParkingLot";
   import {storeToRefs} from "pinia";
   import InnerCard from "../../general/InnerCard";
+  import {computed} from "vue";
+  import {useCitiesStore} from "~/store/cityDetails";
 
-  const {general, address} = storeToRefs(useNewParkingLotStore())
+  const {cityNames} = storeToRefs(useCitiesStore())
+  const {getAllCities} = useCitiesStore()
+  getAllCities()
+
+  const {general, address, checks} = storeToRefs(useNewParkingLotStore())
   const methods = useNewParkingLotStore()
 
+  const emit = (defineEmits(['NextStep']))
+
+  const next = computed(() => {
+    emit('NextStep')
+    methods.mutateLocations()
+  })
+
 </script>
+
+
 
 <template>
   <div>
-
+    {{cityNames}}
     <general-card>
       <template #header>
-          <p class="title is-5 has-text-weight-semibold">Two</p>
+        <div class="container has-text-centered">
+          <p class="title">
+            {{address.amount}} Location(s) for {{general.storedLotID}} - #{{general.storedLotNumber}} - {{general.storedLotName}}
+          </p>
+        </div>
       </template>
       <template #content>
-        <div class="field">
-          <!--              <label class="label">Lot Number</label>-->
-          <p class="control">
-            <input class="input" size="3" placeholder="Parking Lot Number" v-model="general.storedLotNumber">
-          </p>
-          <p class="help">Enter Lot Number here</p>
+
+        <div v-for="addr in address.list" class="py-4">
+          <general-inner-card>
+            <template #header>
+              <p>
+                {{addr}}
+              </p>
+            </template>
+            <template #content>
+              <div>
+                <div class="columns mb-0">
+                  <div class="column ">
+                    <FormKit
+                        type="text"
+                        help="Enter Street Number here"
+                        label="Street Number"
+                        maxlength="10"
+                        v-model="addr.storedLotStreetNumber"
+                    />
+                  </div>
+                  <div class="column">
+                    <FormKit
+                        type="text"
+                        help="Enter Street Name here"
+                        label="Street Name"
+                        v-model="addr.storedLotStreetName"
+                    />
+                  </div>
+                </div>
+                <div class="columns mb-0">
+                  <div class="column">
+                    <FormKit
+                        type="text"
+                        label="Postal Code"
+                        help="Enter Postal Code here"
+                        maxlength="7"
+                        v-model="addr.storedLotStreetPostal"
+                    />
+                  </div>
+                  <div class="column">
+                    <FormKit
+                      type="select"
+                      name="city"
+                      label="Choose a city"
+                      v-model="addr.storedCityID"
+                      :options="cityNames"
+                      />
+                  </div>
+                </div>
+              </div>
+            </template>
+          </general-inner-card>
         </div>
-        <div class="field">
-          <!--              <label class="label">Lot Name</label>-->
-          <p class="control ">
-            <input class="input" type="text" size="30" placeholder="Parking Lot Name" v-model="general.storedLotName">
-          </p>
-          <p class="help">Enter Lot Name here</p>
-        </div>
+
+        <button @click="methods.incrementAddress()" class="button">Add Address</button>
+
       </template>
     </general-card>
 
     <div class="control">
-      <button @click="$emit('nextStep')" class="button is-info"> Next </button>
-
+      <button @click="next" class="button is-info"> Next </button>
     </div>
-
-
-
-
 
   </div>
 </template>

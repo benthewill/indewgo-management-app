@@ -3,20 +3,51 @@ import {integer} from "vscode-languageserver-types";
 import {GraphQLClient} from "graphql-request";
 import gql from "graphql-tag";
 
+const addGeneralInfo = async (inputName:any, inputNumber:number|null) => {
+    return <any[]>await $fetch('/api/mutation/newElements/general',
+        {
+            method: 'post',
+            body : {
+                newName: inputName,
+                newNumber: inputNumber
+            }
+        }).catch((e) => console.log(e))
+}
+
+const addAddresses = async (inputAddresses:any[],inputParkingLotID:number) => {
+    return <any[]>await $fetch('/api/mutation/newElements/location',
+        {
+            method: 'post',
+            body : {
+                parkingLotID: inputParkingLotID,
+                addresses: inputAddresses
+            }
+        }).catch((e)=>console.log(e))
+}
+
 export const useNewParkingLotStore = defineStore('newLot', {
     state : () => {
         return {
             general: {
                 storedLotName: null,
-                storedLotNumber: null
+                storedLotNumber:null,
+                storedLotID:<any> null
             },
             checks: {
                 hasMultipleAddresses: false
             },
             address: {
-                storedLotStreetNumber: null,
-                storedLotStreetName: null,
-                storedLotStreetPostal: null
+                amount: 1,
+                list: [
+                    {
+                        storedIndex: 1,
+                        storedAddressID: <any>null,
+                        storedLotStreetNumber: null,
+                        storedLotStreetName: null,
+                        storedLotStreetPostal: null,
+                        storedCityID: null
+                    }
+                ]
             }
         }
     },
@@ -25,68 +56,22 @@ export const useNewParkingLotStore = defineStore('newLot', {
             // @ts-ignore
             this.checks[opt] = newStats
         },
-        async mutateData() {
-            const endpoint= 'https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1'
-            const graphQLClient = new GraphQLClient(endpoint, {
-                headers: {
-                    apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8',
-                    authorization: 'Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8'
-                }
+        async incrementAddress() {
+            this.address.amount++
+            this.address.list.push({
+                storedIndex: this.address.amount,
+                storedAddressID: <any>null,
+                storedLotStreetNumber: null,
+                storedLotStreetName: null,
+                storedLotStreetPostal: null,
+                storedCityID: null
             })
-
-            const newGeneralLot = gql`
-                mutation newLot ($newName: String, $newNum: Int) {
-                    insertIntoparking_lots_generalCollection(
-                        objects: { parking_lot_name: $newName, parking_lot_number: $newNum }
-                    ) {
-                        records {
-                            parking_lot_id
-                            parking_lot_name
-                            parking_lot_number
-                        }
-                    }
-                }
-            `
-
-            let generalVariables = {
-                newName: this.general.storedLotName,
-                newNum: this.general.storedLotNumber
-            }
-
-            const newAddressesDetails = gql`
-                mutation newAddressesRequest ($newAddresses: [parking_lots_addressInsertInput!]!) {
-                    insertIntoparking_lots_addressCollection(objects: $newAddresses) {
-                        records {
-                            address_id
-                            parking_lot_id
-                            street_name
-                            street_number
-                        }
-                    }
-                }
-            `
-
-            let addressesVariables = {
-                "newAddresses": [
-                    {
-                        "parking_lot_id": 0,
-                        "street_number": this.address.storedLotStreetNumber,
-                        "street_name": this.address.storedLotStreetName,
-                        "street_postal_code": this.address.storedLotStreetPostal
-                    }
-                ]
-            }
-
-            const data = await graphQLClient.request(newGeneralLot, generalVariables)
-                .then(async (res) => {
-                    console.log(res.insertIntoparking_lots_generalCollection.records[0].parking_lot_id)
-                    addressesVariables.newAddresses[0].parking_lot_id = res.insertIntoparking_lots_generalCollection.records[0].parking_lot_id
-
-                    let addressData = await graphQLClient.request(newAddressesDetails, addressesVariables)
-
-                    console.log(addressData)
-                })
-
+        },
+        async mutateGeneral() {
+            this.general.storedLotID = await addGeneralInfo(this.general.storedLotName, this.general.storedLotNumber)
+        },
+        async mutateLocations() {
+            let responseIDs = await addAddresses(this.address.list, this.general.storedLotID)
         }
 
     }
