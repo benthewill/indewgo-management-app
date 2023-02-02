@@ -37,7 +37,6 @@
 
 <template>
   <div>
-    {{cityNames}}
     <general-card>
       <template #header>
         <div class="container has-text-centered">
@@ -51,9 +50,6 @@
         <div v-for="addr in address.list" class="py-4">
           <general-inner-card>
             <template #header>
-              <p>
-                {{addr}}
-              </p>
             </template>
             <template #content>
               <div>
@@ -102,15 +98,21 @@
           </general-inner-card>
         </div>
 
-        <button @click="methods.incrementAddress()" class="button">Add Address</button>
+        <div class="block">
+          <button @click="methods.incrementAddress()" class="button">Add Address</button>
+        </div>
+
+        <div class="block">
+          <div class="buttons">
+            <button  class="button"> Clear </button>
+            <button  class="button is-info"> Previous </button>
+            <button @click="next" class="button is-info"> Next </button>
+          </div>
+        </div>
 
       </template>
     </general-card>
 
-    <div class="buttons">
-        <button @click="next" class="button is-info"> Next </button>
-
-    </div>
 
 
   </div>

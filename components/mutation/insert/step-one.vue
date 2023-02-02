@@ -10,7 +10,6 @@
 
   const next = computed(() => {
     emit('NextStep')
-    // methods.mutateGeneral()
   })
 
 </script>
@@ -29,12 +28,11 @@
 
 <template>
   <div>
-
-<!--    FORMKIT-->
+<!--    FORMKIT WITHOUT FORMS-->
     <general-card>
       <template #header>
         <div class="container has-text-centered">
-          <p class="title">Basic Information - FormKit</p>
+          <p class="title">Basic Information - FormKit w/out Forms</p>
         </div>
       </template>
       <template #content>
@@ -66,15 +64,16 @@
 
           </template>
         </general-inner-card>
+        <div class="buttons">
+          <button  class="button"> Clear </button>
+          <button  class="button is-info"> Previous </button>
+          <button @click="next" class="button is-info"> Next </button>
+        </div>
       </template>
     </general-card>
 
 
 
-    <div class="control">
-      <button @click="next" class="button is-info"> Next </button>
-
-    </div>
 
 
 

@@ -39,36 +39,20 @@ export default {
           <p class="subtitle">
             Details about the application and whatnot.
           </p>
-          <p class="subtitle">
-            {{general.storedLotName}} -
-            {{general.storedLotNumber}} -
-            {{general.storedLotID}}
-          </p>
-          <p class="subtitle">
-            {{checks}}
-          </p>
-          <div v-for="addr in address.list">
-            <p>Address #{{addr.storedIndex}}</p>
-            <p>ID: {{addr.storedAddressID}}</p>
-            <p>Name: {{addr.storedLotStreetName}}</p>
-            <p>Number: {{addr.storedLotStreetNumber}}</p>
-            <p>Postal Code: {{addr.storedLotStreetPostal}}</p>
-            <p>City: {{addr.storedCityID}}</p>
-            <br>
-          </div>
 
         </div>
         <div class="hero-foot">
-          <div class="buttons is-centered">
-            <button class="button is-small" :class="{' is-link':step===1}" @click="step = 1"></button>
-            <button class="button is-small" :class="{' is-link':step===2}" @click="step = 2"></button>
-            <button class="button is-small" :class="{' is-link':step===3}" @click="step = 3"></button>
-          </div>
         </div>
       </div>
     </section>
 
+
     <section class="section">
+      <div class="buttons has-addons is-centered">
+        <button class="button " :class="{'is-link':step===1}" @click="step = 1">General</button>
+        <button class="button " :class="{'is-link':step===2}" @click="step = 2">Location</button>
+        <button class="button " :class="{'is-link':step===3}" @click="step = 3">Lot Details</button>
+      </div>
       <div class="container is-max-desktop px-5">
         <div v-show="step===1">
           <mutation-insert-step-one @next-step="step++"></mutation-insert-step-one>
@@ -80,9 +64,11 @@ export default {
           <mutation-insert-step-three @next-step="step++"></mutation-insert-step-three>
         </div>
         <button class="button is-warning" @click="process">Process</button>
-
       </div>
     </section>
+
+    <pre wrap>{{general}}</pre>
+    <pre wrap>{{address.list}}</pre>
 
 
 
