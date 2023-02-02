@@ -13,13 +13,12 @@ export const useCitiesStore = defineStore('allCities', {
     actions: {
         async getAllCities() {
             const data = await getCities()
-            let arranged = data.map((item) => {
+            this.cityNames = data.map((item) => {
                 return {
                     label: item.node.city_name,
                     value: item.node.city_id
                 }
             })
-            this.cityNames = arranged
         }
     }
 })

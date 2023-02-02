@@ -1,7 +1,6 @@
 <script setup>
   import {useNewParkingLotStore} from "../../../store/newParkingLot";
   import {storeToRefs} from "pinia";
-  import InnerCard from "../../general/InnerCard";
   import {computed} from "vue";
 
   const {general, checks, address} = storeToRefs(useNewParkingLotStore())
@@ -11,7 +10,7 @@
 
   const next = computed(() => {
     emit('NextStep')
-    methods.mutateGeneral()
+    // methods.mutateGeneral()
   })
 
 </script>

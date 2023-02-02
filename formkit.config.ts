@@ -9,4 +9,12 @@ const config: DefaultConfigOptions = {
     theme: 'genesis'
 }
 
-export default config
+export default {
+    config,
+    inputs: {
+        hello: {
+            type: 'input',
+            schema: ['Hello World']
+        }
+    }
+}

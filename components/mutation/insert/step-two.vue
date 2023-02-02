@@ -14,7 +14,6 @@
 <script setup lang="ts">
   import {useNewParkingLotStore} from "~/store/newParkingLot";
   import {storeToRefs} from "pinia";
-  import InnerCard from "../../general/InnerCard";
   import {computed} from "vue";
   import {useCitiesStore} from "~/store/cityDetails";
 
@@ -29,7 +28,7 @@
 
   const next = computed(() => {
     emit('NextStep')
-    methods.mutateLocations()
+    // methods.mutateLocations()
   })
 
 </script>
@@ -93,6 +92,7 @@
                       name="city"
                       label="Choose a city"
                       v-model="addr.storedCityID"
+                      placeholder="Select a City"
                       :options="cityNames"
                       />
                   </div>
@@ -107,9 +107,11 @@
       </template>
     </general-card>
 
-    <div class="control">
-      <button @click="next" class="button is-info"> Next </button>
+    <div class="buttons">
+        <button @click="next" class="button is-info"> Next </button>
+
     </div>
+
 
   </div>
 </template>

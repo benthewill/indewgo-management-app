@@ -41,13 +41,11 @@ export default defineEventHandler(async (event) => {
             "newAddresses": mappedArray
         }
 
-        const data = await graphQLClient.request(newAddressesDetails, addressesVariables)
+        return await graphQLClient.request(newAddressesDetails, addressesVariables)
             .then((res) => {
                 console.log(res.insertIntoparking_lots_addressCollection.records)
-                return res
+                return res.insertIntoparking_lots_addressCollection.records
             })
-
-        return data
     }
 
     return main(body.addresses, body.parkingLotID)

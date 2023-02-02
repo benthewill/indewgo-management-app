@@ -1,7 +1,18 @@
 <script setup>
-  import {ref} from "vue";
-  import {storeParkingLots} from "../../../store/parkingLots";
+import {computed} from "vue";
+  import {useNewParkingLotStore} from "../../../store/newParkingLot";
+  import {storeToRefs} from "pinia";
 
+  const {general, checks, address} = storeToRefs(useNewParkingLotStore())
+
+  const methods = useNewParkingLotStore()
+
+  const process = computed( () => {
+    methods.mutateFinal().then((res)=> {
+      console.log(res)
+      methods.$reset()
+    })
+  })
 
 </script>
 
@@ -28,6 +39,24 @@ export default {
           <p class="subtitle">
             Details about the application and whatnot.
           </p>
+          <p class="subtitle">
+            {{general.storedLotName}} -
+            {{general.storedLotNumber}} -
+            {{general.storedLotID}}
+          </p>
+          <p class="subtitle">
+            {{checks}}
+          </p>
+          <div v-for="addr in address.list">
+            <p>Address #{{addr.storedIndex}}</p>
+            <p>ID: {{addr.storedAddressID}}</p>
+            <p>Name: {{addr.storedLotStreetName}}</p>
+            <p>Number: {{addr.storedLotStreetNumber}}</p>
+            <p>Postal Code: {{addr.storedLotStreetPostal}}</p>
+            <p>City: {{addr.storedCityID}}</p>
+            <br>
+          </div>
+
         </div>
         <div class="hero-foot">
           <div class="buttons is-centered">
@@ -50,9 +79,13 @@ export default {
         <div v-show="step===3">
           <mutation-insert-step-three @next-step="step++"></mutation-insert-step-three>
         </div>
+        <button class="button is-warning" @click="process">Process</button>
 
       </div>
     </section>
+
+
+
 
 
 

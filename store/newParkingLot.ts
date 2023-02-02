@@ -1,7 +1,4 @@
 import {defineStore} from 'pinia'
-import {integer} from "vscode-languageserver-types";
-import {GraphQLClient} from "graphql-request";
-import gql from "graphql-tag";
 
 const addGeneralInfo = async (inputName:any, inputNumber:number|null) => {
     return <any[]>await $fetch('/api/mutation/newElements/general',
@@ -72,6 +69,13 @@ export const useNewParkingLotStore = defineStore('newLot', {
         },
         async mutateLocations() {
             let responseIDs = await addAddresses(this.address.list, this.general.storedLotID)
+            for (let i = 0; i < responseIDs.length; i++) {
+                this.address.list[i].storedAddressID = responseIDs[i].address_id
+            }
+        },
+        async mutateFinal() {
+            await this.mutateGeneral()
+            await this.mutateLocations()
         }
 
     }
