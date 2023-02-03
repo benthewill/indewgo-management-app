@@ -22,6 +22,11 @@ export default defineEventHandler(async (event) => {
                         parking_lot_id
                         street_name
                         street_number
+                        city_id
+                        parking_lot_type
+                        gate_hour_from
+                        gate_hour_to
+                        gated
                     }
                 }
             }
@@ -33,7 +38,9 @@ export default defineEventHandler(async (event) => {
                 "street_number": Number(item.storedLotStreetNumber),
                 "street_name": item.storedLotStreetName,
                 "street_postal_code": item.storedLotStreetPostal,
-                "city_id": item.storedCityID
+                "city_id": item.storedCityID,
+                "gate_hour_from": item.storedLotAccessInformation.from,
+                "gate_hour_to": item.storedLotAccessInformation.to
             }
         })
 

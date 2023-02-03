@@ -21,7 +21,7 @@
   const {getAllCities} = useCitiesStore()
   getAllCities()
 
-  const {general, address, checks} = storeToRefs(useNewParkingLotStore())
+  const {general, addresses, checks} = storeToRefs(useNewParkingLotStore())
   const methods = useNewParkingLotStore()
 
   const emit = (defineEmits(['NextStep']))
@@ -41,13 +41,13 @@
       <template #header>
         <div class="container has-text-centered">
           <p class="title">
-            {{address.amount}} Location(s) for {{general.storedLotID}} - #{{general.storedLotNumber}} - {{general.storedLotName}}
+            Location(s) for {{general.storedLotID}} - #{{general.storedLotNumber}} - {{general.storedLotName}}
           </p>
         </div>
       </template>
       <template #content>
 
-        <div v-for="addr in address.list" class="py-4">
+        <div v-for="addr in addresses" class="py-4">
           <general-inner-card>
             <template #header>
             </template>
@@ -93,6 +93,39 @@
                       />
                   </div>
                 </div>
+                  <div class="columns mb-0">
+                    <div class="column">
+                      <FormKit
+                        type="select"
+                        name="gated"
+                        label="Is the Lot Gated?"
+                        :options="[
+                            {label: 'Gated', value: true},
+                            {label: 'Non-Gated', value: false}
+                            ]"
+                        v-model="addr.storedLotAccessInformation.gated"
+                        help="Is it open access or is there a gate?"
+                        />
+                    </div>
+                    <div class="column">
+                      <FormKit
+                        type="time"
+                        name="gateOpenFrom"
+                        label="From"
+                        v-model="addr.storedLotAccessInformation.hours.from"
+                        help="What time does the gate open?"
+                        />
+                    </div>
+                    <div class="column">
+                      <FormKit
+                        type="time"
+                        name="gateOpenTo"
+                        label="To"
+                        v-model="addr.storedLotAccessInformation.hours.to"
+                        help="What time does the gate closes?"
+                        />
+                    </div>
+                  </div>
               </div>
             </template>
           </general-inner-card>

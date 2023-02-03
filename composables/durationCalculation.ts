@@ -1,5 +1,5 @@
-export default (time) => {
-    function timeToDuration(item) {
+export default (time:any) => {
+    function timeToDuration(item:any) {
         let regexDays = new RegExp(/\d\d:\d\d:\d\d/)
         let check = item.match(regexDays)
         let spl = item

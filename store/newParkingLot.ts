@@ -1,5 +1,7 @@
 import {defineStore} from 'pinia'
 
+
+
 const addGeneralInfo = async (inputName:any, inputNumber:number|null) => {
     return <any[]>await $fetch('/api/mutation/newElements/general',
         {
@@ -33,20 +35,23 @@ export const useNewParkingLotStore = defineStore('newLot', {
             checks: {
                 hasMultipleAddresses: false
             },
-            address: {
-                amount: 1,
-                list: [
+            addresses: [
                     {
-                        storedIndex: 1,
                         storedAddressID: <any>null,
                         storedLotStreetNumber: null,
                         storedLotStreetName: null,
                         storedLotStreetPostal: null,
-                        storedCityID: null
+                        storedCityID: null,
+                        storedLotAccessInformation: {
+                            gated: true,
+                            hours: {
+                                from: null,
+                                to: null
+                            }
+                        }
                     }
                 ]
             }
-        }
     },
     actions: {
         async mutateChecks(opt:string, newStats:any) {
@@ -54,23 +59,28 @@ export const useNewParkingLotStore = defineStore('newLot', {
             this.checks[opt] = newStats
         },
         async incrementAddress() {
-            this.address.amount++
-            this.address.list.push({
-                storedIndex: this.address.amount,
+            this.addresses.push({
                 storedAddressID: <any>null,
                 storedLotStreetNumber: null,
                 storedLotStreetName: null,
                 storedLotStreetPostal: null,
-                storedCityID: null
+                storedCityID: null,
+                storedLotAccessInformation: {
+                    gated: true,
+                    hours: {
+                        from: null,
+                        to: null
+                    }
+                }
             })
         },
         async mutateGeneral() {
             this.general.storedLotID = await addGeneralInfo(this.general.storedLotName, this.general.storedLotNumber)
         },
         async mutateLocations() {
-            let responseIDs = await addAddresses(this.address.list, this.general.storedLotID)
+            let responseIDs = await addAddresses(this.addresses, this.general.storedLotID)
             for (let i = 0; i < responseIDs.length; i++) {
-                this.address.list[i].storedAddressID = responseIDs[i].address_id
+                this.addresses[i].storedAddressID = responseIDs[i].address_id
             }
         },
         async mutateFinal() {

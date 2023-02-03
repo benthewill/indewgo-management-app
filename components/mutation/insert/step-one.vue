@@ -3,7 +3,7 @@
   import {storeToRefs} from "pinia";
   import {computed} from "vue";
 
-  const {general, checks, address} = storeToRefs(useNewParkingLotStore())
+  const {general, checks, addresses} = storeToRefs(useNewParkingLotStore())
   const methods = useNewParkingLotStore()
 
   const emit = (defineEmits(['NextStep']))

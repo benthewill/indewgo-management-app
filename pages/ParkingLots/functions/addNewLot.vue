@@ -3,7 +3,7 @@ import {computed} from "vue";
   import {useNewParkingLotStore} from "../../../store/newParkingLot";
   import {storeToRefs} from "pinia";
 
-  const {general, checks, address} = storeToRefs(useNewParkingLotStore())
+  const {general, checks, addresses} = storeToRefs(useNewParkingLotStore())
 
   const methods = useNewParkingLotStore()
 
@@ -68,7 +68,7 @@ export default {
     </section>
 
     <pre wrap>{{general}}</pre>
-    <pre wrap>{{address.list}}</pre>
+    <pre wrap>{{addresses}}</pre>
 
 
 

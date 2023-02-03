@@ -15,7 +15,7 @@
   import {useNewParkingLotStore} from "../../../store/newParkingLot";
   import {storeToRefs} from "pinia";
 
-  const {general, address} = storeToRefs(useNewParkingLotStore())
+  const {general, addresses} = storeToRefs(useNewParkingLotStore())
   const methods = useNewParkingLotStore()
 
 </script>
