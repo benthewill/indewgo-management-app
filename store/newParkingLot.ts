@@ -44,6 +44,7 @@ export const useNewParkingLotStore = defineStore('newLot', {
                         storedCityID: null,
                         storedLotAccessInformation: {
                             gated: true,
+                            247: false,
                             hours: {
                                 from: null,
                                 to: null
@@ -67,6 +68,7 @@ export const useNewParkingLotStore = defineStore('newLot', {
                 storedCityID: null,
                 storedLotAccessInformation: {
                     gated: true,
+                    247: false,
                     hours: {
                         from: null,
                         to: null

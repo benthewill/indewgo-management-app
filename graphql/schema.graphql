@@ -5,6 +5,11 @@ schema {
     mutation: Mutation
 }
 
+interface Node {
+    "Retrieves a record by `ID`"
+    nodeId: ID!
+}
+
 "The root type for creating and mutating data"
 type Mutation {
     "Deletes zero or more records from the `city_details` collection"
@@ -672,6 +677,11 @@ type Query {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_typeOrderBy!]
     ): monthly_rates_typeConnection
+    "Retrieve a record by its `ID`"
+    node(
+        "The record's `ID`"
+        nodeId: ID!
+    ): Node
     "A pagable collection of type `parking_lots_access_methods`"
     parking_lots_access_methodsCollection(
         "Query values in the collection after the provided cursor"
@@ -794,11 +804,13 @@ type Query {
     ): spatial_ref_sysConnection
 }
 
-type city_details {
+type city_details implements Node {
     additional_tax: String!
     city_id: Int!
     city_name: String!
     goods_and_services_tax: String!
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_addressCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -848,7 +860,7 @@ type city_detailsUpdateResponse {
     records: [city_details!]!
 }
 
-type daily_rate_payment_method_types {
+type daily_rate_payment_method_types implements Node {
     daily_rate_payment_methodsCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -863,6 +875,8 @@ type daily_rate_payment_method_types {
         "Sort order to apply to the collection"
         orderBy: [daily_rate_payment_methodsOrderBy!]
     ): daily_rate_payment_methodsConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     payment_method_type_id: Int!
     payment_method_type_name: String
 }
@@ -898,10 +912,12 @@ type daily_rate_payment_method_typesUpdateResponse {
     records: [daily_rate_payment_method_types!]!
 }
 
-type daily_rate_payment_methods {
+type daily_rate_payment_methods implements Node {
     daily_rate_id: Int
     daily_rate_payment_method_types: daily_rate_payment_method_types
     daily_rates: daily_rates
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     payment_method_id: Int!
     payment_method_type_id: Int
 }
@@ -937,7 +953,7 @@ type daily_rate_payment_methodsUpdateResponse {
     records: [daily_rate_payment_methods!]!
 }
 
-type daily_rates {
+type daily_rates implements Node {
     address_id: Int
     base_price: String
     daily_rate_id: Int!
@@ -970,6 +986,8 @@ type daily_rates {
         orderBy: [daily_rates_availabilityOrderBy!]
     ): daily_rates_availabilityConnection
     duration: String
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_address: parking_lots_address
     rate_allowance: [String]
 }
@@ -1005,13 +1023,15 @@ type daily_ratesUpdateResponse {
     records: [daily_rates!]!
 }
 
-type daily_rates_availability {
-    available_from: Int
-    available_to: Int
+type daily_rates_availability implements Node {
+    available_from: Time
+    available_to: Time
     daily_rate_availability_id: Int!
     daily_rate_id: Int
     daily_rates: daily_rates
     days_of_the_week: [Int]
+    "Globally Unique Record Identifier"
+    nodeId: ID!
 }
 
 type daily_rates_availabilityConnection {
@@ -1045,7 +1065,7 @@ type daily_rates_availabilityUpdateResponse {
     records: [daily_rates_availability!]!
 }
 
-type external_contacts {
+type external_contacts implements Node {
     additional_details: String
     contact_email: String
     contact_ext: String
@@ -1082,6 +1102,8 @@ type external_contacts {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_confirmation_externalOrderBy!]
     ): monthly_rates_confirmation_externalConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_external_contactsCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -1130,7 +1152,7 @@ type external_contactsUpdateResponse {
     records: [external_contacts!]!
 }
 
-type internal_departments {
+type internal_departments implements Node {
     department_id: Int!
     department_name: String!
     internal_membersCollection(
@@ -1147,6 +1169,8 @@ type internal_departments {
         "Sort order to apply to the collection"
         orderBy: [internal_membersOrderBy!]
     ): internal_membersConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
 }
 
 type internal_departmentsConnection {
@@ -1180,7 +1204,7 @@ type internal_departmentsUpdateResponse {
     records: [internal_departments!]!
 }
 
-type internal_members {
+type internal_members implements Node {
     contact_email: String
     contact_ext: String
     contact_phone: String
@@ -1218,6 +1242,8 @@ type internal_members {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_confirmation_internalOrderBy!]
     ): monthly_rates_confirmation_internalConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_internal_contactsCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -1267,7 +1293,7 @@ type internal_membersUpdateResponse {
     records: [internal_members!]!
 }
 
-type monthly_rates {
+type monthly_rates implements Node {
     activation_fee: String
     address_id: Int
     base_price: String
@@ -1317,12 +1343,14 @@ type monthly_rates {
         orderBy: [monthly_rates_confirmation_internalOrderBy!]
     ): monthly_rates_confirmation_internalConnection
     monthly_rates_type: monthly_rates_type
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_address: parking_lots_address
     rate_allowance: [String]
     rate_days: [Int]
     rate_details: String
-    rate_hour_from: Int!
-    rate_hour_to: Int!
+    rate_hour_from: Time
+    rate_hour_to: Time
     rate_type_id: Int
 }
 
@@ -1357,7 +1385,7 @@ type monthly_ratesUpdateResponse {
     records: [monthly_rates!]!
 }
 
-type monthly_rates_access {
+type monthly_rates_access implements Node {
     access_method_id: Int!
     monthly_rate_access_id: Int!
     monthly_rate_id: Int!
@@ -1404,6 +1432,8 @@ type monthly_rates_access {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_access_priceOrderBy!]
     ): monthly_rates_access_priceConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_access_methods: parking_lots_access_methods
 }
 
@@ -1438,12 +1468,14 @@ type monthly_rates_accessUpdateResponse {
     records: [monthly_rates_access!]!
 }
 
-type monthly_rates_access_activation_external {
+type monthly_rates_access_activation_external implements Node {
     access_activation_external_id: Int!
     estimated_duration: String
     external_contacts: external_contacts
     monthly_rate_access_id: Int
     monthly_rates_access: monthly_rates_access
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     pic_id: Int
     request_method: [request_methods]
 }
@@ -1479,12 +1511,14 @@ type monthly_rates_access_activation_externalUpdateResponse {
     records: [monthly_rates_access_activation_external!]!
 }
 
-type monthly_rates_access_activation_internal {
+type monthly_rates_access_activation_internal implements Node {
     access_activation_internal_id: Int!
     estimated_duration: String
     internal_members: internal_members
     monthly_rate_access_id: Int
     monthly_rates_access: monthly_rates_access
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     pic_id: Int
     request_method: [request_methods]
 }
@@ -1520,12 +1554,14 @@ type monthly_rates_access_activation_internalUpdateResponse {
     records: [monthly_rates_access_activation_internal!]!
 }
 
-type monthly_rates_access_price {
+type monthly_rates_access_price implements Node {
     deposit_price: String
     lost_fee: String
     monthly_rate_access_id: Int!
     monthly_rate_access_price_id: Int!
     monthly_rates_access: monthly_rates_access
+    "Globally Unique Record Identifier"
+    nodeId: ID!
 }
 
 type monthly_rates_access_priceConnection {
@@ -1559,11 +1595,13 @@ type monthly_rates_access_priceUpdateResponse {
     records: [monthly_rates_access_price!]!
 }
 
-type monthly_rates_confirmation_external {
+type monthly_rates_confirmation_external implements Node {
     estimated_duration: String
     external_contacts: external_contacts
     monthly_rate_id: Int
     monthly_rates: monthly_rates
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     pic_id: Int
     rate_confirmation_external_id: Int!
     request_method: [request_methods]
@@ -1600,11 +1638,13 @@ type monthly_rates_confirmation_externalUpdateResponse {
     records: [monthly_rates_confirmation_external!]!
 }
 
-type monthly_rates_confirmation_internal {
+type monthly_rates_confirmation_internal implements Node {
     estimated_duration: String
     internal_members: internal_members
     monthly_rate_id: Int
     monthly_rates: monthly_rates
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     pic_id: Int
     rate_confirmation_internal_id: Int!
     request_method: request_methods
@@ -1641,7 +1681,7 @@ type monthly_rates_confirmation_internalUpdateResponse {
     records: [monthly_rates_confirmation_internal!]!
 }
 
-type monthly_rates_type {
+type monthly_rates_type implements Node {
     monthly_ratesCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -1656,6 +1696,8 @@ type monthly_rates_type {
         "Sort order to apply to the collection"
         orderBy: [monthly_ratesOrderBy!]
     ): monthly_ratesConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     rate_name: String
     rate_type_details: String
     rate_type_id: Int!
@@ -1692,7 +1734,7 @@ type monthly_rates_typeUpdateResponse {
     records: [monthly_rates_type!]!
 }
 
-type parking_lots_access_methods {
+type parking_lots_access_methods implements Node {
     access_type_id: Int!
     lot_access_method_id: Int!
     method_details: String
@@ -1712,6 +1754,8 @@ type parking_lots_access_methods {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_accessOrderBy!]
     ): monthly_rates_accessConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_access_types: parking_lots_access_types
 }
 
@@ -1746,9 +1790,11 @@ type parking_lots_access_methodsUpdateResponse {
     records: [parking_lots_access_methods!]!
 }
 
-type parking_lots_access_types {
+type parking_lots_access_types implements Node {
     access_name: String!
     lot_access_id: Int!
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_access_methodsCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -1796,10 +1842,10 @@ type parking_lots_access_typesUpdateResponse {
     records: [parking_lots_access_types!]!
 }
 
-type parking_lots_address {
+type parking_lots_address implements Node {
     address_id: Int!
     city_details: city_details
-    city_id: Int
+    city_id: Int!
     daily_ratesCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -1814,8 +1860,8 @@ type parking_lots_address {
         "Sort order to apply to the collection"
         orderBy: [daily_ratesOrderBy!]
     ): daily_ratesConnection
-    gate_hour_from: Int
-    gate_hour_to: Int
+    gate_hour_from: Time
+    gate_hour_to: Time
     gated: Boolean
     monthly_ratesCollection(
         "Query values in the collection after the provided cursor"
@@ -1831,6 +1877,9 @@ type parking_lots_address {
         "Sort order to apply to the collection"
         orderBy: [monthly_ratesOrderBy!]
     ): monthly_ratesConnection
+    "Globally Unique Record Identifier"
+    nodeId: ID!
+    open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
     parking_lots_general: parking_lots_general
@@ -1870,10 +1919,12 @@ type parking_lots_addressUpdateResponse {
     records: [parking_lots_address!]!
 }
 
-type parking_lots_contact_types {
+type parking_lots_contact_types implements Node {
     contact_type_id: Int!
     contact_type_name: String
     contact_type_responsibility: String
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lots_external_contactsCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
@@ -1935,10 +1986,12 @@ type parking_lots_contact_typesUpdateResponse {
     records: [parking_lots_contact_types!]!
 }
 
-type parking_lots_external_contacts {
+type parking_lots_external_contacts implements Node {
     contact_id: Int
     contact_type_id: Int
     external_contacts: external_contacts
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lot_external_contact_id: Int!
     parking_lot_id: Int
     parking_lots_contact_types: parking_lots_contact_types
@@ -1976,7 +2029,9 @@ type parking_lots_external_contactsUpdateResponse {
     records: [parking_lots_external_contacts!]!
 }
 
-type parking_lots_general {
+type parking_lots_general implements Node {
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lot_id: Int!
     parking_lot_name: String
     parking_lot_number: Int
@@ -2055,11 +2110,13 @@ type parking_lots_generalUpdateResponse {
     records: [parking_lots_general!]!
 }
 
-type parking_lots_internal_contacts {
+type parking_lots_internal_contacts implements Node {
     contact_type_id: Int
     internal_member_id: Int
     internal_members: internal_members
     lot_contact_id: Int!
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     parking_lot_id: Int
     parking_lots_contact_types: parking_lots_contact_types
     parking_lots_general: parking_lots_general
@@ -2096,9 +2153,11 @@ type parking_lots_internal_contactsUpdateResponse {
     records: [parking_lots_internal_contacts!]!
 }
 
-type spatial_ref_sys {
+type spatial_ref_sys implements Node {
     auth_name: String
     auth_srid: Int
+    "Globally Unique Record Identifier"
+    nodeId: ID!
     proj4text: String
     srid: Int!
     srtext: String
@@ -2112,6 +2171,11 @@ type spatial_ref_sysConnection {
 type spatial_ref_sysEdge {
     cursor: String!
     node: spatial_ref_sys!
+}
+
+enum FilterIs {
+    NOT_NULL
+    NULL
 }
 
 "Defines a per-field sorting order"
@@ -2178,6 +2242,7 @@ input BigIntFilter {
     gt: BigInt
     gte: BigInt
     in: [BigInt!]
+    is: FilterIs
     lt: BigInt
     lte: BigInt
     neq: BigInt
@@ -2189,6 +2254,7 @@ input BooleanFilter {
     gt: Boolean
     gte: Boolean
     in: [Boolean!]
+    is: FilterIs
     lt: Boolean
     lte: Boolean
     neq: Boolean
@@ -2200,6 +2266,7 @@ input DateFilter {
     gt: Date
     gte: Date
     in: [Date!]
+    is: FilterIs
     lt: Date
     lte: Date
     neq: Date
@@ -2211,6 +2278,7 @@ input DatetimeFilter {
     gt: Datetime
     gte: Datetime
     in: [Datetime!]
+    is: FilterIs
     lt: Datetime
     lte: Datetime
     neq: Datetime
@@ -2222,9 +2290,15 @@ input FloatFilter {
     gt: Float
     gte: Float
     in: [Float!]
+    is: FilterIs
     lt: Float
     lte: Float
     neq: Float
+}
+
+"Boolean expression comparing fields on type \"ID\""
+input IDFilter {
+    eq: ID
 }
 
 "Boolean expression comparing fields on type \"Int\""
@@ -2233,6 +2307,7 @@ input IntFilter {
     gt: Int
     gte: Int
     in: [Int!]
+    is: FilterIs
     lt: Int
     lte: Int
     neq: Int
@@ -2244,6 +2319,7 @@ input StringFilter {
     gt: String
     gte: String
     in: [String!]
+    is: FilterIs
     lt: String
     lte: String
     neq: String
@@ -2255,6 +2331,7 @@ input TimeFilter {
     gt: Time
     gte: Time
     in: [Time!]
+    is: FilterIs
     lt: Time
     lte: Time
     neq: Time
@@ -2264,6 +2341,7 @@ input TimeFilter {
 input UUIDFilter {
     eq: UUID
     in: [UUID!]
+    is: FilterIs
     neq: UUID
 }
 
@@ -2271,6 +2349,7 @@ input UUIDFilter {
 input access_method_usageFilter {
     eq: access_method_usage
     in: [access_method_usage!]
+    is: FilterIs
     neq: access_method_usage
 }
 
@@ -2279,6 +2358,7 @@ input city_detailsFilter {
     city_id: IntFilter
     city_name: StringFilter
     goods_and_services_tax: StringFilter
+    nodeId: IDFilter
     patrol_jurisdiction: StringFilter
     provincial_transport_tax: StringFilter
 }
@@ -2311,6 +2391,7 @@ input city_detailsUpdateInput {
 }
 
 input daily_rate_payment_method_typesFilter {
+    nodeId: IDFilter
     payment_method_type_id: IntFilter
     payment_method_type_name: StringFilter
 }
@@ -2330,6 +2411,7 @@ input daily_rate_payment_method_typesUpdateInput {
 
 input daily_rate_payment_methodsFilter {
     daily_rate_id: IntFilter
+    nodeId: IDFilter
     payment_method_id: IntFilter
     payment_method_type_id: IntFilter
 }
@@ -2355,6 +2437,7 @@ input daily_ratesFilter {
     base_price: StringFilter
     daily_rate_id: IntFilter
     duration: StringFilter
+    nodeId: IDFilter
 }
 
 input daily_ratesInsertInput {
@@ -2379,15 +2462,16 @@ input daily_ratesUpdateInput {
 }
 
 input daily_rates_availabilityFilter {
-    available_from: IntFilter
-    available_to: IntFilter
+    available_from: TimeFilter
+    available_to: TimeFilter
     daily_rate_availability_id: IntFilter
     daily_rate_id: IntFilter
+    nodeId: IDFilter
 }
 
 input daily_rates_availabilityInsertInput {
-    available_from: Int
-    available_to: Int
+    available_from: Time
+    available_to: Time
     daily_rate_id: Int
     days_of_the_week: [Int]
 }
@@ -2400,8 +2484,8 @@ input daily_rates_availabilityOrderBy {
 }
 
 input daily_rates_availabilityUpdateInput {
-    available_from: Int
-    available_to: Int
+    available_from: Time
+    available_to: Time
     daily_rate_id: Int
     days_of_the_week: [Int]
 }
@@ -2415,6 +2499,7 @@ input external_contactsFilter {
     first_name: StringFilter
     last_name: StringFilter
     middle_name: StringFilter
+    nodeId: IDFilter
     title: StringFilter
 }
 
@@ -2455,6 +2540,7 @@ input external_contactsUpdateInput {
 input internal_departmentsFilter {
     department_id: IntFilter
     department_name: StringFilter
+    nodeId: IDFilter
 }
 
 input internal_departmentsInsertInput {
@@ -2479,6 +2565,7 @@ input internal_membersFilter {
     internal_member_id: IntFilter
     last_name: StringFilter
     middle_name: StringFilter
+    nodeId: IDFilter
     title: StringFilter
     work_condition: work_conditionFilter
 }
@@ -2524,6 +2611,7 @@ input internal_membersUpdateInput {
 input lot_typeFilter {
     eq: lot_type
     in: [lot_type!]
+    is: FilterIs
     neq: lot_type
 }
 
@@ -2532,9 +2620,10 @@ input monthly_ratesFilter {
     address_id: IntFilter
     base_price: StringFilter
     monthly_rate_id: IntFilter
+    nodeId: IDFilter
     rate_details: StringFilter
-    rate_hour_from: IntFilter
-    rate_hour_to: IntFilter
+    rate_hour_from: TimeFilter
+    rate_hour_to: TimeFilter
     rate_type_id: IntFilter
 }
 
@@ -2547,8 +2636,8 @@ input monthly_ratesInsertInput {
     rate_allowance: [String]
     rate_days: [Int]
     rate_details: String
-    rate_hour_from: Int
-    rate_hour_to: Int
+    rate_hour_from: Time
+    rate_hour_to: Time
     rate_type_id: Int
 }
 
@@ -2572,8 +2661,8 @@ input monthly_ratesUpdateInput {
     rate_allowance: [String]
     rate_days: [Int]
     rate_details: String
-    rate_hour_from: Int
-    rate_hour_to: Int
+    rate_hour_from: Time
+    rate_hour_to: Time
     rate_type_id: Int
 }
 
@@ -2581,6 +2670,7 @@ input monthly_rates_accessFilter {
     access_method_id: IntFilter
     monthly_rate_access_id: IntFilter
     monthly_rate_id: IntFilter
+    nodeId: IDFilter
 }
 
 input monthly_rates_accessInsertInput {
@@ -2603,6 +2693,7 @@ input monthly_rates_access_activation_externalFilter {
     access_activation_external_id: IntFilter
     estimated_duration: StringFilter
     monthly_rate_access_id: IntFilter
+    nodeId: IDFilter
     pic_id: IntFilter
 }
 
@@ -2631,6 +2722,7 @@ input monthly_rates_access_activation_internalFilter {
     access_activation_internal_id: IntFilter
     estimated_duration: StringFilter
     monthly_rate_access_id: IntFilter
+    nodeId: IDFilter
     pic_id: IntFilter
 }
 
@@ -2660,6 +2752,7 @@ input monthly_rates_access_priceFilter {
     lost_fee: StringFilter
     monthly_rate_access_id: IntFilter
     monthly_rate_access_price_id: IntFilter
+    nodeId: IDFilter
 }
 
 input monthly_rates_access_priceInsertInput {
@@ -2684,6 +2777,7 @@ input monthly_rates_access_priceUpdateInput {
 input monthly_rates_confirmation_externalFilter {
     estimated_duration: StringFilter
     monthly_rate_id: IntFilter
+    nodeId: IDFilter
     pic_id: IntFilter
     rate_confirmation_external_id: IntFilter
 }
@@ -2712,6 +2806,7 @@ input monthly_rates_confirmation_externalUpdateInput {
 input monthly_rates_confirmation_internalFilter {
     estimated_duration: StringFilter
     monthly_rate_id: IntFilter
+    nodeId: IDFilter
     pic_id: IntFilter
     rate_confirmation_internal_id: IntFilter
     request_method: request_methodsFilter
@@ -2740,6 +2835,7 @@ input monthly_rates_confirmation_internalUpdateInput {
 }
 
 input monthly_rates_typeFilter {
+    nodeId: IDFilter
     rate_name: StringFilter
     rate_type_details: StringFilter
     rate_type_id: IntFilter
@@ -2767,6 +2863,7 @@ input parking_lots_access_methodsFilter {
     method_details: StringFilter
     method_name: StringFilter
     method_usage: access_method_usageFilter
+    nodeId: IDFilter
 }
 
 input parking_lots_access_methodsInsertInput {
@@ -2794,6 +2891,7 @@ input parking_lots_access_methodsUpdateInput {
 input parking_lots_access_typesFilter {
     access_name: StringFilter
     lot_access_id: IntFilter
+    nodeId: IDFilter
 }
 
 input parking_lots_access_typesInsertInput {
@@ -2812,9 +2910,10 @@ input parking_lots_access_typesUpdateInput {
 input parking_lots_addressFilter {
     address_id: IntFilter
     city_id: IntFilter
-    gate_hour_from: IntFilter
-    gate_hour_to: IntFilter
+    gate_hour_from: TimeFilter
+    gate_hour_to: TimeFilter
     gated: BooleanFilter
+    nodeId: IDFilter
     parking_lot_id: IntFilter
     street_name: StringFilter
     street_number: IntFilter
@@ -2823,9 +2922,10 @@ input parking_lots_addressFilter {
 
 input parking_lots_addressInsertInput {
     city_id: Int
-    gate_hour_from: Int
-    gate_hour_to: Int
+    gate_hour_from: Time
+    gate_hour_to: Time
     gated: Boolean
+    open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
     street_name: String
@@ -2847,9 +2947,10 @@ input parking_lots_addressOrderBy {
 
 input parking_lots_addressUpdateInput {
     city_id: Int
-    gate_hour_from: Int
-    gate_hour_to: Int
+    gate_hour_from: Time
+    gate_hour_to: Time
     gated: Boolean
+    open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
     street_name: String
@@ -2861,6 +2962,7 @@ input parking_lots_contact_typesFilter {
     contact_type_id: IntFilter
     contact_type_name: StringFilter
     contact_type_responsibility: StringFilter
+    nodeId: IDFilter
 }
 
 input parking_lots_contact_typesInsertInput {
@@ -2882,6 +2984,7 @@ input parking_lots_contact_typesUpdateInput {
 input parking_lots_external_contactsFilter {
     contact_id: IntFilter
     contact_type_id: IntFilter
+    nodeId: IDFilter
     parking_lot_external_contact_id: IntFilter
     parking_lot_id: IntFilter
 }
@@ -2906,6 +3009,7 @@ input parking_lots_external_contactsUpdateInput {
 }
 
 input parking_lots_generalFilter {
+    nodeId: IDFilter
     parking_lot_id: IntFilter
     parking_lot_name: StringFilter
     parking_lot_number: IntFilter
@@ -2931,6 +3035,7 @@ input parking_lots_internal_contactsFilter {
     contact_type_id: IntFilter
     internal_member_id: IntFilter
     lot_contact_id: IntFilter
+    nodeId: IDFilter
     parking_lot_id: IntFilter
 }
 
@@ -2957,6 +3062,7 @@ input parking_lots_internal_contactsUpdateInput {
 input parking_lots_levelsFilter {
     eq: parking_lots_levels
     in: [parking_lots_levels!]
+    is: FilterIs
     neq: parking_lots_levels
 }
 
@@ -2964,12 +3070,14 @@ input parking_lots_levelsFilter {
 input request_methodsFilter {
     eq: request_methods
     in: [request_methods!]
+    is: FilterIs
     neq: request_methods
 }
 
 input spatial_ref_sysFilter {
     auth_name: StringFilter
     auth_srid: IntFilter
+    nodeId: IDFilter
     proj4text: StringFilter
     srid: IntFilter
     srtext: StringFilter
@@ -2987,5 +3095,6 @@ input spatial_ref_sysOrderBy {
 input work_conditionFilter {
     eq: work_condition
     in: [work_condition!]
+    is: FilterIs
     neq: work_condition
 }

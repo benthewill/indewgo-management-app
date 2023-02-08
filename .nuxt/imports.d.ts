@@ -10,6 +10,7 @@ export { default as durationCalculation } from '../composables/durationCalculati
 export { default as grouping } from '../composables/grouping';
 export { default as nameRate } from '../composables/nameRate';
 export { default as taxCalculation } from '../composables/taxCalculation';
+export { default as timeConversion } from '../composables/timeConversion';
 export { useGqlHeaders, useGqlToken, useGqlCors, useGqlHost, useGql, useGqlError, useAsyncGql } from '../node_modules/nuxt-graphql-client/dist/runtime/composables/index';
 export { queryContent } from '../node_modules/@nuxt/content/dist/runtime/composables/query';
 export { useContentHelpers } from '../node_modules/@nuxt/content/dist/runtime/composables/helpers';

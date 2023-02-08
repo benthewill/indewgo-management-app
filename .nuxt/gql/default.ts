@@ -28,6 +28,7 @@ export type BigIntFilter = {
   gt?: InputMaybe<Scalars['BigInt']>;
   gte?: InputMaybe<Scalars['BigInt']>;
   in?: InputMaybe<Array<Scalars['BigInt']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['BigInt']>;
   lte?: InputMaybe<Scalars['BigInt']>;
   neq?: InputMaybe<Scalars['BigInt']>;
@@ -39,6 +40,7 @@ export type BooleanFilter = {
   gt?: InputMaybe<Scalars['Boolean']>;
   gte?: InputMaybe<Scalars['Boolean']>;
   in?: InputMaybe<Array<Scalars['Boolean']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['Boolean']>;
   lte?: InputMaybe<Scalars['Boolean']>;
   neq?: InputMaybe<Scalars['Boolean']>;
@@ -50,6 +52,7 @@ export type DateFilter = {
   gt?: InputMaybe<Scalars['Date']>;
   gte?: InputMaybe<Scalars['Date']>;
   in?: InputMaybe<Array<Scalars['Date']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['Date']>;
   lte?: InputMaybe<Scalars['Date']>;
   neq?: InputMaybe<Scalars['Date']>;
@@ -61,10 +64,16 @@ export type DatetimeFilter = {
   gt?: InputMaybe<Scalars['Datetime']>;
   gte?: InputMaybe<Scalars['Datetime']>;
   in?: InputMaybe<Array<Scalars['Datetime']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['Datetime']>;
   lte?: InputMaybe<Scalars['Datetime']>;
   neq?: InputMaybe<Scalars['Datetime']>;
 };
+
+export enum FilterIs {
+  NOT_NULL = 'NOT_NULL',
+  NULL = 'NULL'
+}
 
 /** Boolean expression comparing fields on type "Float" */
 export type FloatFilter = {
@@ -72,6 +81,7 @@ export type FloatFilter = {
   gt?: InputMaybe<Scalars['Float']>;
   gte?: InputMaybe<Scalars['Float']>;
   in?: InputMaybe<Array<Scalars['Float']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['Float']>;
   lte?: InputMaybe<Scalars['Float']>;
   neq?: InputMaybe<Scalars['Float']>;
@@ -88,6 +98,7 @@ export type IntFilter = {
   gt?: InputMaybe<Scalars['Int']>;
   gte?: InputMaybe<Scalars['Int']>;
   in?: InputMaybe<Array<Scalars['Int']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['Int']>;
   lte?: InputMaybe<Scalars['Int']>;
   neq?: InputMaybe<Scalars['Int']>;
@@ -111,6 +122,7 @@ export type StringFilter = {
   gt?: InputMaybe<Scalars['String']>;
   gte?: InputMaybe<Scalars['String']>;
   in?: InputMaybe<Array<Scalars['String']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['String']>;
   lte?: InputMaybe<Scalars['String']>;
   neq?: InputMaybe<Scalars['String']>;
@@ -122,6 +134,7 @@ export type TimeFilter = {
   gt?: InputMaybe<Scalars['Time']>;
   gte?: InputMaybe<Scalars['Time']>;
   in?: InputMaybe<Array<Scalars['Time']>>;
+  is?: InputMaybe<FilterIs>;
   lt?: InputMaybe<Scalars['Time']>;
   lte?: InputMaybe<Scalars['Time']>;
   neq?: InputMaybe<Scalars['Time']>;
@@ -131,6 +144,7 @@ export type TimeFilter = {
 export type UuidFilter = {
   eq?: InputMaybe<Scalars['UUID']>;
   in?: InputMaybe<Array<Scalars['UUID']>>;
+  is?: InputMaybe<FilterIs>;
   neq?: InputMaybe<Scalars['UUID']>;
 };
 
@@ -145,6 +159,7 @@ export enum Access_Method_Usage {
 export type Access_Method_UsageFilter = {
   eq?: InputMaybe<Access_Method_Usage>;
   in?: InputMaybe<Array<Access_Method_Usage>>;
+  is?: InputMaybe<FilterIs>;
   neq?: InputMaybe<Access_Method_Usage>;
 };
 
@@ -257,16 +272,16 @@ export type Daily_RatesUpdateInput = {
 };
 
 export type Daily_Rates_AvailabilityFilter = {
-  available_from?: InputMaybe<IntFilter>;
-  available_to?: InputMaybe<IntFilter>;
+  available_from?: InputMaybe<TimeFilter>;
+  available_to?: InputMaybe<TimeFilter>;
   daily_rate_availability_id?: InputMaybe<IntFilter>;
   daily_rate_id?: InputMaybe<IntFilter>;
   nodeId?: InputMaybe<IdFilter>;
 };
 
 export type Daily_Rates_AvailabilityInsertInput = {
-  available_from?: InputMaybe<Scalars['Int']>;
-  available_to?: InputMaybe<Scalars['Int']>;
+  available_from?: InputMaybe<Scalars['Time']>;
+  available_to?: InputMaybe<Scalars['Time']>;
   daily_rate_id?: InputMaybe<Scalars['Int']>;
   days_of_the_week?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
 };
@@ -279,8 +294,8 @@ export type Daily_Rates_AvailabilityOrderBy = {
 };
 
 export type Daily_Rates_AvailabilityUpdateInput = {
-  available_from?: InputMaybe<Scalars['Int']>;
-  available_to?: InputMaybe<Scalars['Int']>;
+  available_from?: InputMaybe<Scalars['Time']>;
+  available_to?: InputMaybe<Scalars['Time']>;
   daily_rate_id?: InputMaybe<Scalars['Int']>;
   days_of_the_week?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
 };
@@ -411,6 +426,7 @@ export enum Lot_Type {
 export type Lot_TypeFilter = {
   eq?: InputMaybe<Lot_Type>;
   in?: InputMaybe<Array<Lot_Type>>;
+  is?: InputMaybe<FilterIs>;
   neq?: InputMaybe<Lot_Type>;
 };
 
@@ -421,8 +437,8 @@ export type Monthly_RatesFilter = {
   monthly_rate_id?: InputMaybe<IntFilter>;
   nodeId?: InputMaybe<IdFilter>;
   rate_details?: InputMaybe<StringFilter>;
-  rate_hour_from?: InputMaybe<IntFilter>;
-  rate_hour_to?: InputMaybe<IntFilter>;
+  rate_hour_from?: InputMaybe<TimeFilter>;
+  rate_hour_to?: InputMaybe<TimeFilter>;
   rate_type_id?: InputMaybe<IntFilter>;
 };
 
@@ -435,8 +451,8 @@ export type Monthly_RatesInsertInput = {
   rate_allowance?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   rate_days?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   rate_details?: InputMaybe<Scalars['String']>;
-  rate_hour_from?: InputMaybe<Scalars['Int']>;
-  rate_hour_to?: InputMaybe<Scalars['Int']>;
+  rate_hour_from?: InputMaybe<Scalars['Time']>;
+  rate_hour_to?: InputMaybe<Scalars['Time']>;
   rate_type_id?: InputMaybe<Scalars['Int']>;
 };
 
@@ -460,8 +476,8 @@ export type Monthly_RatesUpdateInput = {
   rate_allowance?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   rate_days?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   rate_details?: InputMaybe<Scalars['String']>;
-  rate_hour_from?: InputMaybe<Scalars['Int']>;
-  rate_hour_to?: InputMaybe<Scalars['Int']>;
+  rate_hour_from?: InputMaybe<Scalars['Time']>;
+  rate_hour_to?: InputMaybe<Scalars['Time']>;
   rate_type_id?: InputMaybe<Scalars['Int']>;
 };
 
@@ -709,8 +725,8 @@ export type Parking_Lots_Access_TypesUpdateInput = {
 export type Parking_Lots_AddressFilter = {
   address_id?: InputMaybe<IntFilter>;
   city_id?: InputMaybe<IntFilter>;
-  gate_hour_from?: InputMaybe<IntFilter>;
-  gate_hour_to?: InputMaybe<IntFilter>;
+  gate_hour_from?: InputMaybe<TimeFilter>;
+  gate_hour_to?: InputMaybe<TimeFilter>;
   gated?: InputMaybe<BooleanFilter>;
   nodeId?: InputMaybe<IdFilter>;
   parking_lot_id?: InputMaybe<IntFilter>;
@@ -721,9 +737,10 @@ export type Parking_Lots_AddressFilter = {
 
 export type Parking_Lots_AddressInsertInput = {
   city_id?: InputMaybe<Scalars['Int']>;
-  gate_hour_from?: InputMaybe<Scalars['Int']>;
-  gate_hour_to?: InputMaybe<Scalars['Int']>;
+  gate_hour_from?: InputMaybe<Scalars['Time']>;
+  gate_hour_to?: InputMaybe<Scalars['Time']>;
   gated?: InputMaybe<Scalars['Boolean']>;
+  open_days?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   parking_lot_id?: InputMaybe<Scalars['Int']>;
   parking_lot_type?: InputMaybe<Array<InputMaybe<Lot_Type>>>;
   street_name?: InputMaybe<Scalars['String']>;
@@ -745,9 +762,10 @@ export type Parking_Lots_AddressOrderBy = {
 
 export type Parking_Lots_AddressUpdateInput = {
   city_id?: InputMaybe<Scalars['Int']>;
-  gate_hour_from?: InputMaybe<Scalars['Int']>;
-  gate_hour_to?: InputMaybe<Scalars['Int']>;
+  gate_hour_from?: InputMaybe<Scalars['Time']>;
+  gate_hour_to?: InputMaybe<Scalars['Time']>;
   gated?: InputMaybe<Scalars['Boolean']>;
+  open_days?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   parking_lot_id?: InputMaybe<Scalars['Int']>;
   parking_lot_type?: InputMaybe<Array<InputMaybe<Lot_Type>>>;
   street_name?: InputMaybe<Scalars['String']>;
@@ -868,6 +886,7 @@ export enum Parking_Lots_Levels {
 export type Parking_Lots_LevelsFilter = {
   eq?: InputMaybe<Parking_Lots_Levels>;
   in?: InputMaybe<Array<Parking_Lots_Levels>>;
+  is?: InputMaybe<FilterIs>;
   neq?: InputMaybe<Parking_Lots_Levels>;
 };
 
@@ -880,6 +899,7 @@ export enum Request_Methods {
 export type Request_MethodsFilter = {
   eq?: InputMaybe<Request_Methods>;
   in?: InputMaybe<Array<Request_Methods>>;
+  is?: InputMaybe<FilterIs>;
   neq?: InputMaybe<Request_Methods>;
 };
 
@@ -910,6 +930,7 @@ export enum Work_Condition {
 export type Work_ConditionFilter = {
   eq?: InputMaybe<Work_Condition>;
   in?: InputMaybe<Array<Work_Condition>>;
+  is?: InputMaybe<FilterIs>;
   neq?: InputMaybe<Work_Condition>;
 };
 
@@ -923,7 +944,7 @@ export type GetLotsQueryVariables = Exact<{
 }>;
 
 
-export type GetLotsQuery = { parking_lots_generalCollection?: { edges: Array<{ node: { parking_lot_name?: string | null, parking_lot_number?: number | null, parking_lot_id: number, parking_lots_addressCollection?: { edges: Array<{ node: { address_id: number, street_number?: number | null, street_name?: string | null, street_postal_code?: string | null, gated?: boolean | null, parking_lot_type?: Array<Lot_Type | null> | null, gate_hour_from?: number | null, gate_hour_to?: number | null, city_details?: { city_name: string } | null, daily_ratesCollection?: { edges: Array<{ node: { duration?: string | null, base_price?: string | null, daily_rates_availabilityCollection?: { edges: Array<{ node: { days_of_the_week?: Array<number | null> | null, available_from?: number | null, available_to?: number | null } }> } | null, daily_rate_payment_methodsCollection?: { edges: Array<{ node: { daily_rate_payment_method_types?: { payment_method_type_name?: string | null } | null } }> } | null } }> } | null, monthly_ratesCollection?: { edges: Array<{ node: { base_price?: string | null, activation_fee?: string | null, rate_hour_from: number, rate_hour_to: number, clearance_levels?: Array<Parking_Lots_Levels | null> | null, clearance_lot_types?: Array<Lot_Type | null> | null, rate_allowance?: Array<string | null> | null, rate_days?: Array<number | null> | null, monthly_rates_type?: { rate_name?: string | null, rate_type_details?: string | null } | null, monthly_rates_confirmation_externalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, external_contacts?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null, monthly_rates_confirmation_internalCollection?: { edges: Array<{ node: { request_method?: Request_Methods | null, estimated_duration?: string | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null, monthly_rates_accessCollection?: { edges: Array<{ node: { access_method_id: number, parking_lots_access_methods?: { method_name: string, method_usage?: Access_Method_Usage | null, method_details?: string | null, parking_lots_access_types?: { access_name: string } | null } | null, monthly_rates_access_activation_internalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, estimated_duration?: string | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, internal_departments?: { department_name: string } | null } | null } }> } | null, monthly_rates_access_activation_externalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, estimated_duration?: string | null, external_contacts?: { additional_details?: string | null, first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null } }> } | null } }> } | null } }> } | null, parking_lots_external_contactsCollection?: { edges: Array<{ node: { parking_lots_contact_types?: { contact_type_name?: string | null, contact_type_responsibility?: string | null } | null, external_contacts?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, contact_phone?: string | null, contact_ext?: string | null } | null } }> } | null, parking_lots_internal_contactsCollection?: { edges: Array<{ node: { parking_lots_contact_types?: { contact_type_name?: string | null, contact_type_responsibility?: string | null } | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, contact_phone?: string | null, contact_ext?: string | null } | null } }> } | null } }>, pageInfo: { endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null } } | null };
+export type GetLotsQuery = { parking_lots_generalCollection?: { edges: Array<{ node: { parking_lot_name?: string | null, parking_lot_number?: number | null, parking_lot_id: number, parking_lots_addressCollection?: { edges: Array<{ node: { address_id: number, street_number?: number | null, street_name?: string | null, street_postal_code?: string | null, gated?: boolean | null, parking_lot_type?: Array<Lot_Type | null> | null, gate_hour_from?: any | null, gate_hour_to?: any | null, city_details?: { city_name: string } | null, daily_ratesCollection?: { edges: Array<{ node: { duration?: string | null, base_price?: string | null, daily_rates_availabilityCollection?: { edges: Array<{ node: { days_of_the_week?: Array<number | null> | null, available_from?: any | null, available_to?: any | null } }> } | null, daily_rate_payment_methodsCollection?: { edges: Array<{ node: { daily_rate_payment_method_types?: { payment_method_type_name?: string | null } | null } }> } | null } }> } | null, monthly_ratesCollection?: { edges: Array<{ node: { base_price?: string | null, activation_fee?: string | null, rate_hour_from?: any | null, rate_hour_to?: any | null, clearance_levels?: Array<Parking_Lots_Levels | null> | null, clearance_lot_types?: Array<Lot_Type | null> | null, rate_allowance?: Array<string | null> | null, rate_days?: Array<number | null> | null, monthly_rates_type?: { rate_name?: string | null, rate_type_details?: string | null } | null, monthly_rates_confirmation_externalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, external_contacts?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null, monthly_rates_confirmation_internalCollection?: { edges: Array<{ node: { request_method?: Request_Methods | null, estimated_duration?: string | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null, monthly_rates_accessCollection?: { edges: Array<{ node: { access_method_id: number, parking_lots_access_methods?: { method_name: string, method_usage?: Access_Method_Usage | null, method_details?: string | null, parking_lots_access_types?: { access_name: string } | null } | null, monthly_rates_access_activation_internalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, estimated_duration?: string | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, internal_departments?: { department_name: string } | null } | null } }> } | null, monthly_rates_access_activation_externalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, estimated_duration?: string | null, external_contacts?: { additional_details?: string | null, first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null } }> } | null } }> } | null } }> } | null, parking_lots_external_contactsCollection?: { edges: Array<{ node: { parking_lots_contact_types?: { contact_type_name?: string | null, contact_type_responsibility?: string | null } | null, external_contacts?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, contact_phone?: string | null, contact_ext?: string | null } | null } }> } | null, parking_lots_internal_contactsCollection?: { edges: Array<{ node: { parking_lots_contact_types?: { contact_type_name?: string | null, contact_type_responsibility?: string | null } | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, contact_phone?: string | null, contact_ext?: string | null } | null } }> } | null } }>, pageInfo: { endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null } } | null };
 
 
 export const GetCitiesDocument = gql`

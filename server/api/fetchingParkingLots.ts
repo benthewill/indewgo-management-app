@@ -31,6 +31,7 @@ export default defineEventHandler((event) => {
                                         parking_lot_type
                                         gate_hour_from
                                         gate_hour_to
+                                        open_days
                                         city_details{
                                             city_name
                                             provincial_transport_tax

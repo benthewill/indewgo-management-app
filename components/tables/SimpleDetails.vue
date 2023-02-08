@@ -1,5 +1,19 @@
 <script>
 export default {
+  setup() {
+    const verbalizeDays = (x) => daysOfWeek(x)
+    const timeConvert = (instance) => timeConversion(instance,'24hr',timeOutputObject)
+    const timeOutputObject = {
+      timeFormat: '12hr',
+      stringFormat: 'literal'
+    }
+
+
+    return {
+      verbalizeDays,
+      timeConvert
+    }
+  },
   props: ['address', 'index', 'contacts']
 }
 
@@ -40,8 +54,21 @@ export default {
             <span class="heading">
               Hours:<br>
             </span>
-            <span v-if="address.node.gate_hour_from === null && address.node.gate_hour_to === null">Open 24/7</span>
-            <span v-if="address.node.gate_hour_from && address.node.gate_hour_to">{{address.node.gate_hour_from}} to {{ address.node.gate_hour_to }} </span>
+            <span v-if="address.node.gate_hour_from === null && address.node.gate_hour_to === null">Open 24 Hours</span>
+            <span v-if="address.node.gate_hour_from && address.node.gate_hour_to">
+              {{timeConvert(address.node.gate_hour_from)}} to {{ timeConvert(address.node.gate_hour_to) }}
+            </span>
+          </p>
+        </div>
+
+        <div class="column">
+          <p>
+            <span class="heading">
+              Days:<br>
+            </span>
+            <span>
+              {{verbalizeDays(address.node.open_days).period}}
+            </span>
           </p>
         </div>
 

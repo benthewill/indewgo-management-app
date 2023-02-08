@@ -79,6 +79,7 @@ declare global {
   const shallowRef: typeof import('vue')['shallowRef']
   const showError: typeof import('../../node_modules/nuxt/dist/app')['showError']
   const taxCalculation: typeof import('../../composables/taxCalculation')['default']
+  const timeConversion: typeof import('../../composables/timeConversion')['default']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
@@ -211,6 +212,7 @@ declare module 'vue' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly showError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['showError']>
     readonly taxCalculation: UnwrapRef<typeof import('../../composables/taxCalculation')['default']>
+    readonly timeConversion: UnwrapRef<typeof import('../../composables/timeConversion')['default']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
