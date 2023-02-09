@@ -24,6 +24,22 @@ const addAddresses = async (inputAddresses:any[],inputParkingLotID:number) => {
         }).catch((e)=>console.log(e))
 }
 
+const addressObject = {
+    storedAddressID: <any>null,
+    storedLotStreetNumber: null,
+    storedLotStreetName: null,
+    storedLotStreetPostal: null,
+    storedCityID: null,
+    storedLotAccessInformation: {
+        gated: true,
+        247: false,
+        hours: {
+            from: null,
+            to: null
+        }
+    }
+}
+
 export const useNewParkingLotStore = defineStore('newLot', {
     state : () => {
         return {
@@ -35,23 +51,7 @@ export const useNewParkingLotStore = defineStore('newLot', {
             checks: {
                 hasMultipleAddresses: false
             },
-            addresses: [
-                    {
-                        storedAddressID: <any>null,
-                        storedLotStreetNumber: null,
-                        storedLotStreetName: null,
-                        storedLotStreetPostal: null,
-                        storedCityID: null,
-                        storedLotAccessInformation: {
-                            gated: true,
-                            247: false,
-                            hours: {
-                                from: null,
-                                to: null
-                            }
-                        }
-                    }
-                ]
+            addresses: [addressObject]
             }
     },
     actions: {
@@ -60,21 +60,7 @@ export const useNewParkingLotStore = defineStore('newLot', {
             this.checks[opt] = newStats
         },
         async incrementAddress() {
-            this.addresses.push({
-                storedAddressID: <any>null,
-                storedLotStreetNumber: null,
-                storedLotStreetName: null,
-                storedLotStreetPostal: null,
-                storedCityID: null,
-                storedLotAccessInformation: {
-                    gated: true,
-                    247: false,
-                    hours: {
-                        from: null,
-                        to: null
-                    }
-                }
-            })
+            this.addresses.push(addressObject)
         },
         async mutateGeneral() {
             this.general.storedLotID = await addGeneralInfo(this.general.storedLotName, this.general.storedLotNumber)
