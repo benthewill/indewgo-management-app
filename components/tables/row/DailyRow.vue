@@ -46,21 +46,10 @@
 
           <div class="column ">
             <p><span class="heading">Availability</span>
-              <span class="subtitle is-6" v-if="rateItem.node.daily_rates_availabilityCollection.edges.length === 0">
-                N/A
+              <span class="subtitle is-6">
+                maint.
               </span>
             </p>
-
-              <div class="tags are-small">
-                <span class="tag is-success is-light" v-for="item in rateItem.node.daily_rates_availabilityCollection.edges">
-
-                    <span v-if="item">
-                      {{  verbalizeDays(item.node.days_of_the_week).period  }}&hairsp;
-                    </span>
-
-                  </span>
-              </div>
-
           </div>
 
 

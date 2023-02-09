@@ -96,29 +96,25 @@
                   <div class="columns mb-0">
                     <div class="column">
                       <FormKit
-                        type="select"
-                        name="gated"
-                        label="Is the Lot Gated?"
-                        :options="[
-                            {label: 'Gated', value: true},
-                            {label: 'Non-Gated', value: false}
-                            ]"
-                        v-model="addr.storedLotAccessInformation.gated"
-                        help="Is it open access or is there a gate?"
+                          type="checkbox"
+                          name="gated"
+                          label="Is the Lot Gated"
+                          help="Is it open access or is there a gate?"
+                          v-model="addr.storedLotAccessInformation.gated"
                         />
                     </div>
                     <div class="column">
-
+                      <FormKit
+                          type="checkbox"
+                          name="247"
+                          label="Is the Gate Open 24 hours?"
+                          help="Automatically input the time 00:00 to 00:00"
+                          v-model="addr.storedLotAccessInformation['247']"
+                      />
                     </div>
 
                   </div>
-                <FormKit
-                    type="checkbox"
-                    name="247"
-                    label="Is the Gate Open 24 hours?"
-                    help="Automatically input the time 00:00 to 00:00"
-                    v-model="addr.storedLotAccessInformation['247']"
-                />
+
                 <div class="columns mb-0" v-show="!addr.storedLotAccessInformation['247']">
                   <div class="column" >
                     <FormKit

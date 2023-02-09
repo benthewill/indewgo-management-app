@@ -1,4 +1,4 @@
-export default (arr) => {
+export default (arr:any) => {
 
     let dow = {
         Mon: 1,
@@ -12,10 +12,10 @@ export default (arr) => {
 
     let output
 
-    const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (n, i) => start + (i * step));
+    const range = (start:any, stop:any, step:any) => Array.from({ length: (stop - start) / step + 1}, (n, i) => start + (i * step));
     const arrFill = range(arr[0],arr[arr.length-1],1)
 
-    function seq(check, start) {
+    function seq(check:any, start:any) {
         let param = {status: true, ends: 0}
 
         for (let i = start, j = check[start]; i < check.length; i++) {
@@ -35,7 +35,8 @@ export default (arr) => {
     }
 
     let details = []
-    let getDay = (i) => Object.keys(dow).find(key => dow[key] === arr[i])
+    // @ts-ignore
+    let getDay = (i:any) => Object.keys(dow).find(key => dow[key] === arr[i])
 
     let period = `${getDay(0)} to ${getDay(arr.length - 1)}`
     let totalDays = arr.length

@@ -48,7 +48,7 @@ export default defineEventHandler((event) => {
                                                     daily_rates_availabilityCollection{
                                                         edges{
                                                             node{
-                                                                days_of_the_week
+                                                                day_of_the_week
                                                                 available_from
                                                                 available_to
                                                             }

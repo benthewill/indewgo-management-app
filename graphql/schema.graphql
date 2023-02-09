@@ -145,6 +145,13 @@ type Mutation {
         "Restricts the mutation's impact to records matching the criteria"
         filter: parking_lots_addressFilter
     ): parking_lots_addressDeleteResponse!
+    "Deletes zero or more records from the `parking_lots_address_time_availabilities` collection"
+    deleteFromparking_lots_address_time_availabilitiesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_address_time_availabilitiesFilter
+    ): parking_lots_address_time_availabilitiesDeleteResponse!
     "Deletes zero or more records from the `parking_lots_contact_types` collection"
     deleteFromparking_lots_contact_typesCollection(
         "The maximum number of records in the collection permitted to be affected"
@@ -211,6 +218,8 @@ type Mutation {
     insertIntoparking_lots_access_typesCollection(objects: [parking_lots_access_typesInsertInput!]!): parking_lots_access_typesInsertResponse
     "Adds one or more `parking_lots_address` records to the collection"
     insertIntoparking_lots_addressCollection(objects: [parking_lots_addressInsertInput!]!): parking_lots_addressInsertResponse
+    "Adds one or more `parking_lots_address_time_availabilities` records to the collection"
+    insertIntoparking_lots_address_time_availabilitiesCollection(objects: [parking_lots_address_time_availabilitiesInsertInput!]!): parking_lots_address_time_availabilitiesInsertResponse
     "Adds one or more `parking_lots_contact_types` records to the collection"
     insertIntoparking_lots_contact_typesCollection(objects: [parking_lots_contact_typesInsertInput!]!): parking_lots_contact_typesInsertResponse
     "Adds one or more `parking_lots_external_contacts` records to the collection"
@@ -390,6 +399,15 @@ type Mutation {
         "Fields that are set will be updated for all records matching the `filter`"
         set: parking_lots_addressUpdateInput!
     ): parking_lots_addressUpdateResponse!
+    "Updates zero or more records in the `parking_lots_address_time_availabilities` collection"
+    updateparking_lots_address_time_availabilitiesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: parking_lots_address_time_availabilitiesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_address_time_availabilitiesUpdateInput!
+    ): parking_lots_address_time_availabilitiesUpdateResponse!
     "Updates zero or more records in the `parking_lots_contact_types` collection"
     updateparking_lots_contact_typesCollection(
         "The maximum number of records in the collection permitted to be affected"
@@ -727,6 +745,21 @@ type Query {
         "Sort order to apply to the collection"
         orderBy: [parking_lots_addressOrderBy!]
     ): parking_lots_addressConnection
+    "A pagable collection of type `parking_lots_address_time_availabilities`"
+    parking_lots_address_time_availabilitiesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_address_time_availabilitiesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_address_time_availabilitiesOrderBy!]
+    ): parking_lots_address_time_availabilitiesConnection
     "A pagable collection of type `parking_lots_contact_types`"
     parking_lots_contact_typesCollection(
         "Query values in the collection after the provided cursor"
@@ -1029,7 +1062,7 @@ type daily_rates_availability implements Node {
     daily_rate_availability_id: Int!
     daily_rate_id: Int
     daily_rates: daily_rates
-    days_of_the_week: [Int]
+    day_of_the_week: Int!
     "Globally Unique Record Identifier"
     nodeId: ID!
 }
@@ -1882,6 +1915,20 @@ type parking_lots_address implements Node {
     open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
+    parking_lots_address_time_availabilitiesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_address_time_availabilitiesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_address_time_availabilitiesOrderBy!]
+    ): parking_lots_address_time_availabilitiesConnection
     parking_lots_general: parking_lots_general
     street_name: String
     street_number: Int
@@ -1917,6 +1964,48 @@ type parking_lots_addressUpdateResponse {
     affectedCount: Int!
     "Array of records impacted by the mutation"
     records: [parking_lots_address!]!
+}
+
+type parking_lots_address_time_availabilities implements Node {
+    address_id: Int!
+    address_time_availability_id: Int!
+    available_from: Time
+    available_to: Time
+    day_of_the_week: Int
+    "Globally Unique Record Identifier"
+    nodeId: ID!
+    parking_lots_address: parking_lots_address
+}
+
+type parking_lots_address_time_availabilitiesConnection {
+    edges: [parking_lots_address_time_availabilitiesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_address_time_availabilitiesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address_time_availabilities!]!
+}
+
+type parking_lots_address_time_availabilitiesEdge {
+    cursor: String!
+    node: parking_lots_address_time_availabilities!
+}
+
+type parking_lots_address_time_availabilitiesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address_time_availabilities!]!
+}
+
+type parking_lots_address_time_availabilitiesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address_time_availabilities!]!
 }
 
 type parking_lots_contact_types implements Node {
@@ -2466,6 +2555,7 @@ input daily_rates_availabilityFilter {
     available_to: TimeFilter
     daily_rate_availability_id: IntFilter
     daily_rate_id: IntFilter
+    day_of_the_week: IntFilter
     nodeId: IDFilter
 }
 
@@ -2473,7 +2563,7 @@ input daily_rates_availabilityInsertInput {
     available_from: Time
     available_to: Time
     daily_rate_id: Int
-    days_of_the_week: [Int]
+    day_of_the_week: Int
 }
 
 input daily_rates_availabilityOrderBy {
@@ -2481,13 +2571,14 @@ input daily_rates_availabilityOrderBy {
     available_to: OrderByDirection
     daily_rate_availability_id: OrderByDirection
     daily_rate_id: OrderByDirection
+    day_of_the_week: OrderByDirection
 }
 
 input daily_rates_availabilityUpdateInput {
     available_from: Time
     available_to: Time
     daily_rate_id: Int
-    days_of_the_week: [Int]
+    day_of_the_week: Int
 }
 
 input external_contactsFilter {
@@ -2956,6 +3047,37 @@ input parking_lots_addressUpdateInput {
     street_name: String
     street_number: Int
     street_postal_code: String
+}
+
+input parking_lots_address_time_availabilitiesFilter {
+    address_id: IntFilter
+    address_time_availability_id: IntFilter
+    available_from: TimeFilter
+    available_to: TimeFilter
+    day_of_the_week: IntFilter
+    nodeId: IDFilter
+}
+
+input parking_lots_address_time_availabilitiesInsertInput {
+    address_id: Int
+    available_from: Time
+    available_to: Time
+    day_of_the_week: Int
+}
+
+input parking_lots_address_time_availabilitiesOrderBy {
+    address_id: OrderByDirection
+    address_time_availability_id: OrderByDirection
+    available_from: OrderByDirection
+    available_to: OrderByDirection
+    day_of_the_week: OrderByDirection
+}
+
+input parking_lots_address_time_availabilitiesUpdateInput {
+    address_id: Int
+    available_from: Time
+    available_to: Time
+    day_of_the_week: Int
 }
 
 input parking_lots_contact_typesFilter {
