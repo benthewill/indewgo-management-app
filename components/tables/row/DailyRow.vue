@@ -8,8 +8,6 @@
       const currencyZeros = (x) => currencyConvert(x)
       const taxesCalculation = (x,y) => taxCalculation(x,y)
       const capitalizeText = (x) => capitalize(x)
-      const verbalizeDays = (x) => daysOfWeek(x)
-      const namingRate = (x,y,z,a) => nameRate(x,y,z,a)
 
 
       return {
@@ -17,8 +15,6 @@
         currencyZeros,
         capitalizeText,
         taxesCalculation,
-        namingRate,
-        verbalizeDays
       }
     }
   }

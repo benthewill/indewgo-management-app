@@ -40,13 +40,13 @@ type Mutation {
         "Restricts the mutation's impact to records matching the criteria"
         filter: daily_ratesFilter
     ): daily_ratesDeleteResponse!
-    "Deletes zero or more records from the `daily_rates_availability` collection"
-    deleteFromdaily_rates_availabilityCollection(
+    "Deletes zero or more records from the `daily_rates_time_availabilities` collection"
+    deleteFromdaily_rates_time_availabilitiesCollection(
         "The maximum number of records in the collection permitted to be affected"
         atMost: Int! = 1,
         "Restricts the mutation's impact to records matching the criteria"
-        filter: daily_rates_availabilityFilter
-    ): daily_rates_availabilityDeleteResponse!
+        filter: daily_rates_time_availabilitiesFilter
+    ): daily_rates_time_availabilitiesDeleteResponse!
     "Deletes zero or more records from the `external_contacts` collection"
     deleteFromexternal_contactsCollection(
         "The maximum number of records in the collection permitted to be affected"
@@ -117,6 +117,13 @@ type Mutation {
         "Restricts the mutation's impact to records matching the criteria"
         filter: monthly_rates_confirmation_internalFilter
     ): monthly_rates_confirmation_internalDeleteResponse!
+    "Deletes zero or more records from the `monthly_rates_time_availabilities` collection"
+    deleteFrommonthly_rates_time_availabilitiesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_time_availabilitiesFilter
+    ): monthly_rates_time_availabilitiesDeleteResponse!
     "Deletes zero or more records from the `monthly_rates_type` collection"
     deleteFrommonthly_rates_typeCollection(
         "The maximum number of records in the collection permitted to be affected"
@@ -188,8 +195,8 @@ type Mutation {
     insertIntodaily_rate_payment_methodsCollection(objects: [daily_rate_payment_methodsInsertInput!]!): daily_rate_payment_methodsInsertResponse
     "Adds one or more `daily_rates` records to the collection"
     insertIntodaily_ratesCollection(objects: [daily_ratesInsertInput!]!): daily_ratesInsertResponse
-    "Adds one or more `daily_rates_availability` records to the collection"
-    insertIntodaily_rates_availabilityCollection(objects: [daily_rates_availabilityInsertInput!]!): daily_rates_availabilityInsertResponse
+    "Adds one or more `daily_rates_time_availabilities` records to the collection"
+    insertIntodaily_rates_time_availabilitiesCollection(objects: [daily_rates_time_availabilitiesInsertInput!]!): daily_rates_time_availabilitiesInsertResponse
     "Adds one or more `external_contacts` records to the collection"
     insertIntoexternal_contactsCollection(objects: [external_contactsInsertInput!]!): external_contactsInsertResponse
     "Adds one or more `internal_departments` records to the collection"
@@ -210,6 +217,8 @@ type Mutation {
     insertIntomonthly_rates_confirmation_externalCollection(objects: [monthly_rates_confirmation_externalInsertInput!]!): monthly_rates_confirmation_externalInsertResponse
     "Adds one or more `monthly_rates_confirmation_internal` records to the collection"
     insertIntomonthly_rates_confirmation_internalCollection(objects: [monthly_rates_confirmation_internalInsertInput!]!): monthly_rates_confirmation_internalInsertResponse
+    "Adds one or more `monthly_rates_time_availabilities` records to the collection"
+    insertIntomonthly_rates_time_availabilitiesCollection(objects: [monthly_rates_time_availabilitiesInsertInput!]!): monthly_rates_time_availabilitiesInsertResponse
     "Adds one or more `monthly_rates_type` records to the collection"
     insertIntomonthly_rates_typeCollection(objects: [monthly_rates_typeInsertInput!]!): monthly_rates_typeInsertResponse
     "Adds one or more `parking_lots_access_methods` records to the collection"
@@ -264,15 +273,15 @@ type Mutation {
         "Fields that are set will be updated for all records matching the `filter`"
         set: daily_ratesUpdateInput!
     ): daily_ratesUpdateResponse!
-    "Updates zero or more records in the `daily_rates_availability` collection"
-    updatedaily_rates_availabilityCollection(
+    "Updates zero or more records in the `daily_rates_time_availabilities` collection"
+    updatedaily_rates_time_availabilitiesCollection(
         "The maximum number of records in the collection permitted to be affected"
         atMost: Int! = 1,
         "Restricts the mutation's impact to records matching the criteria"
-        filter: daily_rates_availabilityFilter,
+        filter: daily_rates_time_availabilitiesFilter,
         "Fields that are set will be updated for all records matching the `filter`"
-        set: daily_rates_availabilityUpdateInput!
-    ): daily_rates_availabilityUpdateResponse!
+        set: daily_rates_time_availabilitiesUpdateInput!
+    ): daily_rates_time_availabilitiesUpdateResponse!
     "Updates zero or more records in the `external_contacts` collection"
     updateexternal_contactsCollection(
         "The maximum number of records in the collection permitted to be affected"
@@ -363,6 +372,15 @@ type Mutation {
         "Fields that are set will be updated for all records matching the `filter`"
         set: monthly_rates_confirmation_internalUpdateInput!
     ): monthly_rates_confirmation_internalUpdateResponse!
+    "Updates zero or more records in the `monthly_rates_time_availabilities` collection"
+    updatemonthly_rates_time_availabilitiesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the criteria"
+        filter: monthly_rates_time_availabilitiesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_time_availabilitiesUpdateInput!
+    ): monthly_rates_time_availabilitiesUpdateResponse!
     "Updates zero or more records in the `monthly_rates_type` collection"
     updatemonthly_rates_typeCollection(
         "The maximum number of records in the collection permitted to be affected"
@@ -515,21 +533,21 @@ type Query {
         "Sort order to apply to the collection"
         orderBy: [daily_ratesOrderBy!]
     ): daily_ratesConnection
-    "A pagable collection of type `daily_rates_availability`"
-    daily_rates_availabilityCollection(
+    "A pagable collection of type `daily_rates_time_availabilities`"
+    daily_rates_time_availabilitiesCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
         "Query values in the collection before the provided cursor"
         before: Cursor,
         "Filters to apply to the results set when querying from the collection"
-        filter: daily_rates_availabilityFilter,
+        filter: daily_rates_time_availabilitiesFilter,
         "Query the first `n` records in the collection"
         first: Int,
         "Query the last `n` records in the collection"
         last: Int,
         "Sort order to apply to the collection"
-        orderBy: [daily_rates_availabilityOrderBy!]
-    ): daily_rates_availabilityConnection
+        orderBy: [daily_rates_time_availabilitiesOrderBy!]
+    ): daily_rates_time_availabilitiesConnection
     "A pagable collection of type `external_contacts`"
     external_contactsCollection(
         "Query values in the collection after the provided cursor"
@@ -680,6 +698,21 @@ type Query {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_confirmation_internalOrderBy!]
     ): monthly_rates_confirmation_internalConnection
+    "A pagable collection of type `monthly_rates_time_availabilities`"
+    monthly_rates_time_availabilitiesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_time_availabilitiesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_time_availabilitiesOrderBy!]
+    ): monthly_rates_time_availabilitiesConnection
     "A pagable collection of type `monthly_rates_type`"
     monthly_rates_typeCollection(
         "Query values in the collection after the provided cursor"
@@ -1004,20 +1037,20 @@ type daily_rates implements Node {
         "Sort order to apply to the collection"
         orderBy: [daily_rate_payment_methodsOrderBy!]
     ): daily_rate_payment_methodsConnection
-    daily_rates_availabilityCollection(
+    daily_rates_time_availabilitiesCollection(
         "Query values in the collection after the provided cursor"
         after: Cursor,
         "Query values in the collection before the provided cursor"
         before: Cursor,
         "Filters to apply to the results set when querying from the collection"
-        filter: daily_rates_availabilityFilter,
+        filter: daily_rates_time_availabilitiesFilter,
         "Query the first `n` records in the collection"
         first: Int,
         "Query the last `n` records in the collection"
         last: Int,
         "Sort order to apply to the collection"
-        orderBy: [daily_rates_availabilityOrderBy!]
-    ): daily_rates_availabilityConnection
+        orderBy: [daily_rates_time_availabilitiesOrderBy!]
+    ): daily_rates_time_availabilitiesConnection
     duration: String
     "Globally Unique Record Identifier"
     nodeId: ID!
@@ -1056,7 +1089,7 @@ type daily_ratesUpdateResponse {
     records: [daily_rates!]!
 }
 
-type daily_rates_availability implements Node {
+type daily_rates_time_availabilities implements Node {
     available_from: Time
     available_to: Time
     daily_rate_availability_id: Int!
@@ -1067,35 +1100,35 @@ type daily_rates_availability implements Node {
     nodeId: ID!
 }
 
-type daily_rates_availabilityConnection {
-    edges: [daily_rates_availabilityEdge!]!
+type daily_rates_time_availabilitiesConnection {
+    edges: [daily_rates_time_availabilitiesEdge!]!
     pageInfo: PageInfo!
 }
 
-type daily_rates_availabilityDeleteResponse {
+type daily_rates_time_availabilitiesDeleteResponse {
     "Count of the records impacted by the mutation"
     affectedCount: Int!
     "Array of records impacted by the mutation"
-    records: [daily_rates_availability!]!
+    records: [daily_rates_time_availabilities!]!
 }
 
-type daily_rates_availabilityEdge {
+type daily_rates_time_availabilitiesEdge {
     cursor: String!
-    node: daily_rates_availability!
+    node: daily_rates_time_availabilities!
 }
 
-type daily_rates_availabilityInsertResponse {
+type daily_rates_time_availabilitiesInsertResponse {
     "Count of the records impacted by the mutation"
     affectedCount: Int!
     "Array of records impacted by the mutation"
-    records: [daily_rates_availability!]!
+    records: [daily_rates_time_availabilities!]!
 }
 
-type daily_rates_availabilityUpdateResponse {
+type daily_rates_time_availabilitiesUpdateResponse {
     "Count of the records impacted by the mutation"
     affectedCount: Int!
     "Array of records impacted by the mutation"
-    records: [daily_rates_availability!]!
+    records: [daily_rates_time_availabilities!]!
 }
 
 type external_contacts implements Node {
@@ -1375,15 +1408,26 @@ type monthly_rates implements Node {
         "Sort order to apply to the collection"
         orderBy: [monthly_rates_confirmation_internalOrderBy!]
     ): monthly_rates_confirmation_internalConnection
+    monthly_rates_time_availabilitiesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_time_availabilitiesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_time_availabilitiesOrderBy!]
+    ): monthly_rates_time_availabilitiesConnection
     monthly_rates_type: monthly_rates_type
     "Globally Unique Record Identifier"
     nodeId: ID!
     parking_lots_address: parking_lots_address
     rate_allowance: [String]
-    rate_days: [Int]
     rate_details: String
-    rate_hour_from: Time
-    rate_hour_to: Time
     rate_type_id: Int
 }
 
@@ -1714,6 +1758,48 @@ type monthly_rates_confirmation_internalUpdateResponse {
     records: [monthly_rates_confirmation_internal!]!
 }
 
+type monthly_rates_time_availabilities implements Node {
+    available_from: Time
+    available_to: Time!
+    day_of_the_week: Int!
+    monthly_rate_availability_id: Int!
+    monthly_rate_id: Int!
+    monthly_rates: monthly_rates
+    "Globally Unique Record Identifier"
+    nodeId: ID!
+}
+
+type monthly_rates_time_availabilitiesConnection {
+    edges: [monthly_rates_time_availabilitiesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_time_availabilitiesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_time_availabilities!]!
+}
+
+type monthly_rates_time_availabilitiesEdge {
+    cursor: String!
+    node: monthly_rates_time_availabilities!
+}
+
+type monthly_rates_time_availabilitiesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_time_availabilities!]!
+}
+
+type monthly_rates_time_availabilitiesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_time_availabilities!]!
+}
+
 type monthly_rates_type implements Node {
     monthly_ratesCollection(
         "Query values in the collection after the provided cursor"
@@ -1893,8 +1979,6 @@ type parking_lots_address implements Node {
         "Sort order to apply to the collection"
         orderBy: [daily_ratesOrderBy!]
     ): daily_ratesConnection
-    gate_hour_from: Time
-    gate_hour_to: Time
     gated: Boolean
     monthly_ratesCollection(
         "Query values in the collection after the provided cursor"
@@ -1912,7 +1996,6 @@ type parking_lots_address implements Node {
     ): monthly_ratesConnection
     "Globally Unique Record Identifier"
     nodeId: ID!
-    open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
     parking_lots_address_time_availabilitiesCollection(
@@ -2550,7 +2633,7 @@ input daily_ratesUpdateInput {
     rate_allowance: [String]
 }
 
-input daily_rates_availabilityFilter {
+input daily_rates_time_availabilitiesFilter {
     available_from: TimeFilter
     available_to: TimeFilter
     daily_rate_availability_id: IntFilter
@@ -2559,14 +2642,14 @@ input daily_rates_availabilityFilter {
     nodeId: IDFilter
 }
 
-input daily_rates_availabilityInsertInput {
+input daily_rates_time_availabilitiesInsertInput {
     available_from: Time
     available_to: Time
     daily_rate_id: Int
     day_of_the_week: Int
 }
 
-input daily_rates_availabilityOrderBy {
+input daily_rates_time_availabilitiesOrderBy {
     available_from: OrderByDirection
     available_to: OrderByDirection
     daily_rate_availability_id: OrderByDirection
@@ -2574,7 +2657,7 @@ input daily_rates_availabilityOrderBy {
     day_of_the_week: OrderByDirection
 }
 
-input daily_rates_availabilityUpdateInput {
+input daily_rates_time_availabilitiesUpdateInput {
     available_from: Time
     available_to: Time
     daily_rate_id: Int
@@ -2713,8 +2796,6 @@ input monthly_ratesFilter {
     monthly_rate_id: IntFilter
     nodeId: IDFilter
     rate_details: StringFilter
-    rate_hour_from: TimeFilter
-    rate_hour_to: TimeFilter
     rate_type_id: IntFilter
 }
 
@@ -2725,10 +2806,7 @@ input monthly_ratesInsertInput {
     clearance_levels: [parking_lots_levels]
     clearance_lot_types: [lot_type]
     rate_allowance: [String]
-    rate_days: [Int]
     rate_details: String
-    rate_hour_from: Time
-    rate_hour_to: Time
     rate_type_id: Int
 }
 
@@ -2738,8 +2816,6 @@ input monthly_ratesOrderBy {
     base_price: OrderByDirection
     monthly_rate_id: OrderByDirection
     rate_details: OrderByDirection
-    rate_hour_from: OrderByDirection
-    rate_hour_to: OrderByDirection
     rate_type_id: OrderByDirection
 }
 
@@ -2750,10 +2826,7 @@ input monthly_ratesUpdateInput {
     clearance_levels: [parking_lots_levels]
     clearance_lot_types: [lot_type]
     rate_allowance: [String]
-    rate_days: [Int]
     rate_details: String
-    rate_hour_from: Time
-    rate_hour_to: Time
     rate_type_id: Int
 }
 
@@ -2925,6 +2998,37 @@ input monthly_rates_confirmation_internalUpdateInput {
     request_method: request_methods
 }
 
+input monthly_rates_time_availabilitiesFilter {
+    available_from: TimeFilter
+    available_to: TimeFilter
+    day_of_the_week: IntFilter
+    monthly_rate_availability_id: IntFilter
+    monthly_rate_id: IntFilter
+    nodeId: IDFilter
+}
+
+input monthly_rates_time_availabilitiesInsertInput {
+    available_from: Time
+    available_to: Time
+    day_of_the_week: Int
+    monthly_rate_id: Int
+}
+
+input monthly_rates_time_availabilitiesOrderBy {
+    available_from: OrderByDirection
+    available_to: OrderByDirection
+    day_of_the_week: OrderByDirection
+    monthly_rate_availability_id: OrderByDirection
+    monthly_rate_id: OrderByDirection
+}
+
+input monthly_rates_time_availabilitiesUpdateInput {
+    available_from: Time
+    available_to: Time
+    day_of_the_week: Int
+    monthly_rate_id: Int
+}
+
 input monthly_rates_typeFilter {
     nodeId: IDFilter
     rate_name: StringFilter
@@ -3001,8 +3105,6 @@ input parking_lots_access_typesUpdateInput {
 input parking_lots_addressFilter {
     address_id: IntFilter
     city_id: IntFilter
-    gate_hour_from: TimeFilter
-    gate_hour_to: TimeFilter
     gated: BooleanFilter
     nodeId: IDFilter
     parking_lot_id: IntFilter
@@ -3013,10 +3115,7 @@ input parking_lots_addressFilter {
 
 input parking_lots_addressInsertInput {
     city_id: Int
-    gate_hour_from: Time
-    gate_hour_to: Time
     gated: Boolean
-    open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
     street_name: String
@@ -3027,8 +3126,6 @@ input parking_lots_addressInsertInput {
 input parking_lots_addressOrderBy {
     address_id: OrderByDirection
     city_id: OrderByDirection
-    gate_hour_from: OrderByDirection
-    gate_hour_to: OrderByDirection
     gated: OrderByDirection
     parking_lot_id: OrderByDirection
     street_name: OrderByDirection
@@ -3038,10 +3135,7 @@ input parking_lots_addressOrderBy {
 
 input parking_lots_addressUpdateInput {
     city_id: Int
-    gate_hour_from: Time
-    gate_hour_to: Time
     gated: Boolean
-    open_days: [Int]
     parking_lot_id: Int
     parking_lot_type: [lot_type]
     street_name: String

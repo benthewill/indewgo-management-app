@@ -29,9 +29,15 @@ export default defineEventHandler((event) => {
                                         street_postal_code
                                         gated
                                         parking_lot_type
-                                        gate_hour_from
-                                        gate_hour_to
-                                        open_days
+                                        parking_lots_address_time_availabilitiesCollection{
+                                            edges {
+                                                node{
+                                                    day_of_the_week
+                                                    available_from
+                                                    available_to
+                                                }
+                                            }
+                                        }
                                         city_details{
                                             city_name
                                             provincial_transport_tax
@@ -45,12 +51,12 @@ export default defineEventHandler((event) => {
                                                     duration
                                                     base_price
                                                     rate_allowance
-                                                    daily_rates_availabilityCollection{
-                                                        edges{
-                                                            node{
-                                                                day_of_the_week
+                                                    daily_rates_time_availabilitiesCollection{
+                                                        edges {
+                                                            node {
                                                                 available_from
                                                                 available_to
+                                                                day_of_the_week
                                                             }
                                                         }
                                                     }
@@ -76,12 +82,18 @@ export default defineEventHandler((event) => {
                                                     }
                                                     activation_fee
                                                     rate_allowance
-                                                    rate_hour_from
-                                                    rate_hour_to
                                                     clearance_levels
                                                     clearance_lot_types
-                                                    rate_days
                                                     rate_details
+                                                    monthly_rates_time_availabilitiesCollection{
+                                                        edges {
+                                                            node {
+                                                                day_of_the_week
+                                                                available_from
+                                                                available_to
+                                                            }
+                                                        }
+                                                    }
                                                     monthly_rates_confirmation_externalCollection{
                                                         edges{
                                                             node{

@@ -9,6 +9,7 @@ export { default as daysOfWeek } from '../composables/daysOfWeek';
 export { default as durationCalculation } from '../composables/durationCalculation';
 export { default as grouping } from '../composables/grouping';
 export { default as nameRate } from '../composables/nameRate';
+export { default as openingTimes } from '../composables/openingTimes';
 export { default as taxCalculation } from '../composables/taxCalculation';
 export { default as timeConversion } from '../composables/timeConversion';
 export { useGqlHeaders, useGqlToken, useGqlCors, useGqlHost, useGql, useGqlError, useAsyncGql } from '../node_modules/nuxt-graphql-client/dist/runtime/composables/index';

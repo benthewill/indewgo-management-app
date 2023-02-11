@@ -5,17 +5,13 @@
       const currencyZeros = (x) => currencyConvert(x)
       const taxesCalculation = (x,y) => taxCalculation(x,y)
       const groupContents = (x,y) => grouping(x,y)
-      const verbalizeDays = (x) => daysOfWeek(x)
       const capitalizeText = (x) => capitalize(x)
-      const namingRate = (x,y,z,a) => nameRate(x,y,z,a)
 
       return {
         currencyZeros,
         taxesCalculation,
         groupContents,
-        verbalizeDays,
         capitalizeText,
-        namingRate
       }
     },
     methods: {
@@ -34,11 +30,6 @@
               <div class="level-item">
                 <p class="subtitle is-6">
                   {{ capitalizeText(rateItem.node.monthly_rates_type.rate_name)  }} -
-                  {{ namingRate(
-                    rateItem.node.rate_hour_from,
-                    rateItem.node.rate_hour_to,
-                    verbalizeDays(rateItem.node.rate_days).period,
-                    rateItem.node.rate_days) }}
                 </p>
               </div>
             </div>
