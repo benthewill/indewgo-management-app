@@ -978,6 +978,11 @@ export type Work_ConditionFilter = {
   neq?: InputMaybe<Work_Condition>;
 };
 
+export type GetAddressTimesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAddressTimesQuery = { parking_lots_address_time_availabilitiesCollection?: { edges: Array<{ node: { address_time_availability_id: number, available_from?: any | null, available_to?: any | null, day_of_the_week?: number | null } }> } | null };
+
 export type GetCitiesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -991,6 +996,20 @@ export type GetLotsQueryVariables = Exact<{
 export type GetLotsQuery = { parking_lots_generalCollection?: { edges: Array<{ node: { parking_lot_name?: string | null, parking_lot_number?: number | null, parking_lot_id: number, parking_lots_addressCollection?: { edges: Array<{ node: { address_id: number, street_number?: number | null, street_name?: string | null, street_postal_code?: string | null, gated?: boolean | null, parking_lot_type?: Array<Lot_Type | null> | null, parking_lots_address_time_availabilitiesCollection?: { edges: Array<{ node: { day_of_the_week?: number | null, available_from?: any | null, available_to?: any | null } }> } | null, city_details?: { city_name: string } | null, daily_ratesCollection?: { edges: Array<{ node: { duration?: string | null, base_price?: string | null, daily_rates_time_availabilitiesCollection?: { edges: Array<{ node: { available_from?: any | null, available_to?: any | null, day_of_the_week: number } }> } | null, daily_rate_payment_methodsCollection?: { edges: Array<{ node: { daily_rate_payment_method_types?: { payment_method_type_name?: string | null } | null } }> } | null } }> } | null, monthly_ratesCollection?: { edges: Array<{ node: { base_price?: string | null, activation_fee?: string | null, clearance_levels?: Array<Parking_Lots_Levels | null> | null, clearance_lot_types?: Array<Lot_Type | null> | null, rate_allowance?: Array<string | null> | null, monthly_rates_type?: { rate_name?: string | null, rate_type_details?: string | null } | null, monthly_rates_time_availabilitiesCollection?: { edges: Array<{ node: { day_of_the_week: number, available_from?: any | null, available_to: any } }> } | null, monthly_rates_confirmation_externalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, external_contacts?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null, monthly_rates_confirmation_internalCollection?: { edges: Array<{ node: { request_method?: Request_Methods | null, estimated_duration?: string | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null, monthly_rates_accessCollection?: { edges: Array<{ node: { access_method_id: number, parking_lots_access_methods?: { method_name: string, method_usage?: Access_Method_Usage | null, method_details?: string | null, parking_lots_access_types?: { access_name: string } | null } | null, monthly_rates_access_activation_internalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, estimated_duration?: string | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, internal_departments?: { department_name: string } | null } | null } }> } | null, monthly_rates_access_activation_externalCollection?: { edges: Array<{ node: { request_method?: Array<Request_Methods | null> | null, estimated_duration?: string | null, external_contacts?: { additional_details?: string | null, first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null } | null } }> } | null } }> } | null } }> } | null } }> } | null, parking_lots_external_contactsCollection?: { edges: Array<{ node: { parking_lots_contact_types?: { contact_type_name?: string | null, contact_type_responsibility?: string | null } | null, external_contacts?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, contact_phone?: string | null, contact_ext?: string | null } | null } }> } | null, parking_lots_internal_contactsCollection?: { edges: Array<{ node: { parking_lots_contact_types?: { contact_type_name?: string | null, contact_type_responsibility?: string | null } | null, internal_members?: { first_name?: string | null, middle_name?: string | null, last_name?: string | null, title?: string | null, contact_email?: string | null, contact_phone?: string | null, contact_ext?: string | null } | null } }> } | null } }>, pageInfo: { endCursor?: string | null, hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null } } | null };
 
 
+export const GetAddressTimesDocument = gql`
+    query getAddressTimes {
+  parking_lots_address_time_availabilitiesCollection {
+    edges {
+      node {
+        address_time_availability_id
+        available_from
+        available_to
+        day_of_the_week
+      }
+    }
+  }
+}
+    `;
 export const GetCitiesDocument = gql`
     query getCities {
   city_detailsCollection {
@@ -1226,6 +1245,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    getAddressTimes(variables?: GetAddressTimesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetAddressTimesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAddressTimesQuery>(GetAddressTimesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAddressTimes', 'query');
+    },
     getCities(variables?: GetCitiesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetCitiesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetCitiesQuery>(GetCitiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getCities', 'query');
     },

@@ -1,0 +1,12 @@
+query getAddressTimes {
+    parking_lots_address_time_availabilitiesCollection{
+        edges {
+            node {
+                address_time_availability_id
+                available_from
+                available_to
+                day_of_the_week
+            }
+        }
+    }
+}

@@ -109,19 +109,19 @@
                           name="247"
                           label="Is the Gate Open 24 hours?"
                           help="Automatically input the time 00:00 to 00:00"
-                          v-model="addr.storedLotAccessInformation['247']"
+                          v-model="addr.storedLotAccessInformation.check247"
                       />
                     </div>
 
                   </div>
 
-                <div class="columns mb-0" v-show="!addr.storedLotAccessInformation['247']">
+                <div class="columns mb-0" v-show="!addr.storedLotAccessInformation">
                   <div class="column" >
                     <FormKit
                         type="time"
                         name="gateOpenFrom"
                         label="Gate Open From"
-                        v-model="addr.storedLotAccessInformation.hours.from"
+
                         help="What time does the gate open?"
                     />
                   </div>
@@ -130,7 +130,7 @@
                         type="time"
                         name="gateOpenTo"
                         label="Gate Open To"
-                        v-model="addr.storedLotAccessInformation.hours.to"
+
                         help="What time does the gate closes?"
                     />
                   </div>

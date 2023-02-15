@@ -6,8 +6,8 @@ import { mkdirSync } from 'fs';
 import { parentPort, threadId } from 'worker_threads';
 import { provider, isWindows } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/std-env/dist/index.mjs';
 import { eventHandler, setHeaders, sendRedirect, defineEventHandler, handleCacheHeaders, createEvent, getRequestHeader, getRequestHeaders, setResponseHeader, getQuery, getCookie, createError, createApp, createRouter as createRouter$1, lazyEventHandler, toNodeListener, readBody } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/h3/dist/index.mjs';
-import gql from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/graphql-tag/main.js';
 import { GraphQLClient } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/graphql-request/dist/index.js';
+import gql from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/graphql-tag/main.js';
 import { createRenderer } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import devalue from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/@nuxt/devalue/dist/devalue.mjs';
 import { renderToString } from 'file:///Users/benthewill/Library/Mobile%20Documents/com~apple~CloudDocs/Indewgo/indewgo-management-app/node_modules/vue/server-renderer/index.mjs';
@@ -2534,6 +2534,7 @@ const _3bbfoB = defineEventHandler(async (event) => {
   return createNav(contents, configs);
 });
 
+const _lazy_N4Hpoh = () => Promise.resolve().then(function () { return locationTimes_post$1; });
 const _lazy_HUFUNs = () => Promise.resolve().then(function () { return location_post$1; });
 const _lazy_QY5Uxo = () => Promise.resolve().then(function () { return general_post$1; });
 const _lazy_rjndmN = () => Promise.resolve().then(function () { return fetchingParkingLots$1; });
@@ -2541,6 +2542,7 @@ const _lazy_n3bs4V = () => Promise.resolve().then(function () { return fetchingC
 const _lazy_nqHu0m = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/mutation/newElements/locationTimes', handler: _lazy_N4Hpoh, lazy: true, middleware: false, method: "post" },
   { route: '/api/mutation/newElements/location', handler: _lazy_HUFUNs, lazy: true, middleware: false, method: "post" },
   { route: '/api/mutation/newElements/general', handler: _lazy_QY5Uxo, lazy: true, middleware: false, method: "post" },
   { route: '/api/fetchingParkingLots', handler: _lazy_rjndmN, lazy: true, middleware: false, method: undefined },
@@ -2627,6 +2629,38 @@ server.listen(listenAddress, () => {
   process.on("uncaughtException", (err) => console.error("[nitro] [dev] [uncaughtException]", err));
 }
 
+const locationTimes_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  async function main(availabilitiesArr, addrID) {
+    const endpoint = "https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1";
+    new GraphQLClient(endpoint, {
+      headers: {
+        apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8",
+        authorization: "Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8"
+      }
+    });
+    gql`
+            mutation newTimes ($availability: [parking_lots_address_time_availabilitiesInsertInput!]!) {
+                insertIntoparking_lots_address_time_availabilitiesCollection(objects: $availability) {
+                    records {
+                        address_time_availability_id
+                        day_of_the_week
+                        available_from
+                        available_to
+                    }
+                }
+            }
+
+        `;
+  }
+  return main(body.availabilities, body.addressID);
+});
+
+const locationTimes_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': locationTimes_post
+});
+
 const location_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
   async function main(addressesArray, lotID) {
@@ -2647,8 +2681,6 @@ const location_post = defineEventHandler(async (event) => {
                         street_number
                         city_id
                         parking_lot_type
-                        gate_hour_from
-                        gate_hour_to
                         gated
                     }
                 }

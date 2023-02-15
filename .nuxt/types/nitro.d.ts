@@ -2,6 +2,7 @@
 declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/api/mutation/newElements/locationTimes': Awaited<ReturnType<typeof import('../../server/api/mutation/newElements/locationTimes.post').default>>
     '/api/mutation/newElements/location': Awaited<ReturnType<typeof import('../../server/api/mutation/newElements/location.post').default>>
     '/api/mutation/newElements/general': Awaited<ReturnType<typeof import('../../server/api/mutation/newElements/general.post').default>>
     '/api/fetchingParkingLots': Awaited<ReturnType<typeof import('../../server/api/fetchingParkingLots').default>>
@@ -15,6 +16,7 @@ declare module 'nitropack' {
   }
 }
 declare global {
+  const GqlGetAddressTimes: typeof import('#gql-nitro')['GqlGetAddressTimes']
   const GqlGetCities: typeof import('#gql-nitro')['GqlGetCities']
   const GqlGetLots: typeof import('#gql-nitro')['GqlGetLots']
   const appendHeader: typeof import('h3')['appendHeader']

@@ -24,8 +24,6 @@ export default defineEventHandler(async (event) => {
                         street_number
                         city_id
                         parking_lot_type
-                        gate_hour_from
-                        gate_hour_to
                         gated
                     }
                 }

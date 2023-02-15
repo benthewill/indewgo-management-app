@@ -18,6 +18,6 @@ export { useContentHelpers } from '../node_modules/@nuxt/content/dist/runtime/co
 export { useContentHead } from '../node_modules/@nuxt/content/dist/runtime/composables/head';
 export { withContentBase, useUnwrap, useContentDisabled as useContentState, useContentDisabled as useContent } from '../node_modules/@nuxt/content/dist/runtime/composables/utils';
 export { fetchContentNavigation } from '../node_modules/@nuxt/content/dist/runtime/composables/navigation';
-export { GqlGetCities, GqlGetLots } from '#gql';
+export { GqlGetAddressTimes, GqlGetCities, GqlGetLots } from '#gql';
 export { usePinia, defineStore } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

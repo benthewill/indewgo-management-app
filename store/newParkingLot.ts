@@ -24,6 +24,13 @@ const addAddresses = async (inputAddresses:any[],inputParkingLotID:number) => {
         }).catch((e)=>console.log(e))
 }
 
+const addressTimeAvailabilitiesObject = {
+    availability: null,
+    dayOfWeek: null,
+    from: '00:00:00',
+    to: '00:00:00'
+}
+
 const addressObject = {
     storedAddressID: <any>null,
     storedLotStreetNumber: null,
@@ -32,11 +39,8 @@ const addressObject = {
     storedCityID: null,
     storedLotAccessInformation: {
         gated: true,
-        247: false,
-        hours: {
-            from: null,
-            to: null
-        }
+        check247: false,
+        // timeAvailabilities: this.check247 ? '247' : 'none'
     }
 }
 
