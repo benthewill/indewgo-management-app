@@ -20,12 +20,15 @@ export default defineNuxtConfig({
                 {
                     src: "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
                 }
+            ],
+            link: [
+                {rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"}
             ]
         }
     },
     vue: {
         compilerOptions: {
-            isCustomElement: (tag) => ['ion-icon'].includes(tag)
+            isCustomElement: (tag) => ['ion-icon', 'font-awesome-icon'].includes(tag),
         }
     }
     ,

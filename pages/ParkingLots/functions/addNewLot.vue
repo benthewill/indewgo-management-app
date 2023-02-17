@@ -2,8 +2,9 @@
 import {computed} from "vue";
   import {useNewParkingLotStore} from "../../../store/newParkingLot";
   import {storeToRefs} from "pinia";
+import daysOfWeek from "~/composables/daysOfWeek";
 
-  const {general, checks, addresses} = storeToRefs(useNewParkingLotStore())
+  const {general, checks, addresses, logs} = storeToRefs(useNewParkingLotStore())
 
   const methods = useNewParkingLotStore()
 
@@ -13,6 +14,8 @@ import {computed} from "vue";
       methods.$reset()
     })
   })
+
+
 
 </script>
 
@@ -46,31 +49,40 @@ export default {
 <!--      </div>-->
 <!--    </section>-->
 
-    <mutation-time-availabilities></mutation-time-availabilities>
+<!--    <mutation-time-availabilities></mutation-time-availabilities>-->
+
 
 
     <section class="section">
-      <div class="buttons has-addons is-centered">
-        <button class="button " :class="{'is-link':step===1}" @click="step = 1">General</button>
-        <button class="button " :class="{'is-link':step===2}" @click="step = 2">Location</button>
-        <button class="button " :class="{'is-link':step===3}" @click="step = 3">Lot Details</button>
-      </div>
-      <div class="container is-max-desktop px-5">
-        <div v-show="step===1">
-          <mutation-addNewLot-step-one @next-step="step++"></mutation-addNewLot-step-one>
+      <div class="columns">
+        <div class="column is-one-third">
+          <pre wrap>{{general}}</pre>
+          <pre wrap>{{addresses}}</pre>
+          <pre wrap>{{logs.addressesTimes}}</pre>
         </div>
-        <div v-show="step===2">
-          <mutation-addNewLot-step-two @next-step="step++"></mutation-addNewLot-step-two>
+        <div class="column">
+          <div class="buttons has-addons is-centered">
+            <button class="button " :class="{'is-link':step===1}" @click="step = 1">General</button>
+            <button class="button " :class="{'is-link':step===2}" @click="step = 2">Location</button>
+            <button class="button " :class="{'is-link':step===3}" @click="step = 3">Lot Details</button>
+          </div>
+          <div class="container is-max-desktop px-5">
+            <div v-show="step===1">
+              <mutation-addNewLot-step-one @next-step="step++"></mutation-addNewLot-step-one>
+            </div>
+            <div v-show="step===2">
+              <mutation-addNewLot-step-two @next-step="step++"></mutation-addNewLot-step-two>
+            </div>
+            <div v-show="step===3">
+              <mutation-addNewLot-step-three @next-step="step++"></mutation-addNewLot-step-three>
+            </div>
+            <button class="button is-warning" @click="process">Process</button>
+          </div>
         </div>
-        <div v-show="step===3">
-          <mutation-addNewLot-step-three @next-step="step++"></mutation-addNewLot-step-three>
-        </div>
-        <button class="button is-warning" @click="process">Process</button>
       </div>
     </section>
 
-    <pre wrap>{{general}}</pre>
-    <pre wrap>{{addresses}}</pre>
+
 
 
 

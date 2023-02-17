@@ -9,6 +9,15 @@ export default (arr:any) => {
         Sat: 6,
         Sun: 7
     }
+    let dowFull = {
+        Monday: 1,
+        Tuesday: 2,
+        Wednesday: 3,
+        Thursday: 4,
+        Friday: 5,
+        Saturday: 6,
+        Sunday: 7
+    }
 
     let output
 
@@ -67,7 +76,7 @@ export default (arr:any) => {
 
     if (arr.length === 1) {
         // @ts-ignore
-        period = String(Object.keys(dow).find((i:any) => dow[i] === arr[0]))
+        period = String(Object.keys(dowFull).find((i:any) => dowFull[i] === arr[0]))
     }
 
     return {
