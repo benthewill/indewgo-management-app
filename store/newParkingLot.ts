@@ -103,22 +103,22 @@ export const useNewParkingLotStore = defineStore('newLot', {
             await this.mutateGeneral()
             await this.mutateLocations()
         },
-        async addressTimeChecks(index:any, checkingType:TimeAvailabilitiesChecks) {
+        async addressTimeChecks(addressIndex:any, checkingType:TimeAvailabilitiesChecks, dayIndex?:number) {
 
              let replacing = () => {
                 // UPDATING THE CACHED VALUE
                 for (let i = 0; i < this.logs.addressesTimes.length; i++) {
                     // @ts-ignore
-                    if (this.logs.addressesTimes[i].addressIndex === index) {
+                    if (this.logs.addressesTimes[i].addressIndex === addressIndex) {
                         this.logs.addressesTimes.splice(i,1)
                     }
                 }
 
-                let mappedList = JSON.parse(JSON.stringify(this.addresses[index].storedLotAccessInformation.timeAvailabilities.list))
+                let mappedList = JSON.parse(JSON.stringify(this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list))
 
                 let pushToLog =                     // @ts-ignore
                     {
-                        addressIndex: index,
+                        addressIndex: addressIndex,
                         availabilities: mappedList
                     }
 
@@ -128,42 +128,47 @@ export const useNewParkingLotStore = defineStore('newLot', {
 
             if (checkingType === 'days') {
 
-                this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open7Days = !this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open7Days
+                this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.checks.open7Days = !this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.checks.open7Days
 
-                let checkDays = this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open7Days
+                let checkDays = this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.checks.open7Days
 
                 if (checkDays) {
 
                     replacing()
 
-                    // @ts-ignore
-                    let daysSet = this.addresses[index].storedLotAccessInformation.timeAvailabilities.list.map(item => item.dayOfWeek)
-
-                    daysSet = Array.from(new Set(daysSet))
-
-                    let unavailable = []
-
-                    for (let i = 1; i < 8; i++) {
-                        if (!daysSet.includes(i)) {
-                            unavailable.push(i)
-                        }
-                    }
-
-                    let newEntries = unavailable.map((item) => {
-                        let toBeEntried = {...addressTimeAvailabilitiesObject}
-                        toBeEntried.dayOfWeek = item
-                        return toBeEntried
+                    this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list.forEach((item)=> {
+                        // @ts-ignore
+                        item.open = true
                     })
 
-                    // @ts-ignore
-                    this.addresses[index].storedLotAccessInformation.timeAvailabilities.list.push(...newEntries)
+                    // // @ts-ignore
+                    // let daysSet = this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list.map(item => item.dayOfWeek)
+                    //
+                    // daysSet = Array.from(new Set(daysSet))
+                    //
+                    // let unavailable = []
+                    //
+                    // for (let i = 1; i < 8; i++) {
+                    //     if (!daysSet.includes(i)) {
+                    //         unavailable.push(i)
+                    //     }
+                    // }
+                    //
+                    // let newEntries = unavailable.map((item) => {
+                    //     let toBeEntried = {...addressTimeAvailabilitiesObject}
+                    //     toBeEntried.dayOfWeek = item
+                    //     return toBeEntried
+                    // })
+
+                    // // @ts-ignore
+                    // this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list.push(...newEntries)
 
                 }
                 // else if (checkDays === false) {
                 //     // CATCHING THE CACHED VALUE
                 //     let replaceWithCache = this.logs.addressesTimes.filter((item, id) => {
                 //     // @ts-ignore
-                //         if (item.addressIndex === index) {
+                //         if (item.addressIndex === addressIndex) {
                 //             return item
                 //         }
                 //     })
@@ -172,43 +177,36 @@ export const useNewParkingLotStore = defineStore('newLot', {
                 //
                 //     replacing()
                 //
-                //     if (this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open24Hours) {
+                //     if (this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.checks.open24Hours) {
                 //         // AS PER THE DICTATED FUNCTION, CHANGING ALL THE AVAILABILITY(s) INTO TRUE
-                //         this.addresses[index].storedLotAccessInformation.timeAvailabilities.list.forEach((item) => {
+                //         this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list.forEach((item) => {
                 //             // @ts-ignore
                 //             item.availability = false
                 //         })
                 //     } else {
                 //         // REPLACING THE ENTRY WITH CACHED VALUE
                 //         // @ts-ignore
-                //         this.addresses[index].storedLotAccessInformation.timeAvailabilities.list = replaceWithCache[0].availabilities
+                //         this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list = replaceWithCache[0].availabilities
                 //     }
                 // }
             }
 
             else if (checkingType === 'hours') {
-                this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open24Hours = !this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open24Hours
-
-                let checkHours = this.addresses[index].storedLotAccessInformation.timeAvailabilities.checks.open24Hours
-
-                if (checkHours) {
 
                     replacing()
 
-                    this.addresses[index].storedLotAccessInformation.timeAvailabilities.list.forEach((item) => {
-                        // @ts-ignore
-                        if (item.availability) {
-                            // @ts-ignore
-                            item.from = '00:00:00'
-                            // @ts-ignore
-                            item.to = '00:00:00'
-                        }
-                    })
-                }
+                    let newArr = [{from: '00:00', to: '00:00'}]
+
+                    // @ts-ignore
+                console.log(dayIndex)
+
+                    // @ts-ignore
+                this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list[dayIndex].hours = this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list[dayIndex].hours.splice(0,1,...newArr)
+
                 // else {
                 //     let replaceWithCache = this.logs.addressesTimes.filter((item, id) => {
                 //         // @ts-ignore
-                //         if (item.addressIndex === index) {
+                //         if (item.addressIndex === addressIndex) {
                 //             return item
                 //         }
                 //     })
@@ -219,7 +217,7 @@ export const useNewParkingLotStore = defineStore('newLot', {
                 //
                 //     // REPLACING THE ENTRY WITH CACHED VALUE
                 //     // @ts-ignore
-                //     this.addresses[index].storedLotAccessInformation.timeAvailabilities.list = replaceWithCache[0].availabilities
+                //     this.addresses[addressIndex].storedLotAccessInformation.timeAvailabilities.list = replaceWithCache[0].availabilities
                 // }
             }
         },
